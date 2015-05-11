@@ -18,7 +18,7 @@
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent asClass:(Class)entityClass;
 
-- (NSURLSessionTask *)oDataExecuteRequest:(id<MSOrcRequest>)request callback:(void (^)(id<MSOrcResponse> response, MSOrcError *error))callback;
+- (NSURLSessionTask *)orcExecuteRequest:(id<MSOrcRequest>)request callback:(void (^)(id<MSOrcResponse> response, MSOrcError *error))callback;
 
 - (id<MSOrcExecutable>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 - (id<MSOrcExecutable>)addCustomParametersWithName:(NSString *)name value:(NSString *)value;

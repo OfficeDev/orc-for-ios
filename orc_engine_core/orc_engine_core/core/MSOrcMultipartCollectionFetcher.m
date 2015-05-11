@@ -21,7 +21,7 @@
     
     NSString *random = [[NSUUID UUID] UUIDString];
     
-    id<MSOrcRequest> request = [self.resolver createODataRequest];
+    id<MSOrcRequest> request = [self.resolver createOrcRequest];
     
     NSMutableData *content = [NSMutableData alloc];
     
@@ -51,7 +51,7 @@
     [request setContent:content];
     [request setVerb:HTTP_VERB_POST];
     
-    return [self oDataExecuteRequest:request callback:^(id<MSOrcResponse> r, MSOrcError *e) {
+    return [self orcExecuteRequest:request callback:^(id<MSOrcResponse> r, MSOrcError *e) {
         
         if (e == nil) {
             

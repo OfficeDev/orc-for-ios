@@ -22,7 +22,7 @@
 @property (strong, nonatomic, readonly) id<MSOrcLogger> logger;
 @property (strong, nonatomic, readonly) id<MSOrcJsonSerializer> jsonSerializer;
 
-- (id<MSOrcRequest>)createODataRequest;
+- (id<MSOrcRequest>)createOrcRequest;
 - (NSString *)getPlatformUserAgent:(NSString *)productName;
 
 @end

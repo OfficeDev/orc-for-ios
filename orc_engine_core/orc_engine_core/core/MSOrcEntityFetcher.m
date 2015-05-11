@@ -58,7 +58,7 @@
                                                          headers:self.customHeaders
                                               dependencyResolver:super.resolver];
     
-    return [super.parent oDataExecuteRequest:request callback:^(id<MSOrcResponse> r, MSOrcError *e) {
+    return [super.parent orcExecuteRequest:request callback:^(id<MSOrcResponse> r, MSOrcError *e) {
         
         callback(r,e);
     }];
@@ -88,7 +88,7 @@
 - (NSURLSessionTask *)updateRaw:(NSString*)payload
                        callback:(void (^)(NSString *entityResponse, MSOrcError *error))callback {
     
-    id<MSOrcRequest> request = [self.resolver createODataRequest];
+    id<MSOrcRequest> request = [self.resolver createOrcRequest];
     
 
     [request setContent:[NSMutableData dataWithData:[payload dataUsingEncoding:NSUTF8StringEncoding]]];
@@ -109,7 +109,7 @@
 
 -(NSURLSessionTask *)deleteWithCallback:(void (^)(int statusCode, MSOrcError *error))callback {
     
-    id<MSOrcRequest> request = [self.resolver createODataRequest];
+    id<MSOrcRequest> request = [self.resolver createOrcRequest];
     
     [request setVerb:HTTP_VERB_DELETE];
     
@@ -121,7 +121,7 @@
 
 - (NSURLSessionTask *)readRawWithCallback:(void (^)(NSString *entityString, MSOrcError *error))callback {
     
-    id<MSOrcRequest> request = [self.resolver createODataRequest];
+    id<MSOrcRequest> request = [self.resolver createOrcRequest];
     
     return [self oDataExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
         

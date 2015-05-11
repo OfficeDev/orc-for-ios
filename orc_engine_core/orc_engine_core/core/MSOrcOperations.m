@@ -36,7 +36,7 @@
                                                          headers:self.customHeaders
                                               dependencyResolver:self.resolver];
     
-    return [self.parent oDataExecuteRequest:request callback:callback];
+    return [self.parent orcExecuteRequest:request callback:callback];
 }
 
 @end

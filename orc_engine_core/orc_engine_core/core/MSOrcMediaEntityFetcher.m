@@ -20,11 +20,11 @@
 
 - (NSURLSessionTask *)getContentWithCallback:(void (^)(NSData *content, MSOrcError *error))callback {
     
-    id<MSOrcRequest> request = [self.resolver createODataRequest];
+    id<MSOrcRequest> request = [self.resolver createOrcRequest];
     
     [request.url appendPathComponent:@"$value"];
     
-    return [self oDataExecuteRequest:request callback:^(id<MSOrcResponse> r, MSOrcError *e) {
+    return [self orcExecuteRequest:request callback:^(id<MSOrcResponse> r, MSOrcError *e) {
         
         if (e == nil) {
             
@@ -37,13 +37,13 @@
 
 - (NSURLSessionTask *)getStreamedContentWithCallback:(void (^)(NSInputStream *content, MSOrcError *error))callback{
     
-    id<MSOrcRequest> request = [self.resolver createODataRequest];
+    id<MSOrcRequest> request = [self.resolver createOrcRequest];
     
     [request.url appendPathComponent:@"$value"];
     
     [[request options] addObject:[NSDictionary dictionaryWithObject:@"true" forKey:OPT_STREAM_DOWNLOAD]];
     
-    return [self oDataExecuteRequest:request callback:^(id<MSOrcResponse> r, MSOrcError *e) {
+    return [self orcExecuteRequest:request callback:^(id<MSOrcResponse> r, MSOrcError *e) {
         
         if (e == nil) {
             
@@ -59,13 +59,13 @@
 - (NSURLSessionTask *)putContent:(NSData *)content
                         callback:(void (^)(NSInteger statusCode, MSOrcError *error))callback {
     
-    id<MSOrcRequest> request = [self.resolver createODataRequest];
+    id<MSOrcRequest> request = [self.resolver createOrcRequest];
     
     [request.url appendPathComponent:@"$value"];
     [request setVerb:HTTP_VERB_PUT];
     [request setContent:[NSMutableData dataWithData:content]];
     
-    return [self oDataExecuteRequest:request callback:^(id<MSOrcResponse>r, MSOrcError *e) {
+    return [self orcExecuteRequest:request callback:^(id<MSOrcResponse>r, MSOrcError *e) {
         
         if(e == nil){
             
@@ -80,7 +80,7 @@
 
 - (NSURLSessionTask *)putContent:(NSInputStream *)content withSize:(NSInteger)size callback:(void (^)(NSInteger statusCode, MSOrcError *error))callback {
     
-    id<MSOrcRequest> request = [self.resolver createODataRequest];
+    id<MSOrcRequest> request = [self.resolver createOrcRequest];
     
     [request.url appendPathComponent:@"$value"];
     [request setVerb:HTTP_VERB_PUT];
@@ -89,7 +89,7 @@
     
     [[request options] addObject:[NSDictionary dictionaryWithObject:@"true" forKey:OPT_STREAM_UPLOAD]];
     
-    return [self oDataExecuteRequest:request callback:^(id<MSOrcResponse>r, MSOrcError *e) {
+    return [self orcExecuteRequest:request callback:^(id<MSOrcResponse>r, MSOrcError *e) {
         
         if (e == nil) {
             

@@ -104,12 +104,12 @@
                                                          headers:self.customHeaders
                                               dependencyResolver:self.resolver];
     
-    return [self.parent oDataExecuteRequest:request callback:callback];
+    return [self.parent orcExecuteRequest:request callback:callback];
 }
 
 - (NSURLSessionTask *)readRawWithCallback:(void (^)(NSString *result, MSOrcError *error))callback {
     
-    id<MSOrcRequest> request = [self.parent.resolver createODataRequest];
+    id<MSOrcRequest> request = [self.parent.resolver createOrcRequest];
 
     return [self oDataExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
         
@@ -131,7 +131,7 @@
 
 - (NSURLSessionTask *)count:(void (^)(NSInteger result, MSOrcError *error))callback {
     
-    id<MSOrcRequest> request = [self.parent.resolver createODataRequest];
+    id<MSOrcRequest> request = [self.parent.resolver createOrcRequest];
     
     [[request url] appendPathComponent:@"$count"];
     [self reset];
@@ -142,10 +142,10 @@
     }];
 }
 
-- (NSURLSessionTask *)addEntityRaw:(NSString *)payload
-                          callback:(void (^)(NSString *result, MSOrcError *error))callback {
+- (NSURLSessionTask *)addRaw:(NSString *)payload
+                    callback:(void (^)(NSString *result, MSOrcError *error))callback {
 
-    id<MSOrcRequest> request = [self.parent.resolver createODataRequest];
+    id<MSOrcRequest> request = [self.parent.resolver createOrcRequest];
     
     [request setVerb:HTTP_VERB_POST];
     [request setContent:[NSMutableData dataWithData:[payload dataUsingEncoding:NSUTF8StringEncoding]]];
@@ -156,14 +156,14 @@
     }];
 }
 
-- (NSURLSessionTask *)addEntity:(id)entity
-                       callback:(void (^)(id entityAdded, MSOrcError *error))callback {
+- (NSURLSessionTask *)add:(id)entity
+                 callback:(void (^)(id entityAdded, MSOrcError *error))callback {
     
     NSString *payload = [self.parent.resolver.jsonSerializer serialize:entity];
     
     __block MSOrcCollectionFetcher *_self = self;
     
-    return [self addEntityRaw:payload callback:^(NSString *r, MSOrcError *e) {
+    return [self addRaw:payload callback:^(NSString *r, MSOrcError *e) {
         
         id result = [_self.resolver.jsonSerializer deserialize:[r dataUsingEncoding:NSUTF8StringEncoding]
                                                        asClass:_self.entityClass];
