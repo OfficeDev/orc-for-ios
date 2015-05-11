@@ -34,6 +34,5 @@ FOUNDATION_EXPORT const unsigned char orc_engine_coreVersionString[];
 #import <orc_engine_core/MSOrcReadable.h>
 #import <orc_engine_core/MSOrcExecutable.h>
 #import <orc_engine_core/MSOrcOperations.h>
-#import <orc_engine_core/MSOrcBaseContainerHelper.h>
-#import <orc_engine_core/MSOrcEntityFetcherHelper.h>
-#import <orc_engine_core/MSOrcException.h>
+#import <orc_engine_core/MSOrcError.h>
+#import <orc_engine_core/MSOCalendarSerializer.h>

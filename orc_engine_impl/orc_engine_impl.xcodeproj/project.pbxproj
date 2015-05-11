@@ -1,0 +1,671 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		99FDD35E6F9820909C888632 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 82CAF62B87E7B700525F1249 /* libPods.a */; };
+		ECDB43AD1AFA5C45000B0781 /* orc_engine_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = ECDB43AC1AFA5C45000B0781 /* orc_engine_impl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ECDB43B31AFA5C45000B0781 /* orc_engine_impl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECDB43A71AFA5C45000B0781 /* orc_engine_impl.framework */; };
+		ECDB43BA1AFA5C45000B0781 /* orc_engine_implTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDB43B91AFA5C45000B0781 /* orc_engine_implTests.m */; };
+		ECDB43E21AFA605E000B0781 /* ADALDependencyResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = ECDB43C41AFA605E000B0781 /* ADALDependencyResolver.h */; };
+		ECDB43E31AFA605E000B0781 /* ADALDependencyResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDB43C51AFA605E000B0781 /* ADALDependencyResolver.m */; };
+		ECDB43E41AFA605E000B0781 /* MSOJsonParser.h in Headers */ = {isa = PBXBuildFile; fileRef = ECDB43C71AFA605E000B0781 /* MSOJsonParser.h */; };
+		ECDB43E51AFA605E000B0781 /* MSOJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDB43C81AFA605E000B0781 /* MSOJsonParser.m */; };
+		ECDB43E61AFA605E000B0781 /* Property.h in Headers */ = {isa = PBXBuildFile; fileRef = ECDB43C91AFA605E000B0781 /* Property.h */; };
+		ECDB43E71AFA605E000B0781 /* Property.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDB43CA1AFA605E000B0781 /* Property.m */; };
+		ECDB43E81AFA605E000B0781 /* LiveDependencyResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = ECDB43CB1AFA605E000B0781 /* LiveDependencyResolver.h */; };
+		ECDB43E91AFA605E000B0781 /* LiveDependencyResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDB43CC1AFA605E000B0781 /* LiveDependencyResolver.m */; };
+		ECDB43EA1AFA605E000B0781 /* MSOrcBasicCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = ECDB43CD1AFA605E000B0781 /* MSOrcBasicCredentials.h */; };
+		ECDB43EB1AFA605E000B0781 /* MSOrcBasicCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDB43CE1AFA605E000B0781 /* MSOrcBasicCredentials.m */; };
+		ECDB43EC1AFA605E000B0781 /* MSOrcDefaultDependencyResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = ECDB43CF1AFA605E000B0781 /* MSOrcDefaultDependencyResolver.h */; };
+		ECDB43ED1AFA605E000B0781 /* MSOrcDefaultDependencyResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDB43D01AFA605E000B0781 /* MSOrcDefaultDependencyResolver.m */; };
+		ECDB43EE1AFA605E000B0781 /* MSOrcHttpConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = ECDB43D11AFA605E000B0781 /* MSOrcHttpConnection.h */; };
+		ECDB43EF1AFA605E000B0781 /* MSOrcHttpConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDB43D21AFA605E000B0781 /* MSOrcHttpConnection.m */; };
+		ECDB43F01AFA605E000B0781 /* MSOrcJsonSerializerImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = ECDB43D31AFA605E000B0781 /* MSOrcJsonSerializerImpl.h */; };
+		ECDB43F11AFA605E000B0781 /* MSOrcJsonSerializerImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDB43D41AFA605E000B0781 /* MSOrcJsonSerializerImpl.m */; };
+		ECDB43F21AFA605E000B0781 /* MSOrcLoggerImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = ECDB43D51AFA605E000B0781 /* MSOrcLoggerImpl.h */; };
+		ECDB43F31AFA605E000B0781 /* MSOrcLoggerImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDB43D61AFA605E000B0781 /* MSOrcLoggerImpl.m */; };
+		ECDB43F41AFA605E000B0781 /* MSOrcOAuthCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = ECDB43D71AFA605E000B0781 /* MSOrcOAuthCredentials.h */; };
+		ECDB43F51AFA605E000B0781 /* MSOrcOAuthCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDB43D81AFA605E000B0781 /* MSOrcOAuthCredentials.m */; };
+		ECDB43F61AFA605E000B0781 /* MSOrcRequestImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = ECDB43D91AFA605E000B0781 /* MSOrcRequestImpl.h */; };
+		ECDB43F71AFA605E000B0781 /* MSOrcRequestImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDB43DA1AFA605E000B0781 /* MSOrcRequestImpl.m */; };
+		ECDB43F81AFA605E000B0781 /* MSOrcResponseImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = ECDB43DB1AFA605E000B0781 /* MSOrcResponseImpl.h */; };
+		ECDB43F91AFA605E000B0781 /* MSOrcResponseImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDB43DC1AFA605E000B0781 /* MSOrcResponseImpl.m */; };
+		ECDB43FA1AFA605E000B0781 /* MSOrcURLImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = ECDB43DD1AFA605E000B0781 /* MSOrcURLImpl.h */; };
+		ECDB43FB1AFA605E000B0781 /* MSOrcURLImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDB43DE1AFA605E000B0781 /* MSOrcURLImpl.m */; };
+		ECDB43FC1AFA605E000B0781 /* NSString+NSStringExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = ECDB43DF1AFA605E000B0781 /* NSString+NSStringExtensions.h */; };
+		ECDB43FD1AFA605E000B0781 /* NSString+NSStringExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDB43E01AFA605E000B0781 /* NSString+NSStringExtensions.m */; };
+		ECDB43FE1AFA605E000B0781 /* template_adal_settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECDB43E11AFA605E000B0781 /* template_adal_settings.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ECDB43B41AFA5C45000B0781 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECDB439E1AFA5C45000B0781 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ECDB43A61AFA5C45000B0781;
+			remoteInfo = orc_engine_impl;
+		};
+		ECDB44051AFA625E000B0781 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECDB44001AFA625E000B0781 /* orc_engine_core.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = ECDB431C1AFA4C4A000B0781;
+			remoteInfo = orc_engine_core;
+		};
+		ECDB44071AFA625E000B0781 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECDB44001AFA625E000B0781 /* orc_engine_core.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = ECDB43271AFA4C4A000B0781;
+			remoteInfo = orc_engine_coreTests;
+		};
+		ECDB44091AFA6265000B0781 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECDB44001AFA625E000B0781 /* orc_engine_core.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = ECDB431B1AFA4C4A000B0781;
+			remoteInfo = orc_engine_core;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		28C497D884923430DD6DEAB3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		82CAF62B87E7B700525F1249 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9198B6C335ABA4EDD3817B32 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		ECDB43A71AFA5C45000B0781 /* orc_engine_impl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = orc_engine_impl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECDB43AB1AFA5C45000B0781 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECDB43AC1AFA5C45000B0781 /* orc_engine_impl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = orc_engine_impl.h; sourceTree = "<group>"; };
+		ECDB43B21AFA5C45000B0781 /* orc_engine_implTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = orc_engine_implTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECDB43B81AFA5C45000B0781 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECDB43B91AFA5C45000B0781 /* orc_engine_implTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = orc_engine_implTests.m; sourceTree = "<group>"; };
+		ECDB43C41AFA605E000B0781 /* ADALDependencyResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADALDependencyResolver.h; sourceTree = "<group>"; };
+		ECDB43C51AFA605E000B0781 /* ADALDependencyResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADALDependencyResolver.m; sourceTree = "<group>"; };
+		ECDB43C71AFA605E000B0781 /* MSOJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOJsonParser.h; sourceTree = "<group>"; };
+		ECDB43C81AFA605E000B0781 /* MSOJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOJsonParser.m; sourceTree = "<group>"; };
+		ECDB43C91AFA605E000B0781 /* Property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Property.h; sourceTree = "<group>"; };
+		ECDB43CA1AFA605E000B0781 /* Property.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Property.m; sourceTree = "<group>"; };
+		ECDB43CB1AFA605E000B0781 /* LiveDependencyResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveDependencyResolver.h; sourceTree = "<group>"; };
+		ECDB43CC1AFA605E000B0781 /* LiveDependencyResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveDependencyResolver.m; sourceTree = "<group>"; };
+		ECDB43CD1AFA605E000B0781 /* MSOrcBasicCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcBasicCredentials.h; sourceTree = "<group>"; };
+		ECDB43CE1AFA605E000B0781 /* MSOrcBasicCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOrcBasicCredentials.m; sourceTree = "<group>"; };
+		ECDB43CF1AFA605E000B0781 /* MSOrcDefaultDependencyResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcDefaultDependencyResolver.h; sourceTree = "<group>"; };
+		ECDB43D01AFA605E000B0781 /* MSOrcDefaultDependencyResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOrcDefaultDependencyResolver.m; sourceTree = "<group>"; };
+		ECDB43D11AFA605E000B0781 /* MSOrcHttpConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcHttpConnection.h; sourceTree = "<group>"; };
+		ECDB43D21AFA605E000B0781 /* MSOrcHttpConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOrcHttpConnection.m; sourceTree = "<group>"; };
+		ECDB43D31AFA605E000B0781 /* MSOrcJsonSerializerImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcJsonSerializerImpl.h; sourceTree = "<group>"; };
+		ECDB43D41AFA605E000B0781 /* MSOrcJsonSerializerImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOrcJsonSerializerImpl.m; sourceTree = "<group>"; };
+		ECDB43D51AFA605E000B0781 /* MSOrcLoggerImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcLoggerImpl.h; sourceTree = "<group>"; };
+		ECDB43D61AFA605E000B0781 /* MSOrcLoggerImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOrcLoggerImpl.m; sourceTree = "<group>"; };
+		ECDB43D71AFA605E000B0781 /* MSOrcOAuthCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcOAuthCredentials.h; sourceTree = "<group>"; };
+		ECDB43D81AFA605E000B0781 /* MSOrcOAuthCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOrcOAuthCredentials.m; sourceTree = "<group>"; };
+		ECDB43D91AFA605E000B0781 /* MSOrcRequestImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcRequestImpl.h; sourceTree = "<group>"; };
+		ECDB43DA1AFA605E000B0781 /* MSOrcRequestImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOrcRequestImpl.m; sourceTree = "<group>"; };
+		ECDB43DB1AFA605E000B0781 /* MSOrcResponseImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcResponseImpl.h; sourceTree = "<group>"; };
+		ECDB43DC1AFA605E000B0781 /* MSOrcResponseImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOrcResponseImpl.m; sourceTree = "<group>"; };
+		ECDB43DD1AFA605E000B0781 /* MSOrcURLImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcURLImpl.h; sourceTree = "<group>"; };
+		ECDB43DE1AFA605E000B0781 /* MSOrcURLImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOrcURLImpl.m; sourceTree = "<group>"; };
+		ECDB43DF1AFA605E000B0781 /* NSString+NSStringExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NSStringExtensions.h"; sourceTree = "<group>"; };
+		ECDB43E01AFA605E000B0781 /* NSString+NSStringExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSStringExtensions.m"; sourceTree = "<group>"; };
+		ECDB43E11AFA605E000B0781 /* template_adal_settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = template_adal_settings.plist; sourceTree = "<group>"; };
+		ECDB44001AFA625E000B0781 /* orc_engine_core.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = orc_engine_core.xcodeproj; path = ../../orc_engine_core/orc_engine_core.xcodeproj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ECDB43A31AFA5C45000B0781 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99FDD35E6F9820909C888632 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECDB43AF1AFA5C45000B0781 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECDB43B31AFA5C45000B0781 /* orc_engine_impl.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5F56191175B1A3218FF703B5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				28C497D884923430DD6DEAB3 /* Pods.debug.xcconfig */,
+				9198B6C335ABA4EDD3817B32 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		90ABDDB003064F4E05EC040C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				82CAF62B87E7B700525F1249 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ECDB439D1AFA5C45000B0781 = {
+			isa = PBXGroup;
+			children = (
+				ECDB43A91AFA5C45000B0781 /* orc_engine_impl */,
+				ECDB43B61AFA5C45000B0781 /* orc_engine_implTests */,
+				ECDB43A81AFA5C45000B0781 /* Products */,
+				5F56191175B1A3218FF703B5 /* Pods */,
+				90ABDDB003064F4E05EC040C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		ECDB43A81AFA5C45000B0781 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ECDB43A71AFA5C45000B0781 /* orc_engine_impl.framework */,
+				ECDB43B21AFA5C45000B0781 /* orc_engine_implTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ECDB43A91AFA5C45000B0781 /* orc_engine_impl */ = {
+			isa = PBXGroup;
+			children = (
+				ECDB44001AFA625E000B0781 /* orc_engine_core.xcodeproj */,
+				ECDB43C31AFA605E000B0781 /* implementation */,
+				ECDB43AC1AFA5C45000B0781 /* orc_engine_impl.h */,
+				ECDB43AA1AFA5C45000B0781 /* Supporting Files */,
+			);
+			path = orc_engine_impl;
+			sourceTree = "<group>";
+		};
+		ECDB43AA1AFA5C45000B0781 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ECDB43AB1AFA5C45000B0781 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ECDB43B61AFA5C45000B0781 /* orc_engine_implTests */ = {
+			isa = PBXGroup;
+			children = (
+				ECDB43B91AFA5C45000B0781 /* orc_engine_implTests.m */,
+				ECDB43B71AFA5C45000B0781 /* Supporting Files */,
+			);
+			path = orc_engine_implTests;
+			sourceTree = "<group>";
+		};
+		ECDB43B71AFA5C45000B0781 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ECDB43B81AFA5C45000B0781 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ECDB43C31AFA605E000B0781 /* implementation */ = {
+			isa = PBXGroup;
+			children = (
+				ECDB43C41AFA605E000B0781 /* ADALDependencyResolver.h */,
+				ECDB43C51AFA605E000B0781 /* ADALDependencyResolver.m */,
+				ECDB43C61AFA605E000B0781 /* JsonParser */,
+				ECDB43CB1AFA605E000B0781 /* LiveDependencyResolver.h */,
+				ECDB43CC1AFA605E000B0781 /* LiveDependencyResolver.m */,
+				ECDB43CD1AFA605E000B0781 /* MSOrcBasicCredentials.h */,
+				ECDB43CE1AFA605E000B0781 /* MSOrcBasicCredentials.m */,
+				ECDB43CF1AFA605E000B0781 /* MSOrcDefaultDependencyResolver.h */,
+				ECDB43D01AFA605E000B0781 /* MSOrcDefaultDependencyResolver.m */,
+				ECDB43D11AFA605E000B0781 /* MSOrcHttpConnection.h */,
+				ECDB43D21AFA605E000B0781 /* MSOrcHttpConnection.m */,
+				ECDB43D31AFA605E000B0781 /* MSOrcJsonSerializerImpl.h */,
+				ECDB43D41AFA605E000B0781 /* MSOrcJsonSerializerImpl.m */,
+				ECDB43D51AFA605E000B0781 /* MSOrcLoggerImpl.h */,
+				ECDB43D61AFA605E000B0781 /* MSOrcLoggerImpl.m */,
+				ECDB43D71AFA605E000B0781 /* MSOrcOAuthCredentials.h */,
+				ECDB43D81AFA605E000B0781 /* MSOrcOAuthCredentials.m */,
+				ECDB43D91AFA605E000B0781 /* MSOrcRequestImpl.h */,
+				ECDB43DA1AFA605E000B0781 /* MSOrcRequestImpl.m */,
+				ECDB43DB1AFA605E000B0781 /* MSOrcResponseImpl.h */,
+				ECDB43DC1AFA605E000B0781 /* MSOrcResponseImpl.m */,
+				ECDB43DD1AFA605E000B0781 /* MSOrcURLImpl.h */,
+				ECDB43DE1AFA605E000B0781 /* MSOrcURLImpl.m */,
+				ECDB43DF1AFA605E000B0781 /* NSString+NSStringExtensions.h */,
+				ECDB43E01AFA605E000B0781 /* NSString+NSStringExtensions.m */,
+				ECDB43E11AFA605E000B0781 /* template_adal_settings.plist */,
+			);
+			path = implementation;
+			sourceTree = "<group>";
+		};
+		ECDB43C61AFA605E000B0781 /* JsonParser */ = {
+			isa = PBXGroup;
+			children = (
+				ECDB43C71AFA605E000B0781 /* MSOJsonParser.h */,
+				ECDB43C81AFA605E000B0781 /* MSOJsonParser.m */,
+				ECDB43C91AFA605E000B0781 /* Property.h */,
+				ECDB43CA1AFA605E000B0781 /* Property.m */,
+			);
+			path = JsonParser;
+			sourceTree = "<group>";
+		};
+		ECDB44011AFA625E000B0781 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ECDB44061AFA625E000B0781 /* orc_engine_core.framework */,
+				ECDB44081AFA625E000B0781 /* orc_engine_coreTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		ECDB43A41AFA5C45000B0781 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECDB43FC1AFA605E000B0781 /* NSString+NSStringExtensions.h in Headers */,
+				ECDB43AD1AFA5C45000B0781 /* orc_engine_impl.h in Headers */,
+				ECDB43FA1AFA605E000B0781 /* MSOrcURLImpl.h in Headers */,
+				ECDB43F81AFA605E000B0781 /* MSOrcResponseImpl.h in Headers */,
+				ECDB43F01AFA605E000B0781 /* MSOrcJsonSerializerImpl.h in Headers */,
+				ECDB43EA1AFA605E000B0781 /* MSOrcBasicCredentials.h in Headers */,
+				ECDB43F21AFA605E000B0781 /* MSOrcLoggerImpl.h in Headers */,
+				ECDB43E61AFA605E000B0781 /* Property.h in Headers */,
+				ECDB43E21AFA605E000B0781 /* ADALDependencyResolver.h in Headers */,
+				ECDB43F41AFA605E000B0781 /* MSOrcOAuthCredentials.h in Headers */,
+				ECDB43E81AFA605E000B0781 /* LiveDependencyResolver.h in Headers */,
+				ECDB43EC1AFA605E000B0781 /* MSOrcDefaultDependencyResolver.h in Headers */,
+				ECDB43E41AFA605E000B0781 /* MSOJsonParser.h in Headers */,
+				ECDB43EE1AFA605E000B0781 /* MSOrcHttpConnection.h in Headers */,
+				ECDB43F61AFA605E000B0781 /* MSOrcRequestImpl.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		ECDB43A61AFA5C45000B0781 /* orc_engine_impl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECDB43BD1AFA5C45000B0781 /* Build configuration list for PBXNativeTarget "orc_engine_impl" */;
+			buildPhases = (
+				7B63031FA729BB0BDAC2FF6A /* Check Pods Manifest.lock */,
+				ECDB43A21AFA5C45000B0781 /* Sources */,
+				ECDB43A31AFA5C45000B0781 /* Frameworks */,
+				ECDB43A41AFA5C45000B0781 /* Headers */,
+				ECDB43A51AFA5C45000B0781 /* Resources */,
+				64A4154B5687267EDECF66C8 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ECDB440A1AFA6265000B0781 /* PBXTargetDependency */,
+			);
+			name = orc_engine_impl;
+			productName = orc_engine_impl;
+			productReference = ECDB43A71AFA5C45000B0781 /* orc_engine_impl.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		ECDB43B11AFA5C45000B0781 /* orc_engine_implTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECDB43C01AFA5C45000B0781 /* Build configuration list for PBXNativeTarget "orc_engine_implTests" */;
+			buildPhases = (
+				ECDB43AE1AFA5C45000B0781 /* Sources */,
+				ECDB43AF1AFA5C45000B0781 /* Frameworks */,
+				ECDB43B01AFA5C45000B0781 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ECDB43B51AFA5C45000B0781 /* PBXTargetDependency */,
+			);
+			name = orc_engine_implTests;
+			productName = orc_engine_implTests;
+			productReference = ECDB43B21AFA5C45000B0781 /* orc_engine_implTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ECDB439E1AFA5C45000B0781 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = msopentech;
+				TargetAttributes = {
+					ECDB43A61AFA5C45000B0781 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					ECDB43B11AFA5C45000B0781 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+				};
+			};
+			buildConfigurationList = ECDB43A11AFA5C45000B0781 /* Build configuration list for PBXProject "orc_engine_impl" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = ECDB439D1AFA5C45000B0781;
+			productRefGroup = ECDB43A81AFA5C45000B0781 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = ECDB44011AFA625E000B0781 /* Products */;
+					ProjectRef = ECDB44001AFA625E000B0781 /* orc_engine_core.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				ECDB43A61AFA5C45000B0781 /* orc_engine_impl */,
+				ECDB43B11AFA5C45000B0781 /* orc_engine_implTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		ECDB44061AFA625E000B0781 /* orc_engine_core.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = orc_engine_core.framework;
+			remoteRef = ECDB44051AFA625E000B0781 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		ECDB44081AFA625E000B0781 /* orc_engine_coreTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = orc_engine_coreTests.xctest;
+			remoteRef = ECDB44071AFA625E000B0781 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ECDB43A51AFA5C45000B0781 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECDB43FE1AFA605E000B0781 /* template_adal_settings.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECDB43B01AFA5C45000B0781 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		64A4154B5687267EDECF66C8 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7B63031FA729BB0BDAC2FF6A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ECDB43A21AFA5C45000B0781 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECDB43FB1AFA605E000B0781 /* MSOrcURLImpl.m in Sources */,
+				ECDB43E91AFA605E000B0781 /* LiveDependencyResolver.m in Sources */,
+				ECDB43F31AFA605E000B0781 /* MSOrcLoggerImpl.m in Sources */,
+				ECDB43E51AFA605E000B0781 /* MSOJsonParser.m in Sources */,
+				ECDB43F91AFA605E000B0781 /* MSOrcResponseImpl.m in Sources */,
+				ECDB43EF1AFA605E000B0781 /* MSOrcHttpConnection.m in Sources */,
+				ECDB43ED1AFA605E000B0781 /* MSOrcDefaultDependencyResolver.m in Sources */,
+				ECDB43F71AFA605E000B0781 /* MSOrcRequestImpl.m in Sources */,
+				ECDB43E31AFA605E000B0781 /* ADALDependencyResolver.m in Sources */,
+				ECDB43FD1AFA605E000B0781 /* NSString+NSStringExtensions.m in Sources */,
+				ECDB43EB1AFA605E000B0781 /* MSOrcBasicCredentials.m in Sources */,
+				ECDB43F11AFA605E000B0781 /* MSOrcJsonSerializerImpl.m in Sources */,
+				ECDB43E71AFA605E000B0781 /* Property.m in Sources */,
+				ECDB43F51AFA605E000B0781 /* MSOrcOAuthCredentials.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECDB43AE1AFA5C45000B0781 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECDB43BA1AFA5C45000B0781 /* orc_engine_implTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ECDB43B51AFA5C45000B0781 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ECDB43A61AFA5C45000B0781 /* orc_engine_impl */;
+			targetProxy = ECDB43B41AFA5C45000B0781 /* PBXContainerItemProxy */;
+		};
+		ECDB440A1AFA6265000B0781 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = orc_engine_core;
+			targetProxy = ECDB44091AFA6265000B0781 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		ECDB43BB1AFA5C45000B0781 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		ECDB43BC1AFA5C45000B0781 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		ECDB43BE1AFA5C45000B0781 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28C497D884923430DD6DEAB3 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = orc_engine_impl/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		ECDB43BF1AFA5C45000B0781 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9198B6C335ABA4EDD3817B32 /* Pods.release.xcconfig */;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = orc_engine_impl/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		ECDB43C11AFA5C45000B0781 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = orc_engine_implTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		ECDB43C21AFA5C45000B0781 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = orc_engine_implTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ECDB43A11AFA5C45000B0781 /* Build configuration list for PBXProject "orc_engine_impl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECDB43BB1AFA5C45000B0781 /* Debug */,
+				ECDB43BC1AFA5C45000B0781 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECDB43BD1AFA5C45000B0781 /* Build configuration list for PBXNativeTarget "orc_engine_impl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECDB43BE1AFA5C45000B0781 /* Debug */,
+				ECDB43BF1AFA5C45000B0781 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECDB43C01AFA5C45000B0781 /* Build configuration list for PBXNativeTarget "orc_engine_implTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECDB43C11AFA5C45000B0781 /* Debug */,
+				ECDB43C21AFA5C45000B0781 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ECDB439E1AFA5C45000B0781 /* Project object */;
+}
