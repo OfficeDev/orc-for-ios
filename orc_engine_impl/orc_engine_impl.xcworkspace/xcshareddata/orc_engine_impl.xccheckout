@@ -5,20 +5,20 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>DEA4CC92-E937-476C-A9C0-BB4FB544047C</string>
+	<string>925D6568-CDEA-41D2-B164-2727B294505E</string>
 	<key>IDESourceControlProjectName</key>
-	<string>orc_engine_core</string>
+	<string>orc_engine_impl</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>48A908D1748B2B3870C74A8785054DA712F3714E</key>
 		<string>https://github.com/MSOpenTech/orc-for-ios</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>orc_engine_core/orc_engine_core.xcodeproj</string>
+	<string>orc_engine_impl/orc_engine_impl.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>48A908D1748B2B3870C74A8785054DA712F3714E</key>
-		<string>../../..</string>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/MSOpenTech/orc-for-ios</string>

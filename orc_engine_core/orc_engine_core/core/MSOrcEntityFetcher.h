@@ -6,7 +6,7 @@
  ******************************************************************************/
 
 #import "MSOrcExecutable.h"
-#import "MSOrcUrl.h"
+#import "MSOrcURL.h"
 
 @class MSOrcOperations;
 

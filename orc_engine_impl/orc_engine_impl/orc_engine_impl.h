@@ -10,7 +10,7 @@
 FOUNDATION_EXPORT double orc_engine_implVersionNumber;
 FOUNDATION_EXPORT const unsigned char orc_engine_implVersionString[];
 
-#import <orc_engine_core/office365_odata_interfaces.h>
+#import <orc_engine_core/orc_engine_core.h>
 
 #import <orc_engine_impl/MSOrcDefaultDependencyResolver.h>
 #import <orc_engine_impl/NSString+NSStringExtensions.h>

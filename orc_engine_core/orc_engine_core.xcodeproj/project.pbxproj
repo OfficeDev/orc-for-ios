@@ -19,7 +19,7 @@
 		ECDB436C1AFA4F41000B0781 /* MSOrcLogLevel.h in Headers */ = {isa = PBXBuildFile; fileRef = ECDB43621AFA4F41000B0781 /* MSOrcLogLevel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECDB436D1AFA4F41000B0781 /* MSOrcRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = ECDB43631AFA4F41000B0781 /* MSOrcRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECDB436E1AFA4F41000B0781 /* MSOrcResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = ECDB43641AFA4F41000B0781 /* MSOrcResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ECDB436F1AFA4F41000B0781 /* MSOrcUrl.h in Headers */ = {isa = PBXBuildFile; fileRef = ECDB43651AFA4F41000B0781 /* MSOrcUrl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ECDB436F1AFA4F41000B0781 /* MSOrcURL.h in Headers */ = {isa = PBXBuildFile; fileRef = ECDB43651AFA4F41000B0781 /* MSOrcURL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECDB43871AFA509C000B0781 /* MSOCalendarSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = ECDB43711AFA509C000B0781 /* MSOCalendarSerializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECDB43881AFA509C000B0781 /* MSOCalendarSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDB43721AFA509C000B0781 /* MSOCalendarSerializer.m */; };
 		ECDB43891AFA509C000B0781 /* MSOrcBaseContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = ECDB43731AFA509C000B0781 /* MSOrcBaseContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -69,7 +69,7 @@
 		ECDB43621AFA4F41000B0781 /* MSOrcLogLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcLogLevel.h; sourceTree = "<group>"; };
 		ECDB43631AFA4F41000B0781 /* MSOrcRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcRequest.h; sourceTree = "<group>"; };
 		ECDB43641AFA4F41000B0781 /* MSOrcResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcResponse.h; sourceTree = "<group>"; };
-		ECDB43651AFA4F41000B0781 /* MSOrcUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcUrl.h; sourceTree = "<group>"; };
+		ECDB43651AFA4F41000B0781 /* MSOrcURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcURL.h; sourceTree = "<group>"; };
 		ECDB43711AFA509C000B0781 /* MSOCalendarSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOCalendarSerializer.h; sourceTree = "<group>"; };
 		ECDB43721AFA509C000B0781 /* MSOCalendarSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOCalendarSerializer.m; sourceTree = "<group>"; };
 		ECDB43731AFA509C000B0781 /* MSOrcBaseContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcBaseContainer.h; sourceTree = "<group>"; };
@@ -178,7 +178,7 @@
 				ECDB43621AFA4F41000B0781 /* MSOrcLogLevel.h */,
 				ECDB43631AFA4F41000B0781 /* MSOrcRequest.h */,
 				ECDB43641AFA4F41000B0781 /* MSOrcResponse.h */,
-				ECDB43651AFA4F41000B0781 /* MSOrcUrl.h */,
+				ECDB43651AFA4F41000B0781 /* MSOrcURL.h */,
 			);
 			path = interfaces;
 			sourceTree = "<group>";
@@ -221,7 +221,7 @@
 				ECDB43221AFA4C4A000B0781 /* orc_engine_core.h in Headers */,
 				ECDB43671AFA4F41000B0781 /* MSOrcDependencyResolver.h in Headers */,
 				ECDB436B1AFA4F41000B0781 /* MSOrcLogger.h in Headers */,
-				ECDB436F1AFA4F41000B0781 /* MSOrcUrl.h in Headers */,
+				ECDB436F1AFA4F41000B0781 /* MSOrcURL.h in Headers */,
 				ECDB43661AFA4F41000B0781 /* MSOrcCredentials.h in Headers */,
 				ECDB438F1AFA509C000B0781 /* MSOrcError.h in Headers */,
 				ECDB43951AFA509C000B0781 /* MSOrcMultipartCollectionFetcher.h in Headers */,

@@ -52,7 +52,7 @@
     return _jsonSerializer;
 }
 
-- (id<MSOrcRequest>)createODataRequest {
+- (id<MSOrcRequest>)createOrcRequest {
     
     return [[MSOrcRequestImpl alloc] init];
 }
