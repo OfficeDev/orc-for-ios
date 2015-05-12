@@ -18,8 +18,8 @@
                      parent:(id<MSOrcExecutable>)parent
                     asClass:(Class)theClass;
 
-- (NSURLSessionTask *)addParts:(NSArray<MSOrcMultiPartElement> *)parts
-                  withCallback:(void (^)(id<MSOrcResponse> response, MSOrcError *error))callback;
+- (void)addParts:(NSArray<MSOrcMultiPartElement> *)parts
+    withCallback:(void (^)(id<MSOrcResponse> response, MSOrcError *error))callback;
 
 - (MSOrcMediaEntityFetcher *)getById:(NSString *)Id;
 

@@ -86,7 +86,7 @@
     return self;
 }
 
-- (NSURLSessionTask *)oDataExecuteRequest:(id<MSOrcRequest>)request callback:(void (^)(id<MSOrcResponse> response, MSOrcError *error))callback {
+- (void)orcExecuteRequest:(id<MSOrcRequest>)request callback:(void (^)(id<MSOrcResponse> response, MSOrcError *error))callback {
     
     [request.url appendPathComponent:self.urlComponent];
     
@@ -99,25 +99,25 @@
                                              orderby:self.orderBy
                                               search:self.search];
     
-    [MSOrcBaseContainer addCustomParametersToODataURLWithRequest:request
-                                                      parameters:self.customParameters
-                                                         headers:self.customHeaders
-                                              dependencyResolver:self.resolver];
+    [MSOrcBaseContainer addCustomParametersToOrcURLWithRequest:request
+                                                    parameters:self.customParameters
+                                                       headers:self.customHeaders
+                                            dependencyResolver:self.resolver];
     
     return [self.parent orcExecuteRequest:request callback:callback];
 }
 
-- (NSURLSessionTask *)readRawWithCallback:(void (^)(NSString *result, MSOrcError *error))callback {
+- (void)readRawWithCallback:(void (^)(NSString *result, MSOrcError *error))callback {
     
     id<MSOrcRequest> request = [self.parent.resolver createOrcRequest];
 
-    return [self oDataExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
+    return [self orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
         
         callback([[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding], e);
     }];
 }
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(id result, MSOrcError *error))callback {
+- (void)readWithCallback:(void (^)(id result, MSOrcError *error))callback {
     
     return [self readRawWithCallback:^(NSString *response, MSOrcError *e) {
         
@@ -129,35 +129,34 @@
     }];
 }
 
-- (NSURLSessionTask *)count:(void (^)(NSInteger result, MSOrcError *error))callback {
+- (void)count:(void (^)(NSInteger result, MSOrcError *error))callback {
     
     id<MSOrcRequest> request = [self.parent.resolver createOrcRequest];
     
     [[request url] appendPathComponent:@"$count"];
     [self reset];
     
-    return [self oDataExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
+    return [self orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
         
         callback([[[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding] integerValue], e);
     }];
 }
 
-- (NSURLSessionTask *)addRaw:(NSString *)payload
-                    callback:(void (^)(NSString *result, MSOrcError *error))callback {
+- (void)addRaw:(NSString *)payload
+      callback:(void (^)(NSString *result, MSOrcError *error))callback {
 
     id<MSOrcRequest> request = [self.parent.resolver createOrcRequest];
     
     [request setVerb:HTTP_VERB_POST];
     [request setContent:[NSMutableData dataWithData:[payload dataUsingEncoding:NSUTF8StringEncoding]]];
     
-    return [self oDataExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
+    return [self orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
         
         callback([[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding], e);
     }];
 }
 
-- (NSURLSessionTask *)add:(id)entity
-                 callback:(void (^)(id entityAdded, MSOrcError *error))callback {
+- (void)add:(id)entity callback:(void (^)(id entityAdded, MSOrcError *error))callback {
     
     NSString *payload = [self.parent.resolver.jsonSerializer serialize:entity];
     

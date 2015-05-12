@@ -14,15 +14,15 @@
 
 - (id)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcReadable>)parent;
 
-- (NSURLSessionDataTask *)getContentWithCallback:(void (^)(NSData *content, MSOrcError * error))callback;
+- (void)getContentWithCallback:(void (^)(NSData *content, MSOrcError * error))callback;
 
-- (NSURLSessionDataTask *)getStreamedContentWithCallback:(void (^)(NSInputStream *content, MSOrcError *error))callback;
+- (void)getStreamedContentWithCallback:(void (^)(NSInputStream *content, MSOrcError *error))callback;
 
-- (NSURLSessionDataTask *)putContent:(NSData*)content
-                            callback:(void (^)(NSInteger statusCode, MSOrcError *error))callback;
+- (void)putContent:(NSData *)content
+          callback:(void (^)(NSInteger statusCode, MSOrcError *error))callback;
 
-- (NSURLSessionDataTask *)putContent:(NSInputStream *)content
-                            withSize:(NSInteger)size
-                            callback:(void (^)(NSInteger statusCode, MSOrcError *error))callback;
+- (void)putContent:(NSInputStream *)content
+          withSize:(NSInteger)size
+          callback:(void (^)(NSInteger statusCode, MSOrcError *error))callback;
 
 @end

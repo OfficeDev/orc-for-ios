@@ -29,12 +29,12 @@
 - (MSOrcCollectionFetcher *)orderBy:(NSString *)params;
 - (MSOrcCollectionFetcher *)search:(NSString *)params;
 
-- (NSURLSessionTask *)add:(id)entity callback:(void (^)(id entityAdded, MSOrcError *error))callback;
+- (void)add:(id)entity callback:(void (^)(id entityAdded, MSOrcError *error))callback;
 
 - (MSOrcEntityFetcher *)getById:(NSString *)theId;
 
-- (NSURLSessionTask *)count:(void (^)(NSInteger result, MSOrcError *error))callback; __message_msg("This method will override all the odata operators -> select, top, filter, orderby, skip, expand.");
+- (void)count:(void (^)(NSInteger result, MSOrcError *error))callback; __message_msg("This method will override all the orc operators -> select, top, filter, orderby, skip, expand.");
 
-- (NSURLSessionTask *)addRaw:(NSString *)payload callback:(void (^)(NSString *result, MSOrcError *error))callback;
+- (void)addRaw:(NSString *)payload callback:(void (^)(NSString *result, MSOrcError *error))callback;
     
 @end

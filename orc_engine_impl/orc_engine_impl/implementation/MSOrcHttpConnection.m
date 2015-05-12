@@ -34,7 +34,7 @@
     return self;
 }
 
-- (NSURLSessionTask *)executeRequest:(id<MSOrcRequest>)request
+- (void)executeRequest:(id<MSOrcRequest>)request
                             callback:(void (^)(id<MSOrcResponse> response, MSOrcError *error))callback {
     
     self.request = request;
@@ -43,7 +43,7 @@
     
     if (request.options.count == 0) {
         
-        return [self executeWithCallBack:callback];
+        return [[self executeWithCallBack:callback] resume];
     }
     
     NSString* isStreamedUpload   = [[[request options] valueForKey:OPT_STREAM_UPLOAD] objectAtIndex:0];
@@ -51,15 +51,15 @@
     
     if ([isStreamedUpload isEqualToString:@"true"]) {
         
-        return [self executeWithDelegate:callback];
+        return [[self executeWithDelegate:callback] resume];
     } else if ([isStreamedDownload isEqualToString:@"true"]) {
         
-        return [self downloadStream:callback];
+        return [[self downloadStream:callback] resume];
     }
     
     [self.logger logMessage:@"The options selected are not valid for the request." withLevel:LOG_LEVEL_ERROR];
     
-    return nil;
+    return;
 }
 
 - (NSURLSessionTask *)executeWithCallBack:(void (^)(id<MSOrcResponse> response, MSOrcError *error))callback {

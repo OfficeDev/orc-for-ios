@@ -26,15 +26,15 @@
     return self;
 }
 
-- (NSURLSessionTask *)oDataExecuteRequest:(id<MSOrcRequest>)request
-                                     callback:(void (^)(id<MSOrcResponse> response, MSOrcError *error))callback {
+- (void)orcExecuteRequest:(id<MSOrcRequest>)request
+                 callback:(void (^)(id<MSOrcResponse> response, MSOrcError *error))callback {
     
     [request.url appendPathComponent:_urlComponent];
     
-    [MSOrcBaseContainer addCustomParametersToODataURLWithRequest:request
-                                                      parameters:self.customParameters
-                                                         headers:self.customHeaders
-                                              dependencyResolver:self.resolver];
+    [MSOrcBaseContainer addCustomParametersToOrcURLWithRequest:request
+                                                    parameters:self.customParameters
+                                                       headers:self.customHeaders
+                                            dependencyResolver:self.resolver];
     
     return [self.parent orcExecuteRequest:request callback:callback];
 }

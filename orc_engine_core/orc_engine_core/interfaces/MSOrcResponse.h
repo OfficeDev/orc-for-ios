@@ -19,7 +19,6 @@
 - (instancetype)initWithData:(NSData *)data response:(NSURLResponse *)response;
 - (instancetype)initWithStream:(NSInputStream *)stream response:(NSURLResponse *)response;
 
-
 @optional
 - (void)close;
 

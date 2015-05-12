@@ -17,7 +17,7 @@
     return self;
 }
 
-- (NSURLSessionTask *)addParts:(NSArray<MSOrcMultiPartElement> *)parts withCallback:(void (^)(id<MSOrcResponse> response, MSOrcError *error))callback {
+- (void)addParts:(NSArray<MSOrcMultiPartElement> *)parts withCallback:(void (^)(id<MSOrcResponse> response, MSOrcError *error))callback {
     
     NSString *random = [[NSUUID UUID] UUIDString];
     

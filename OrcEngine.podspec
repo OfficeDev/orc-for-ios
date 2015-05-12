@@ -24,6 +24,7 @@ Pod::Spec.new do |s|
   s.subspec 'Core' do |subspec|
      subspec.source_files  = "orc_engine_core/**/*.{h,m}"
      subspec.exclude_files = "orc_engine_core/Build/**/*"
+     subspec.exclude_files = "orc_engine_core/orc_engine_coreTests/**/*"
      subspec.public_header_files = "orc_engine_core/**/*.h"
      subspec.header_dir = "orc_engine_core"
   end
@@ -34,6 +35,7 @@ Pod::Spec.new do |s|
      subspec.dependency "ADALiOS", "=1.2.2"
      subspec.dependency "LiveSDK"
      subspec.public_header_files = "orc_engine_impl/**/*.h"
+     subspec.exclude_files = "orc_engine_impl/orc_engine_implTests/**/*"
      subspec.header_dir = "orc_engine_impl"
   end
 

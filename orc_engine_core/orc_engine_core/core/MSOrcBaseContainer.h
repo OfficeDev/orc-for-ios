@@ -15,7 +15,7 @@
 + (NSString *)generatePayloadWithParameters:(NSArray *)parameters
                          dependencyResolver:(id<MSOrcDependencyResolver>)resolver;
 
-+ (void)addCustomParametersToODataURLWithRequest:(id<MSOrcRequest>)request
++ (void)addCustomParametersToOrcURLWithRequest:(id<MSOrcRequest>)request
                                       parameters:(NSDictionary *)parameters
                                          headers:(NSDictionary *)headers
                               dependencyResolver:(id<MSOrcDependencyResolver>)resolver;

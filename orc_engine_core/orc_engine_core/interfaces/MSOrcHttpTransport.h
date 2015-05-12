@@ -14,7 +14,7 @@
 @protocol MSOrcHttpTransport
 
 - (id<MSOrcRequest>)createRequest;
-- (NSURLSessionTask *)executeRequest:(id<MSOrcRequest>)request
-                            callback:(void (^)(id<MSOrcResponse> response, MSOrcError *error))callback;
+- (void)executeRequest:(id<MSOrcRequest>)request
+              callback:(void (^)(id<MSOrcResponse> response, MSOrcError *error))callback;
 
 @end

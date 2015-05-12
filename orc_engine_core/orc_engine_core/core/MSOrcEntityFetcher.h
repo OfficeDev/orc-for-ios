@@ -14,13 +14,12 @@
 
 @required
 
-- (NSURLSessionTask *)updateEntity:(id)entity
-                          callback:(void (^)(id updatedEntity, MSOrcError *error))callback;
+- (void)update:(id)entity callback:(void (^)(id updatedEntity, MSOrcError *error))callback;
 
-- (NSURLSessionTask *)deleteWithCallback:(void (^)(int statusCode, MSOrcError *error))callback;
+- (void)deleteWithCallback:(void (^)(int statusCode, MSOrcError *error))callback;
 
-- (NSURLSessionTask *)updateRaw:(NSString*)payload
-                       callback:(void (^)(NSString *response, MSOrcError *error))callback;
+- (void)updateRaw:(NSString*)payload
+         callback:(void (^)(NSString *response, MSOrcError *error))callback;
 
 @optional
 

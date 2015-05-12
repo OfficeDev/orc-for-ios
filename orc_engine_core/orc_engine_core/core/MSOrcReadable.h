@@ -12,7 +12,7 @@
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(id response, MSOrcError *error))callback;
-- (NSURLSessionTask *)readRawWithCallback:(void (^)(NSString *responseString, MSOrcError *error))callback;
+- (void)readWithCallback:(void (^)(id response, MSOrcError *error))callback;
+- (void)readRawWithCallback:(void (^)(NSString *responseString, MSOrcError *error))callback;
 
 @end

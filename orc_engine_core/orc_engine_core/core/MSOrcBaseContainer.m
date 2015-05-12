@@ -29,7 +29,7 @@
     return self;
 }
 
-- (NSURLSessionTask *)oDataExecuteRequest:(id<MSOrcRequest>)request
+- (void)orcExecuteRequest:(id<MSOrcRequest>)request
                                  callback:(void (^)(id<MSOrcResponse> response, MSOrcError *error))callback {
     
     request.url.baseUrl = self.urlComponent;
@@ -80,10 +80,10 @@
     return [NSString stringWithFormat:@"%@}", [result substringWithRange:NSMakeRange(0, [result length] -1)]];
 }
 
-+ (void)addCustomParametersToODataURLWithRequest:(id<MSOrcRequest>)request
-                                      parameters:(NSDictionary *)parameters
-                                         headers:(NSDictionary *)headers
-                              dependencyResolver:(id<MSOrcDependencyResolver>)resolver {
++ (void)addCustomParametersToOrcURLWithRequest:(id<MSOrcRequest>)request
+                                    parameters:(NSDictionary *)parameters
+                                       headers:(NSDictionary *)headers
+                            dependencyResolver:(id<MSOrcDependencyResolver>)resolver {
     
     for (NSString *key in parameters.allKeys) {
         
@@ -112,13 +112,13 @@
             [theString appendString:@","];
         }
         
-        [theString appendFormat:@"%@=%@", key, [self toODataURLValue:[parameters objectForKey:key]]];
+        [theString appendFormat:@"%@=%@", key, [self toOrcURLValue:[parameters objectForKey:key]]];
     }
     
     return theString;
 }
 
-+ (NSString *)toODataURLValue:(id)o {
++ (NSString *)toOrcURLValue:(id)o {
     
     return [NSString stringWithFormat:@"'%@'", o];
 }
