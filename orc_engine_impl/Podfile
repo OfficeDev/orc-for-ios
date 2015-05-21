@@ -1,7 +1,0 @@
-source 'https://github.com/Cocoapods/Specs.git'
-platform :ios, '8.0'
-
-xcodeproj 'orc_engine_impl'
-
-pod 'ADALIOS', '~> 1.2.2' # 1.2.2 < ver < 1.2.2
-pod 'LiveSDK'
