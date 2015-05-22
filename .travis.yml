@@ -3,8 +3,8 @@ language: objective-c
 before_install:
   - java -version
   - gem install cocoapods --no-rdoc --no-ri --no-document --quiet
-  - cd orc_engine_impl && pod install && cc..
+  - pod install
   
 script:
-  - xctool project orc_engine_core/orc_engine_core.xcodeproj -scheme orc_engine_core -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
-  - xctool project orc_engine_impl/orc_engine_impl.xcodeproj -scheme orc_engine_impl -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+  - xctool -workspace orc.xcworkspace -scheme orc -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+

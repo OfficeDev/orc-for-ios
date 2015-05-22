@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:Podfile">
+   </FileRef>
+   <FileRef
+      location = "group:orc.podspec">
+   </FileRef>
+   <FileRef
+      location = "group:orc.h">
+   </FileRef>
+   <FileRef
+      location = "group:impl/impl.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:core/core.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:api/api.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+</Workspace>
