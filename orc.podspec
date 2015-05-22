@@ -1,4 +1,4 @@
-Pod::Spec.new do |s|
+  Pod::Spec.new do |s|
   s.name         = "orc"
   s.version      = "0.10.0"
   s.summary      = "Office REST Client for Office 365 APIs"
@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
                    DESC
   s.homepage     = "https://github.com/MSOpenTech/orc-for-ios"
   s.license      = "MIT"
-  s.author             = { "guhans" => "v-guhans@microsoft.com" }
+  s.author             = { "joshgav" => "joshgav@microsoft.com" }
   s.social_media_url   = "http://twitter.com/OpenAtMicrosoft"
 
   s.platform     = :ios
