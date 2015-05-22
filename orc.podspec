@@ -13,7 +13,8 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios
   s.ios.deployment_target = "7.0"
-  s.source       = { :git => "https://github.com/MSOpenTech/orc-for-ios.git" }
+  s.source       = { :git => "https://github.com/MSOpenTech/orc-for-ios.git" ,
+                     :tag => "v#{s.version}"}
   s.exclude_files = "**/Build/**/*"
   s.source_files = "orc.h"
   s.header_dir = "orc"

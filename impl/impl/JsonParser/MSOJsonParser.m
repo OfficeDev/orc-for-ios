@@ -42,7 +42,7 @@
         return result;
     }
     @catch (NSException *exception) {
-        NSLog(@"Error parsing object '%@'", exception.description);
+        NSLog(@"Warning: object is not present for parsing '%@'", exception.description);
         return nil;
     }
     @finally {
@@ -121,7 +121,7 @@
                         
                     }
                     @catch (NSException *exception) {
-                        NSLog(@"Error parsing property '%@'", property.Name);
+                        NSLog(@"Warning: could not parse property '%@'", property.Name);
                     }
                     @finally {
                         
@@ -209,7 +209,7 @@
                 
             }
             @catch (NSException *exception) {
-                NSLog(@"Error parsing property '%@'", property.Name);
+                NSLog(@"Warning: could not parse property '%@'", property.Name);
             }
             @finally {
                 
@@ -247,7 +247,7 @@
         return parseResult;
     }
     @catch (NSException *exception) {
-        NSLog(@"Error parsing object - %@", exception.description);
+        NSLog(@"Warning: could not parse object - %@", exception.description);
         return nil;
     }
     @finally {
@@ -314,7 +314,7 @@
                     [returnType setValue:value forKeyPath:name];
             }
             @catch (NSException *exception) {
-                NSLog(@"Error parsing property '%@'", property.Name);
+                NSLog(@"Warning: could not parse property '%@'", property.Name);
             }
             @finally {
                 
@@ -338,7 +338,7 @@
                     [returnType setValue:date forKeyPath:property.Name];
                 }
                 @catch (NSException *exception) {
-                    NSLog(@"Error parsing property '%@'", property.Name);
+                    NSLog(@"Warning: could not parse property '%@'", property.Name);
                 }
                 @finally {
                     
@@ -393,7 +393,7 @@
         
     }
     @catch (NSException *exception) {
-        NSLog(@"Error parsing property '%@'", property.Name);
+        NSLog(@"Warning: could not parse property '%@'", property.Name);
     }
     @finally {
     }
