@@ -28,6 +28,7 @@
 		2661BCF71B0E33FF00B7D8E9 /* MSOrcMultiPartElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BC911B0E2A9100B7D8E9 /* MSOrcMultiPartElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2661BCF81B0E33FF00B7D8E9 /* MSOrcOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BC931B0E2A9100B7D8E9 /* MSOrcOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2661BCF91B0E33FF00B7D8E9 /* MSOrcReadable.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BC951B0E2A9100B7D8E9 /* MSOrcReadable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC25FFCB1B14C4D800E227BA /* MSOCalendarSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BC811B0E2A9100B7D8E9 /* MSOCalendarSerializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC7A76161B0FAD6900AFF3A8 /* api.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7A74FF1B0FA69000AFF3A8 /* api.framework */; };
 		ECDB43281AFA4C4A000B0781 /* core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECDB431C1AFA4C4A000B0781 /* core.framework */; };
 		ECDB432F1AFA4C4A000B0781 /* coreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDB432E1AFA4C4A000B0781 /* coreTests.m */; };
@@ -216,6 +217,7 @@
 				2661BCF71B0E33FF00B7D8E9 /* MSOrcMultiPartElement.h in Headers */,
 				2661BCF81B0E33FF00B7D8E9 /* MSOrcOperations.h in Headers */,
 				2661BCF91B0E33FF00B7D8E9 /* MSOrcReadable.h in Headers */,
+				EC25FFCB1B14C4D800E227BA /* MSOCalendarSerializer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
