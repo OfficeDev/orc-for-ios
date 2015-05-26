@@ -28,11 +28,33 @@
 		2661BCF71B0E33FF00B7D8E9 /* MSOrcMultiPartElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BC911B0E2A9100B7D8E9 /* MSOrcMultiPartElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2661BCF81B0E33FF00B7D8E9 /* MSOrcOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BC931B0E2A9100B7D8E9 /* MSOrcOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2661BCF91B0E33FF00B7D8E9 /* MSOrcReadable.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BC951B0E2A9100B7D8E9 /* MSOrcReadable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC7A76161B0FAD6900AFF3A8 /* api.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7A74FF1B0FA69000AFF3A8 /* api.framework */; };
 		ECDB43281AFA4C4A000B0781 /* core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECDB431C1AFA4C4A000B0781 /* core.framework */; };
 		ECDB432F1AFA4C4A000B0781 /* coreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDB432E1AFA4C4A000B0781 /* coreTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		EC7A74FE1B0FA69000AFF3A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC7A74F91B0FA69000AFF3A8 /* api.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2661BC3B1B0E295000B7D8E9;
+			remoteInfo = api;
+		};
+		EC7A75001B0FA69000AFF3A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC7A74F91B0FA69000AFF3A8 /* api.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2661BC461B0E295000B7D8E9;
+			remoteInfo = apiTests;
+		};
+		EC7A75021B0FA69300AFF3A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC7A74F91B0FA69000AFF3A8 /* api.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2661BC3A1B0E295000B7D8E9;
+			remoteInfo = api;
+		};
 		ECDB43291AFA4C4A000B0781 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ECDB43131AFA4C4A000B0781 /* Project object */;
@@ -65,6 +87,7 @@
 		2661BC931B0E2A9100B7D8E9 /* MSOrcOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcOperations.h; sourceTree = "<group>"; };
 		2661BC941B0E2A9100B7D8E9 /* MSOrcOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOrcOperations.m; sourceTree = "<group>"; };
 		2661BC951B0E2A9100B7D8E9 /* MSOrcReadable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcReadable.h; sourceTree = "<group>"; };
+		EC7A74F91B0FA69000AFF3A8 /* api.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = api.xcodeproj; path = ../api/api.xcodeproj; sourceTree = "<group>"; };
 		ECDB431C1AFA4C4A000B0781 /* core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECDB43201AFA4C4A000B0781 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECDB43271AFA4C4A000B0781 /* coreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = coreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC7A76161B0FAD6900AFF3A8 /* api.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,9 +115,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC7A74FA1B0FA69000AFF3A8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC7A74FF1B0FA69000AFF3A8 /* api.framework */,
+				EC7A75011B0FA69000AFF3A8 /* apiTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		ECDB43121AFA4C4A000B0781 = {
 			isa = PBXGroup;
 			children = (
+				EC7A74F91B0FA69000AFF3A8 /* api.xcodeproj */,
 				ECDB431E1AFA4C4A000B0781 /* core */,
 				ECDB432B1AFA4C4A000B0781 /* coreTests */,
 				ECDB431D1AFA4C4A000B0781 /* Products */,
@@ -200,6 +234,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				EC7A75031B0FA69300AFF3A8 /* PBXTargetDependency */,
 			);
 			name = core;
 			productName = orc_engine_core;
@@ -251,6 +286,12 @@
 			mainGroup = ECDB43121AFA4C4A000B0781;
 			productRefGroup = ECDB431D1AFA4C4A000B0781 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = EC7A74FA1B0FA69000AFF3A8 /* Products */;
+					ProjectRef = EC7A74F91B0FA69000AFF3A8 /* api.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				ECDB431B1AFA4C4A000B0781 /* core */,
@@ -258,6 +299,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		EC7A74FF1B0FA69000AFF3A8 /* api.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = api.framework;
+			remoteRef = EC7A74FE1B0FA69000AFF3A8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EC7A75011B0FA69000AFF3A8 /* apiTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = apiTests.xctest;
+			remoteRef = EC7A75001B0FA69000AFF3A8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		ECDB431A1AFA4C4A000B0781 /* Resources */ = {
@@ -305,6 +363,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		EC7A75031B0FA69300AFF3A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = api;
+			targetProxy = EC7A75021B0FA69300AFF3A8 /* PBXContainerItemProxy */;
+		};
 		ECDB432A1AFA4C4A000B0781 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = ECDB431B1AFA4C4A000B0781 /* core */;

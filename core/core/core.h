@@ -14,6 +14,7 @@ FOUNDATION_EXPORT const unsigned char coreVersionString[];
 
 /* Core */
 
+#import <core/MSOCalendarSerializer.h>
 #import <core/MSOrcBaseContainer.h>
 #import <core/MSOrcCollectionFetcher.h>
 #import <core/MSOrcEntityFetcher.h>
