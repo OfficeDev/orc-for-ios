@@ -28,8 +28,6 @@
     [super tearDown];
 }
 
-//TODO: Enable when serialization issue with ints is ready
-
 - (void)testTwoParamsActionsFirstIsEntityTypeUri {
     //twoParamsActionsFirstIsEntityTypePOST.json
     self.running = true;
@@ -38,7 +36,7 @@
     
     [self.client.me.operations twoParamsActionsFirstIsEntityTypeWithAnEntity:[self getSampleEntity] booleanParams:false callback:^(int returnValue, MSOrcError *error) {
         
-        result = returnValue;
+        result = error == nil ? 1 :0;
         self.running = false;
     }];
     
@@ -77,6 +75,8 @@
         entity =anotherEntity;
         self.running = false;
     }];
+    
+    [self blockUntilFinish];
     
     XCTAssertNotNil(entity);
     XCTAssertTrue([entity.SomeString isEqualToString:[self getAnotherEntity].SomeString]);
