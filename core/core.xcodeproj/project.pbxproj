@@ -28,6 +28,8 @@
 		2661BCF71B0E33FF00B7D8E9 /* MSOrcMultiPartElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BC911B0E2A9100B7D8E9 /* MSOrcMultiPartElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2661BCF81B0E33FF00B7D8E9 /* MSOrcOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BC931B0E2A9100B7D8E9 /* MSOrcOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2661BCF91B0E33FF00B7D8E9 /* MSOrcReadable.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BC951B0E2A9100B7D8E9 /* MSOrcReadable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC1B5A581B30653C00BE0071 /* MSOrcBaseEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = EC1B5A561B30653C00BE0071 /* MSOrcBaseEntity.h */; };
+		EC1B5A591B30653C00BE0071 /* MSOrcBaseEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1B5A571B30653C00BE0071 /* MSOrcBaseEntity.m */; };
 		ECDB43281AFA4C4A000B0781 /* core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECDB431C1AFA4C4A000B0781 /* core.framework */; };
 		ECDB432F1AFA4C4A000B0781 /* coreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDB432E1AFA4C4A000B0781 /* coreTests.m */; };
 /* End PBXBuildFile section */
@@ -65,6 +67,8 @@
 		2661BC931B0E2A9100B7D8E9 /* MSOrcOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcOperations.h; sourceTree = "<group>"; };
 		2661BC941B0E2A9100B7D8E9 /* MSOrcOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOrcOperations.m; sourceTree = "<group>"; };
 		2661BC951B0E2A9100B7D8E9 /* MSOrcReadable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcReadable.h; sourceTree = "<group>"; };
+		EC1B5A561B30653C00BE0071 /* MSOrcBaseEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcBaseEntity.h; sourceTree = "<group>"; };
+		EC1B5A571B30653C00BE0071 /* MSOrcBaseEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOrcBaseEntity.m; sourceTree = "<group>"; };
 		ECDB431C1AFA4C4A000B0781 /* core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECDB43201AFA4C4A000B0781 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECDB43271AFA4C4A000B0781 /* coreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = coreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,6 +116,8 @@
 		ECDB431E1AFA4C4A000B0781 /* core */ = {
 			isa = PBXGroup;
 			children = (
+				EC1B5A561B30653C00BE0071 /* MSOrcBaseEntity.h */,
+				EC1B5A571B30653C00BE0071 /* MSOrcBaseEntity.m */,
 				2661BC801B0E2A9100B7D8E9 /* core.h */,
 				2661BC811B0E2A9100B7D8E9 /* MSOCalendarSerializer.h */,
 				2661BC821B0E2A9100B7D8E9 /* MSOCalendarSerializer.m */,
@@ -182,6 +188,7 @@
 				2661BCF71B0E33FF00B7D8E9 /* MSOrcMultiPartElement.h in Headers */,
 				2661BCF81B0E33FF00B7D8E9 /* MSOrcOperations.h in Headers */,
 				2661BCF91B0E33FF00B7D8E9 /* MSOrcReadable.h in Headers */,
+				EC1B5A581B30653C00BE0071 /* MSOrcBaseEntity.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC1B5A591B30653C00BE0071 /* MSOrcBaseEntity.m in Sources */,
 				2661BCA41B0E2A9100B7D8E9 /* MSOrcMediaEntityFetcher.m in Sources */,
 				2661BC9C1B0E2A9100B7D8E9 /* MSOrcCollectionFetcher.m in Sources */,
 				2661BC9E1B0E2A9100B7D8E9 /* MSOrcEntityFetcher.m in Sources */,

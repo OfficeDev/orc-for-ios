@@ -23,4 +23,5 @@ FOUNDATION_EXPORT const unsigned char coreVersionString[];
 #import <core/MSOrcReadable.h>
 #import <core/MSOrcExecutable.h>
 #import <core/MSOrcOperations.h>
+#import <core/MSOrcBaseEntity.h>
 #import <core/MSOrcError.h>
