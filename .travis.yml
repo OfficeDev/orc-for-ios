@@ -1,10 +1,13 @@
 language: objective-c
 
 before_install:
-  - java -version
-  - gem install cocoapods --no-rdoc --no-ri --no-document --quiet
-  - pod install
-  
+  - cd test/core_tests && pod install; cd ..
+#  - curl -O http://repo1.maven.org/maven2/com/github/tomakehurst/wiremock/1.52/wiremock-1.52-standalone.jar
+#  - java -jar wiremock-1.52-standalone.jar --record-mappings --port 8080 --verbose --root-dir "test/core_tests/wiremock" &
+
 script:
-  - xctool -workspace orc.xcworkspace -scheme orc -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+  - xctool test -workspace core_tests/core_tests.xcworkspace -scheme core_tests -sdk iphonesimulator
+
+after_success:
+#  - curl http://localhost:8080/__admin/shutdown
 
