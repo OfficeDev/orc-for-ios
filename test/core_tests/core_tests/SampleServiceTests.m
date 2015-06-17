@@ -275,11 +275,112 @@
     
 }
 
-/*
--(void) testEnumParser{
+-(void) testGetAndUpdateNestedEntity{
+    //getSampleEntity.json
+    //updateSampleEntityPATCH.json
     
     self.running = true;
+    __block MSSampleContainerSampleEntity *sampleEntity = nil;
+    __block MSSampleContainerSampleEntity *updatedSampleEntity = nil;
     
+    [[self.client.me addCustomHeaderWithName:@"WithNested" value:@"no"] readWithCallback:^(MSSampleContainerSampleEntity *entity, MSOrcError *error) {
+        sampleEntity = entity;
+        [sampleEntity setNestedSampleEntity:[self getSampleEntity]];
+        
+        [[self.client.me addCustomHeaderWithName:@"UpdateNested" value:@"no" ] update:sampleEntity callback:^(MSSampleContainerSampleEntity *updated, MSOrcError *error) {
+            updatedSampleEntity = updated;
+            self.running = false;
+        }];
+        
+    }];
+    
+    [self blockUntilFinish];
+    
+    XCTAssertNotNil(sampleEntity);
+    XCTAssertNotNil(updatedSampleEntity);
+}
+
+-(void) testGetAndUpdatePropertyInNestedEntity{
+    //getSampleEntityWithNestedGET.json
+    //updateSampleEntityNestedPropertyChangedPATCH.json
+    
+    self.running = true;
+    __block MSSampleContainerSampleEntity *sampleEntity = nil;
+    __block MSSampleContainerSampleEntity *updatedSampleEntity = nil;
+    
+    [[self.client.me addCustomHeaderWithName:@"WithNested" value:@"yes"] readWithCallback:^(MSSampleContainerSampleEntity *entity, MSOrcError *error) {
+        sampleEntity = entity;
+        entity.nestedSampleEntity.DisplayName = @"New Name";
+        
+        [[self.client.me addCustomHeaderWithName:@"UpdateNested" value:@"yes" ] update:entity callback:^(MSSampleContainerSampleEntity *updated, MSOrcError *error) {
+            updatedSampleEntity = updated;
+            self.running = false;
+        }];
+        
+    }];
+    
+    [self blockUntilFinish];
+    
+    XCTAssertNotNil(sampleEntity);
+    XCTAssertNotNil(updatedSampleEntity);
+}
+
+-(void) testGetAndUpdatePropertyInList{
+    //getSampleEntityWithNavigationsGET.json
+    //updateSampleEntityListPropertyChangedPATCH.json
+    
+    self.running = true;
+    __block MSSampleContainerSampleEntity *sampleEntity = nil;
+    __block MSSampleContainerSampleEntity *updatedSampleEntity = nil;
+    
+    [[self.client.me addCustomHeaderWithName:@"WithNavigations" value:@"yes"] readWithCallback:^(MSSampleContainerSampleEntity *entity, MSOrcError *error) {
+        sampleEntity = entity;
+        [[entity.navigations objectAtIndex:0] setSomeString: @"Some New String"];
+        
+        [[self.client.me addCustomHeaderWithName:@"UpdateNavigations" value:@"yes" ] update:entity callback:^(MSSampleContainerSampleEntity *updated, MSOrcError *error) {
+            updatedSampleEntity = updated;
+            self.running = false;
+        }];
+        
+    }];
+    
+    [self blockUntilFinish];
+    
+    XCTAssertNotNil(sampleEntity);
+    XCTAssertNotNil(updatedSampleEntity);
+}
+
+
+-(void) testGetAndUpdatePropertyInListOf3elements{
+    //getSampleEntityWith3NavigationsGET.json
+    //updateSampleEntityListWith3ElementsPropertyChangedPATCH.json
+    
+    self.running = true;
+    __block MSSampleContainerSampleEntity *sampleEntity = nil;
+    __block MSSampleContainerSampleEntity *updatedSampleEntity = nil;
+    
+    [[self.client.me addCustomHeaderWithName:@"With3Navigations" value:@"yes"] readWithCallback:^(MSSampleContainerSampleEntity *entity, MSOrcError *error) {
+        sampleEntity = entity;
+        [[entity.navigations objectAtIndex:0] setSomeString: @"Some New String"];
+        
+        [[self.client.me addCustomHeaderWithName:@"WithNavigations3" value:@"yes" ] update:entity callback:^(MSSampleContainerSampleEntity *updated, MSOrcError *error) {
+            updatedSampleEntity = updated;
+            self.running = false;
+        }];
+        
+    }];
+    
+    [self blockUntilFinish];
+    
+    XCTAssertNotNil(sampleEntity);
+    XCTAssertNotNil(updatedSampleEntity);
+}
+
+/*
+-(void) testEnumParser{
+ 
+    self.running = true;
+ 
     NSString* json = @"{\"Name\": \"Test\", \"enums\":[\"First\",\"Second\"]}";
     MSSampleContaunerEntityWithEnum* t = [MSSampleContaunerEntityWithEnum alloc];
     NSData* data = [json dataUsingEncoding:NSUTF8StringEncoding] ;
