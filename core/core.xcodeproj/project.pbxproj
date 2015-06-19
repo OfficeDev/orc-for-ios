@@ -28,7 +28,7 @@
 		2661BCF71B0E33FF00B7D8E9 /* MSOrcMultiPartElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BC911B0E2A9100B7D8E9 /* MSOrcMultiPartElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2661BCF81B0E33FF00B7D8E9 /* MSOrcOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BC931B0E2A9100B7D8E9 /* MSOrcOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2661BCF91B0E33FF00B7D8E9 /* MSOrcReadable.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BC951B0E2A9100B7D8E9 /* MSOrcReadable.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC1B5A581B30653C00BE0071 /* MSOrcBaseEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = EC1B5A561B30653C00BE0071 /* MSOrcBaseEntity.h */; };
+		EC1B5A581B30653C00BE0071 /* MSOrcBaseEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = EC1B5A561B30653C00BE0071 /* MSOrcBaseEntity.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC1B5A591B30653C00BE0071 /* MSOrcBaseEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1B5A571B30653C00BE0071 /* MSOrcBaseEntity.m */; };
 		ECDB43281AFA4C4A000B0781 /* core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECDB431C1AFA4C4A000B0781 /* core.framework */; };
 		ECDB432F1AFA4C4A000B0781 /* coreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDB432E1AFA4C4A000B0781 /* coreTests.m */; };
@@ -187,8 +187,8 @@
 				2661BCF61B0E33FF00B7D8E9 /* MSOrcMultipartCollectionFetcher.h in Headers */,
 				2661BCF71B0E33FF00B7D8E9 /* MSOrcMultiPartElement.h in Headers */,
 				2661BCF81B0E33FF00B7D8E9 /* MSOrcOperations.h in Headers */,
-				2661BCF91B0E33FF00B7D8E9 /* MSOrcReadable.h in Headers */,
 				EC1B5A581B30653C00BE0071 /* MSOrcBaseEntity.h in Headers */,
+				2661BCF91B0E33FF00B7D8E9 /* MSOrcReadable.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

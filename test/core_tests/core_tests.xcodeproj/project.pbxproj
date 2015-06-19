@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C0409931B30B75000792A86 /* getSampleEntityGET.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C04098B1B30B75000792A86 /* getSampleEntityGET.json */; };
+		1C0409941B30B75000792A86 /* getSampleEntityWith3NavigationsGET.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C04098C1B30B75000792A86 /* getSampleEntityWith3NavigationsGET.json */; };
+		1C0409951B30B75000792A86 /* getSampleEntityWithNavigationsGET.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C04098D1B30B75000792A86 /* getSampleEntityWithNavigationsGET.json */; };
+		1C0409961B30B75000792A86 /* getSampleEntityWithNestedGET.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C04098E1B30B75000792A86 /* getSampleEntityWithNestedGET.json */; };
+		1C0409971B30B75000792A86 /* updateSampleEntityListPropertyChangedPATCH.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C04098F1B30B75000792A86 /* updateSampleEntityListPropertyChangedPATCH.json */; };
+		1C0409981B30B75000792A86 /* updateSampleEntityListWith3ElementsPropertyChangedPATCH.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C0409901B30B75000792A86 /* updateSampleEntityListWith3ElementsPropertyChangedPATCH.json */; };
+		1C0409991B30B75000792A86 /* updateSampleEntityNestedPropertyChangedPATCH.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C0409911B30B75000792A86 /* updateSampleEntityNestedPropertyChangedPATCH.json */; };
+		1C04099A1B30B75000792A86 /* updateSampleEntityPATCH.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C0409921B30B75000792A86 /* updateSampleEntityPATCH.json */; };
 		1C4508B31A3B2D59008C9668 /* getNavigationItemGET.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C4508A91A3B2D59008C9668 /* getNavigationItemGET.json */; };
 		1C4508B41A3B2D59008C9668 /* getNavigationItemWithSelectGET.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C4508AA1A3B2D59008C9668 /* getNavigationItemWithSelectGET.json */; };
 		1C4508B51A3B2D59008C9668 /* getNavigationsWithParameters.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C4508AB1A3B2D59008C9668 /* getNavigationsWithParameters.json */; };
@@ -56,6 +64,14 @@
 
 /* Begin PBXFileReference section */
 		12D51873798CF8250A38C814 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		1C04098B1B30B75000792A86 /* getSampleEntityGET.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getSampleEntityGET.json; sourceTree = "<group>"; };
+		1C04098C1B30B75000792A86 /* getSampleEntityWith3NavigationsGET.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getSampleEntityWith3NavigationsGET.json; sourceTree = "<group>"; };
+		1C04098D1B30B75000792A86 /* getSampleEntityWithNavigationsGET.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getSampleEntityWithNavigationsGET.json; sourceTree = "<group>"; };
+		1C04098E1B30B75000792A86 /* getSampleEntityWithNestedGET.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getSampleEntityWithNestedGET.json; sourceTree = "<group>"; };
+		1C04098F1B30B75000792A86 /* updateSampleEntityListPropertyChangedPATCH.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = updateSampleEntityListPropertyChangedPATCH.json; sourceTree = "<group>"; };
+		1C0409901B30B75000792A86 /* updateSampleEntityListWith3ElementsPropertyChangedPATCH.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = updateSampleEntityListWith3ElementsPropertyChangedPATCH.json; sourceTree = "<group>"; };
+		1C0409911B30B75000792A86 /* updateSampleEntityNestedPropertyChangedPATCH.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = updateSampleEntityNestedPropertyChangedPATCH.json; sourceTree = "<group>"; };
+		1C0409921B30B75000792A86 /* updateSampleEntityPATCH.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = updateSampleEntityPATCH.json; sourceTree = "<group>"; };
 		1C4508A91A3B2D59008C9668 /* getNavigationItemGET.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getNavigationItemGET.json; sourceTree = "<group>"; };
 		1C4508AA1A3B2D59008C9668 /* getNavigationItemWithSelectGET.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getNavigationItemWithSelectGET.json; sourceTree = "<group>"; };
 		1C4508AB1A3B2D59008C9668 /* getNavigationsWithParameters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getNavigationsWithParameters.json; sourceTree = "<group>"; };
@@ -332,6 +348,14 @@
 		EC85141B1A38C9B300385C38 /* mappings */ = {
 			isa = PBXGroup;
 			children = (
+				1C04098B1B30B75000792A86 /* getSampleEntityGET.json */,
+				1C04098C1B30B75000792A86 /* getSampleEntityWith3NavigationsGET.json */,
+				1C04098D1B30B75000792A86 /* getSampleEntityWithNavigationsGET.json */,
+				1C04098E1B30B75000792A86 /* getSampleEntityWithNestedGET.json */,
+				1C04098F1B30B75000792A86 /* updateSampleEntityListPropertyChangedPATCH.json */,
+				1C0409901B30B75000792A86 /* updateSampleEntityListWith3ElementsPropertyChangedPATCH.json */,
+				1C0409911B30B75000792A86 /* updateSampleEntityNestedPropertyChangedPATCH.json */,
+				1C0409921B30B75000792A86 /* updateSampleEntityPATCH.json */,
 				1C4508A91A3B2D59008C9668 /* getNavigationItemGET.json */,
 				1C4508AA1A3B2D59008C9668 /* getNavigationItemWithSelectGET.json */,
 				1C4508AB1A3B2D59008C9668 /* getNavigationsWithParameters.json */,
@@ -418,16 +442,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C0409971B30B75000792A86 /* updateSampleEntityListPropertyChangedPATCH.json in Resources */,
 				1C4508B91A3B2D59008C9668 /* addNavigationItemPOST.json in Resources */,
 				1C4508B41A3B2D59008C9668 /* getNavigationItemWithSelectGET.json in Resources */,
 				1C4508B51A3B2D59008C9668 /* getNavigationsWithParameters.json in Resources */,
 				1C4508B71A3B2D59008C9668 /* testDefaultHeaders.json in Resources */,
 				1C4508BA1A3B2D59008C9668 /* deleteNavigationItemDELETE.json in Resources */,
+				1C04099A1B30B75000792A86 /* updateSampleEntityPATCH.json in Resources */,
+				1C0409951B30B75000792A86 /* getSampleEntityWithNavigationsGET.json in Resources */,
 				1C4508B81A3B2D59008C9668 /* updateNavigationItemPOST.json in Resources */,
 				1C4508B31A3B2D59008C9668 /* getNavigationItemGET.json in Resources */,
 				1C4508BC1A3B2D59008C9668 /* getCollectionsWithHeaders.json in Resources */,
+				1C0409941B30B75000792A86 /* getSampleEntityWith3NavigationsGET.json in Resources */,
 				1C4508B61A3B2D59008C9668 /* getNavigationsWithSelectAndTopGET.json in Resources */,
+				1C0409961B30B75000792A86 /* getSampleEntityWithNestedGET.json in Resources */,
+				1C0409981B30B75000792A86 /* updateSampleEntityListWith3ElementsPropertyChangedPATCH.json in Resources */,
+				1C0409931B30B75000792A86 /* getSampleEntityGET.json in Resources */,
 				1C4508BB1A3B2D59008C9668 /* getCollectionsWithExpandAndFilter.json in Resources */,
+				1C0409991B30B75000792A86 /* updateSampleEntityNestedPropertyChangedPATCH.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

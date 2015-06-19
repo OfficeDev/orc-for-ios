@@ -285,6 +285,7 @@
     
     [[self.client.me addCustomHeaderWithName:@"WithNested" value:@"no"] readWithCallback:^(MSSampleContainerSampleEntity *entity, MSOrcError *error) {
         sampleEntity = entity;
+        sampleEntity.Id = @"TestId";
         [sampleEntity setNestedSampleEntity:[self getSampleEntity]];
         
         [[self.client.me addCustomHeaderWithName:@"UpdateNested" value:@"no" ] update:sampleEntity callback:^(MSSampleContainerSampleEntity *updated, MSOrcError *error) {

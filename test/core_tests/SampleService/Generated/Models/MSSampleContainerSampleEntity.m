@@ -37,4 +37,10 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+- (void)setNestedSampleEntity:(MSSampleContainerSampleEntity *)nestedSampleEntity
+{
+    _nestedSampleEntity = nestedSampleEntity;
+    [self valueChanged:_nestedSampleEntity forProperty:@"NestedSampleEntity"];
+}
+
 @end

@@ -64,9 +64,17 @@
     }];
 }
 
-- (void)update:(id)entity callback:(void (^)(id updatedEntity, MSOrcError *error))callback {
+- (void)update:(MSOrcBaseEntity *)entity callback:(void (^)(id updatedEntity, MSOrcError *error))callback {
     
-    NSString *payload = [self.resolver.jsonSerializer serialize:entity];
+    
+     NSDictionary *updatedValues = [entity getUpdatedValues];
+/*     if (!update) {
+     updatedValues = updatedEntity;
+     }
+    
+  */
+    
+    NSString *payload = [self.resolver.jsonSerializer serialize:updatedValues];
     
     return [self updateRaw:payload callback:^(NSString *response, MSOrcError *e) {
         

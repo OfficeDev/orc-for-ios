@@ -25,3 +25,4 @@ FOUNDATION_EXPORT const unsigned char implVersionString[];
 #import <impl/MSOrcOAuthCredentials.h>
 #import <impl/ADALDependencyResolver.h>
 #import <impl/LiveDependencyResolver.h>
+#import <impl/MSOrcParentReferencedList.h>

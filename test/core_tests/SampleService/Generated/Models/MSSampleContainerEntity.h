@@ -14,13 +14,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSSampleContainerProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type Entity.
 */
 
-@interface MSSampleContainerEntity : NSObject
+@interface MSSampleContainerEntity : MSOrcBaseEntity
 
 @property (retain, nonatomic, readonly) NSString *odataType;
 @property (retain, nonatomic, readwrite, getter=id, setter=setId:) NSString *Id;

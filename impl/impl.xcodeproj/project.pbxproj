@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C04099D1B33076600792A86 /* MSOrcParentReferencedList.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C04099B1B33076600792A86 /* MSOrcParentReferencedList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1C04099E1B33076600792A86 /* MSOrcParentReferencedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C04099C1B33076600792A86 /* MSOrcParentReferencedList.m */; };
 		2661BCCD1B0E2B2300B7D8E9 /* ADALDependencyResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BCAD1B0E2B2300B7D8E9 /* ADALDependencyResolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2661BCCE1B0E2B2300B7D8E9 /* ADALDependencyResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 2661BCAE1B0E2B2300B7D8E9 /* ADALDependencyResolver.m */; };
 		2661BCD01B0E2B2300B7D8E9 /* MSOJsonParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BCB11B0E2B2300B7D8E9 /* MSOJsonParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -55,6 +57,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C04099B1B33076600792A86 /* MSOrcParentReferencedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSOrcParentReferencedList.h; path = impl/MSOrcParentReferencedList.h; sourceTree = SOURCE_ROOT; };
+		1C04099C1B33076600792A86 /* MSOrcParentReferencedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSOrcParentReferencedList.m; path = impl/MSOrcParentReferencedList.m; sourceTree = SOURCE_ROOT; };
 		2661BCAD1B0E2B2300B7D8E9 /* ADALDependencyResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADALDependencyResolver.h; path = impl/ADALDependencyResolver.h; sourceTree = SOURCE_ROOT; };
 		2661BCAE1B0E2B2300B7D8E9 /* ADALDependencyResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADALDependencyResolver.m; path = impl/ADALDependencyResolver.m; sourceTree = SOURCE_ROOT; };
 		2661BCB11B0E2B2300B7D8E9 /* MSOJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOJsonParser.h; sourceTree = "<group>"; };
@@ -201,6 +205,8 @@
 				2661BCCA1B0E2B2300B7D8E9 /* NSString+NSStringExtensions.m */,
 				2661BCCC1B0E2B2300B7D8E9 /* template_adal_settings.plist */,
 				ECDB43AA1AFA5C45000B0781 /* Supporting Files */,
+				1C04099B1B33076600792A86 /* MSOrcParentReferencedList.h */,
+				1C04099C1B33076600792A86 /* MSOrcParentReferencedList.m */,
 			);
 			name = impl;
 			path = orc_engine_impl;
@@ -246,6 +252,7 @@
 				2661BCD61B0E2B2300B7D8E9 /* MSOrcBasicCredentials.h in Headers */,
 				2661BCDE1B0E2B2300B7D8E9 /* MSOrcLoggerImpl.h in Headers */,
 				2661BCCD1B0E2B2300B7D8E9 /* ADALDependencyResolver.h in Headers */,
+				1C04099D1B33076600792A86 /* MSOrcParentReferencedList.h in Headers */,
 				2661BCE01B0E2B2300B7D8E9 /* MSOrcOAuthCredentials.h in Headers */,
 				2661BCD41B0E2B2300B7D8E9 /* LiveDependencyResolver.h in Headers */,
 				2661BCD81B0E2B2300B7D8E9 /* MSOrcDefaultDependencyResolver.h in Headers */,
@@ -401,6 +408,7 @@
 				2661BCD71B0E2B2300B7D8E9 /* MSOrcBasicCredentials.m in Sources */,
 				2661BCDD1B0E2B2300B7D8E9 /* MSOrcJsonSerializerImpl.m in Sources */,
 				2661BCD31B0E2B2300B7D8E9 /* Property.m in Sources */,
+				1C04099E1B33076600792A86 /* MSOrcParentReferencedList.m in Sources */,
 				2661BCE11B0E2B2300B7D8E9 /* MSOrcOAuthCredentials.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
