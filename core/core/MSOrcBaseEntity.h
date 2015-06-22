@@ -1,10 +1,9 @@
-//
-//  MSOrcBaseEntity.h
-//  core
-//
-//  Created by Gustavo on 6/1/15.
-//
-//
+/*******************************************************************************
+ * Copyright (c) Microsoft Open Technologies, Inc.
+ * All Rights Reserved
+ * Licensed under the Apache License, Version 2.0.
+ * See License.txt in the project root for license information.
+ ******************************************************************************/
 
 #import <Foundation/Foundation.h>
 
@@ -13,7 +12,7 @@
 @property (retain, nonatomic, readonly) NSString *odataType;
 @property (retain, nonatomic, readonly, getter=getUpdatedValues) NSMutableDictionary *updatedValues;
 
--(void)setParent:(MSOrcBaseEntity *)parent forProperty:(NSString *)propertyName;
+- (void)setParent:(MSOrcBaseEntity *)parent forProperty:(NSString *)propertyName;
 - (void)valueChanged:(NSObject *)value forProperty:(NSString *)property;
 - (NSMutableDictionary *)getUpdatedValues;
 

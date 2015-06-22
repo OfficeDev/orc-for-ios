@@ -1,10 +1,9 @@
-//
-//  MSOrcBaseEntity.m
-//  core
-//
-//  Created by Gustavo on 6/1/15.
-//
-//
+/*******************************************************************************
+ * Copyright (c) Microsoft Open Technologies, Inc.
+ * All Rights Reserved
+ * Licensed under the Apache License, Version 2.0.
+ * See License.txt in the project root for license information.
+ ******************************************************************************/
 
 #import "MSOrcBaseEntity.h"
 
@@ -36,7 +35,7 @@
     [self valueChanged:odataType forProperty:@"odataType"];
 }
 
--(void)setParent:(MSOrcBaseEntity *)parent forProperty:(NSString *)propertyName {
+- (void)setParent:(MSOrcBaseEntity *)parent forProperty:(NSString *)propertyName {
     _parent = [NSDictionary dictionaryWithObject:parent forKey:propertyName];
 }
 

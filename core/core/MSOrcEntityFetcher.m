@@ -66,15 +66,9 @@
 
 - (void)update:(MSOrcBaseEntity *)entity callback:(void (^)(id updatedEntity, MSOrcError *error))callback {
     
-    
-     NSDictionary *updatedValues = [entity getUpdatedValues];
-/*     if (!update) {
-     updatedValues = updatedEntity;
-     }
-    
-  */
-    
-    NSString *payload = [self.resolver.jsonSerializer serialize:updatedValues];
+    NSDictionary *updatedValues = [entity getUpdatedValues];
+
+    NSString *payload = [self.resolver.jsonSerializer dictionaryToJsonString:updatedValues];
     
     return [self updateRaw:payload callback:^(NSString *response, MSOrcError *e) {
         

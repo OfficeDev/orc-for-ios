@@ -15,5 +15,6 @@
 - (id)deserialize:(NSData *)serializedObject asClass:(Class)theClass;
 - (id)deserializeList:(NSData *)serializedList asClass:(Class)theClass;
 - (NSString *)serialize:(id)objectToSerialize property:(NSString *)name;
+- (NSString *)dictionaryToJsonString:(NSDictionary *)dictionary;
 
 @end

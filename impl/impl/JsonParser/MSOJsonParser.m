@@ -87,6 +87,31 @@
     return [self toJsonString:object];
 }
 
+-(NSString *)dictionaryToJsonString:(NSDictionary *)dictionary {
+    
+    NSMutableString *jsonResult = [NSMutableString stringWithString:@"{"];
+    
+    for (NSString *key in dictionary.allKeys) {
+        
+        id object = [dictionary objectForKey:key];
+        
+        if([object isKindOfClass:[NSNumber class]] || [object isKindOfClass:[NSString class]])
+        {
+
+            [jsonResult appendFormat:@"\"%@\" : \"%@\",",key, object];
+        }
+        else{
+            [jsonResult appendString:[self toJsonString:object]];
+            [jsonResult appendString:@","];
+        }
+    }
+    
+    [jsonResult replaceCharactersInRange:NSMakeRange(jsonResult.length-1, 1) withString:@""];
+    [jsonResult appendString:@"}"];
+    
+    return jsonResult;
+}
+
 -(NSMutableString *)getString : (id)object{
     
     NSArray*properties = [self getPropertiesFor:[object class]];

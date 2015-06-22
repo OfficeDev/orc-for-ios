@@ -62,6 +62,10 @@
     return [self.parser parseWithData:serializedList forType:theClass selector:selectors];
 }
 
+-(NSString *)dictionaryToJsonString:(NSDictionary *)dictionary {
+    
+    return [self.parser dictionaryToJsonString:dictionary];
+}
 
 - (void) referenceParents: (NSObject*) objToAnalyze parent: (id) theParent : (NSString*) referencePropery{
     if(objToAnalyze == nil){
