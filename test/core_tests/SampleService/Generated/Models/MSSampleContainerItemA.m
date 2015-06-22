@@ -33,4 +33,10 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
-@end
+
+    - (void)setPropertyA:(NSString *)  PropertyA;
+      {
+        _PropertyA =  PropertyA;
+        [self valueChanged:PropertyA forProperty:@"PropertyA"];
+      }
+    @end

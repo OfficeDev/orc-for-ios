@@ -37,10 +37,34 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
-- (void)setNestedSampleEntity:(MSSampleContainerSampleEntity *)nestedSampleEntity
-{
-    _nestedSampleEntity = nestedSampleEntity;
-    [self valueChanged:_nestedSampleEntity forProperty:@"NestedSampleEntity"];
-}
 
-@end
+    - (void)setDisplayName:(NSString *)  DisplayName;
+      {
+        _DisplayName =  DisplayName;
+        [self valueChanged:DisplayName forProperty:@"DisplayName"];
+      }
+    
+    - (void)setEntityKey:(NSString *)  entityKey;
+      {
+        _entityKey =  entityKey;
+        [self valueChanged:entityKey forProperty:@"entityKey"];
+      }
+    
+    - (void)setNestedSampleEntity:(MSSampleContainerSampleEntity *)  nestedSampleEntity;
+      {
+        _nestedSampleEntity =  nestedSampleEntity;
+        [self valueChanged:nestedSampleEntity forProperty:@"nestedSampleEntity"];
+      }
+    
+    - (void)setNavigations:(NSMutableArray<MSSampleContainerAnotherEntity> *)  Navigations;
+      {
+        _Navigations =  Navigations;
+        [self valueChanged:Navigations forProperty:@"Navigations"];
+      }
+    
+    - (void)setItems:(NSMutableArray<MSSampleContainerItem> *)  Items;
+      {
+        _Items =  Items;
+        [self valueChanged:Items forProperty:@"Items"];
+      }
+    @end
