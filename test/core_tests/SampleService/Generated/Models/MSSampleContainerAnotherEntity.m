@@ -28,7 +28,6 @@
     if (self = [super init]) {
         
         _odataType = @"#Microsoft.SampleService.AnotherEntity";
-        [self valueChanged:_odataType forProperty:@"_odataType"];
     }
     
     return self;
