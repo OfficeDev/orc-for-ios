@@ -120,7 +120,7 @@
         if([property isComplexType]){
             if([property isString] || [property isNumber]){
                 NSString * name = [self getMetadataKey:property.Name];
-                NSString * value = [object valueForKey:property.Name];
+                NSString * value = [object valueForKey:property.getPrivateKey];
                 
                 BOOL isNil= [value isKindOfClass:NSNull.class];
                 
@@ -133,7 +133,7 @@
             }
             else if([property isDate]){
                 
-                NSDate* value = [object valueForKey:property.Name];
+                NSDate* value = [object valueForKey:property.getPrivateKey];
                 
                 if(![value isKindOfClass:NSNull.class] && value != nil){
                     
@@ -158,7 +158,7 @@
             }
             else if([property isCollection]){
                 
-                NSArray * array = [object valueForKey:property.Name];
+                NSArray * array = [object valueForKey:property.getPrivateKey];
                 
                 if([array count]>0){
                     
@@ -184,7 +184,7 @@
                 }
             }
             else if([property isNSData]){
-                NSData* value = [object valueForKey:property.Name];
+                NSData* value = [object valueForKey:property.getPrivateKey];
                 if(value != nil){
                     [self.jsonResult appendFormat:@"\"%@\" : \"%@\",", property.Name, [value base64EncodedStringWithOptions:0]];
                 }
@@ -193,7 +193,7 @@
                 
             }
             else{
-                id complexType = [object valueForKey:property.Name];
+                id complexType = [object valueForKey:property.getPrivateKey];
                 
                 if(complexType != nil && [self propertiesAreNotNull:complexType : NSClassFromString(property.SubStringType)]){
                     
@@ -214,7 +214,7 @@
                 NSString * result;
                 
                 if(property.isBoolean){
-                    NSInteger value = [[object valueForKey:property.Name] integerValue];
+                    NSInteger value = [[object valueForKey:property.getPrivateKey] integerValue];
                     
                     result = value ? @"true" : @"false";
                     if(result != nil){
@@ -222,13 +222,13 @@
                     }
                 }
                 else if(property.isEnum) {
-                    result = [object valueForKey:property.Name];
+                    result = [object valueForKey:property.getPrivateKey];
                     if(result != nil){
                         [self.jsonResult appendFormat:@"\"%@\" : \"%@\",", property.Name, result];
                     }
                 }
                 else {
-                    result = [object valueForKey:property.Name];
+                    result = [object valueForKey:property.getPrivateKey];
                     if(result != nil){
                         [self.jsonResult appendFormat:@"\"%@\" : %@,", property.Name, result];
                     }
@@ -319,7 +319,8 @@
             
             Property * property = [[Property alloc]initWith:properties[i]];
             
-            [result addObject:property];
+            if(property != nil)
+                [result addObject:property];
         }
         
         free(properties);
@@ -339,7 +340,7 @@
                 NSString* value = [data valueForKey:name];
                 
                 if(![value isKindOfClass:NSNull.class] && value != nil)
-                    [returnType setValue:value forKeyPath:name];
+                    [returnType setValue:value forKeyPath:property.getPrivateKey];
             }
             @catch (NSException *exception) {
                 NSLog(@"Warning: could not parse property '%@'", property.Name);
@@ -351,7 +352,7 @@
         }
         else if([property isNumber]){
             NSString* value = [data valueForKeyPath:property.Name];
-            [returnType setInteger:[value integerValue] forKey:property.Name];
+            [returnType setInteger:[value integerValue] forKey:property.getPrivateKey];
         }
         else if([property isDate]){
             
@@ -363,7 +364,7 @@
                     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssz"];
                     
                     NSDate *date = [dateFormatter dateFromString:value];
-                    [returnType setValue:date forKeyPath:property.Name];
+                    [returnType setValue:date forKeyPath:property.getPrivateKey];
                 }
                 @catch (NSException *exception) {
                     NSLog(@"Warning: could not parse property '%@'", property.Name);
@@ -380,7 +381,7 @@
                 
                 NSData *value = [[NSData alloc] initWithBase64EncodedString:content options:0];
                 
-                [returnType setValue:value forKeyPath:property.Name];
+                [returnType setValue:value forKeyPath:property.getPrivateKey];
             }
         }
         else if([property isStream]){
@@ -416,7 +417,7 @@
 #pragma clang diagnostic pop
         }
         else{
-            [returnType setValue:value forKeyPath:property.Name];
+            [returnType setValue:value forKeyPath:property.getPrivateKey];
         }
         
     }
@@ -462,7 +463,7 @@
         }
         
         if([returnData count] >0)
-            [returnType setValue:returnData forKeyPath:property.Name];
+            [returnType setValue:returnData forKeyPath:property.getPrivateKey];
         
         
     }
@@ -481,7 +482,7 @@
             if([self propertiesAreNotNull:entity :type]){
                 
                 [returnData addObject:entity];
-                [returnType setValue:returnData forKeyPath:property.Name];
+                [returnType setValue:returnData forKeyPath:property.getPrivateKey];
             }
         }
     }
@@ -498,7 +499,7 @@
     for (Property* property in properties) {
         
         NSString * name = [self getMetadataKey:property.Name];
-        NSString * value = [complexType valueForKey:property.Name];
+        NSString * value = [complexType valueForKey:property.getPrivateKey];
         
         BOOL isNil= [value isKindOfClass:NSNull.class];
         
@@ -518,7 +519,7 @@
         NSString* value = [data valueForKeyPath:property.Name];
         
         if(value != nil){
-            [returnType setValue:value forKeyPath:property.Name];
+            [returnType setValue:value forKeyPath:property.getPrivateKey];
         }
     }
     else{
@@ -534,7 +535,7 @@
                 [self setValueFor:property Data:newData Return:entity];
             }
             
-            [returnType setValue:entity forKeyPath:property.Name];
+            [returnType setValue:entity forKeyPath:property.getPrivateKey];
         }
     }
 }

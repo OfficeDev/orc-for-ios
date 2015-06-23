@@ -9,21 +9,22 @@
 
 @interface MSOrcBaseEntity()
 
-@property (retain, nonatomic, readonly) NSDictionary *parent;
 
 @end
 
 @implementation MSOrcBaseEntity
 
+//NSMutableDictionary *_updatedValues;
+
 @synthesize odataType = _odataType;
-@synthesize parent = _parent;
-@synthesize updatedValues = _updatedValues;
+
+//@synthesize updatedValues = _updatedValues;
 
 - (instancetype)init {
-
+    
     if (self = [super init]) {
         
-        _updatedValues = [[NSMutableDictionary alloc] init];
+        _$$$_$$$updatedValues = [[NSMutableDictionary alloc] init];
     }
     
     return self;
@@ -36,22 +37,22 @@
 }
 
 - (void)setParent:(MSOrcBaseEntity *)parent forProperty:(NSString *)propertyName {
-    _parent = [NSDictionary dictionaryWithObject:parent forKey:propertyName];
+    _$$$_$$$parent = [NSDictionary dictionaryWithObject:parent forKey:propertyName];
 }
 
 - (void)valueChanged:(NSObject *)value forProperty:(NSString *)property{
     
-    [_updatedValues setValue:value forKey:property];
+    [_$$$_$$$updatedValues setValue:value forKey:property];
     
-    if (_parent != nil) {
-        NSString *referenceProperty = [_parent.allKeys objectAtIndex:0];
-        [[_parent objectForKey:referenceProperty] valueChanged:self forProperty:referenceProperty];
+    if (_$$$_$$$parent != nil) {
+        NSString *referenceProperty = [_$$$_$$$parent.allKeys objectAtIndex:0];
+        [[_$$$_$$$parent objectForKey:referenceProperty] valueChanged:self forProperty:referenceProperty];
     }
 }
 
 - (NSMutableDictionary *)getUpdatedValues {
     
-    return _updatedValues;
+    return _$$$_$$$updatedValues;
 }
 
 @end

@@ -49,7 +49,7 @@
 
     id entity = [self.parser parseWithData:serializedObject forType:theClass selector:nil];
     
-    [self referenceParents:entity parent:nil :nil ];
+    [self referenceParents:entity parent:nil referencePropery:nil];
     
     return entity;
 }
@@ -67,7 +67,8 @@
     return [self.parser dictionaryToJsonString:dictionary];
 }
 
-- (void) referenceParents: (NSObject*) objToAnalyze parent: (id) theParent : (NSString*) referencePropery{
+- (void) referenceParents:(NSObject *)objToAnalyze parent:(id)theParent referencePropery:(NSString*)referencePropery{
+    
     if(objToAnalyze == nil){
         return;
     }
@@ -75,13 +76,14 @@
     if([objToAnalyze isMemberOfClass:[ MSOrcParentReferencedList class]]){
         MSOrcParentReferencedList *list = (MSOrcParentReferencedList*) objToAnalyze;
         for(NSObject *subObject in list){
-            [self referenceParents:subObject parent:theParent :referencePropery];
+            [self referenceParents:subObject parent:theParent referencePropery:referencePropery];
         }
     }
     if([objToAnalyze isMemberOfClass:[ NSMutableArray class]]){
         NSMutableArray *list = (NSMutableArray*) objToAnalyze;
+        
         for(NSObject *subObject in list){
-            [self referenceParents:subObject parent:theParent :referencePropery];
+            [self referenceParents:subObject parent:theParent referencePropery:referencePropery];
         }
     }else if([objToAnalyze isKindOfClass:[MSOrcBaseEntity class]])
     {
@@ -94,19 +96,19 @@
         NSArray *properties = [self getPropertiesFor:[objToAnalyze class]];
         
         for (Property* property in properties) {
-            NSObject *value = [objToAnalyze valueForKey:property.Name];
-            if([value isKindOfClass:[NSMutableArray class]] && ![value isMemberOfClass:[ MSOrcParentReferencedList class]]){
-                MSOrcParentReferencedList *wrappedList = [[MSOrcParentReferencedList alloc] initWithOriginalEntity:(NSMutableArray*)value andParent:entity andReferencePropery:property.Name];
-                [entity setValue:wrappedList forKey:property.Name];
-                [self referenceParents:wrappedList parent:wrappedList :nil];
+            NSObject *value = [objToAnalyze valueForKey:property.getPrivateKey];
+            
+            if ([value isKindOfClass:[NSMutableArray class]] && ![value isMemberOfClass:[ MSOrcParentReferencedList class]]){
+                MSOrcParentReferencedList *wrappedList = [[MSOrcParentReferencedList alloc] initWithOriginalEntity:(NSArray *)value andParent:entity andReferencePropery:property.Name];
+                [entity setValue:wrappedList forKey:property.getPrivateKey];
+                [self referenceParents:wrappedList parent:wrappedList referencePropery:nil];
                 
-            }else{
+            }
+            else {
 
-                [self referenceParents:value parent:entity :property.Name];
+                [self referenceParents:value parent:entity referencePropery:property.Name];
             }
         }
-        
-            
     }
 }
 
@@ -123,7 +125,8 @@
             
             Property * property = [[Property alloc]initWith:properties[i]];
             
-            [result addObject:property];
+            if (property != nil)
+                [result addObject:property];
         }
         
         free(properties);
@@ -133,10 +136,4 @@
     return result;
 }
 
-
-//referenceParent method
-
-// ParentReferendecList class
-
 @end
-

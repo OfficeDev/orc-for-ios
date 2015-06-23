@@ -10,10 +10,14 @@
 @interface MSOrcBaseEntity : NSObject
 
 @property (retain, nonatomic, readonly) NSString *odataType;
-@property (retain, nonatomic, readonly, getter=getUpdatedValues) NSMutableDictionary *updatedValues;
+
+/* $$$_$$$ char for not beeing serialized and prevent naming colision */
+
+@property (retain, nonatomic, readonly) NSDictionary *$$$_$$$parent;
+@property (retain, nonatomic, readonly) NSMutableDictionary *$$$_$$$updatedValues;
 
 - (void)setParent:(MSOrcBaseEntity *)parent forProperty:(NSString *)propertyName;
 - (void)valueChanged:(NSObject *)value forProperty:(NSString *)property;
 - (NSMutableDictionary *)getUpdatedValues;
-
+- (NSMutableDictionary *)getUpdatedValues;
 @end

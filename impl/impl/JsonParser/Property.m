@@ -17,6 +17,8 @@
     self.Type = [attributes objectAtIndex:0];
     self.Name = [NSString  stringWithCString:property_getName(property) encoding:NSUTF8StringEncoding];
     
+    if([self.Name containsString:@"$$$_$$$"]) return nil;
+    
     if ([self isComplexType]) {
         self.SubStringType = [self.Type substringWithRange:NSMakeRange(3, [self.Type length] -4)];
     }
@@ -57,7 +59,7 @@
     [self.SubStringType hasPrefix:@"NSDictionary"];
 }
 
--(NSString*)getCollectionEntity{
+- (NSString *)getCollectionEntity{
     
     if ([self.SubStringType hasSuffix:@">"]) {
         NSArray *attributes = [self.SubStringType componentsSeparatedByString:@"<"];
@@ -69,8 +71,12 @@
     }
 }
 
--(bool)isComplexType{
+- (bool)isComplexType{
     return [self.Type hasPrefix:@"T@"];
+}
+
+- (NSString *)getPrivateKey {
+    return [NSString stringWithFormat:@"_%@%@", [[self.Name substringToIndex:1] lowercaseString], [self.Name substringFromIndex:1]];
 }
 
 @end

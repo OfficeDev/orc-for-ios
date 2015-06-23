@@ -21,7 +21,7 @@
 @implementation MSSampleContainerAnotherEntity
 
 @synthesize odataType = _odataType;
-@synthesize SomeString = _SomeString;
+@synthesize SomeString = _someString;
 
 - (instancetype)init {
     
@@ -36,13 +36,13 @@
 
 - (void)setSomeString:(NSString *)  SomeString;
 {
-    _SomeString =  SomeString;
+    _someString =  SomeString;
     [self valueChanged:SomeString forProperty:@"SomeString"];
 }
 
 - (void)set:(NSString *)  SomeString;
 {
-    _SomeString =  SomeString;
+    _someString =  SomeString;
     [self valueChanged:SomeString forProperty:@"SomeString"];
 }
 

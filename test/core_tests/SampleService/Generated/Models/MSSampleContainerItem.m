@@ -21,7 +21,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @implementation MSSampleContainerItem	
 
 @synthesize odataType = _odataType;
-@synthesize ItemName = _ItemName;
+@synthesize ItemName = _itemName;
 
 - (instancetype)init {
 
@@ -36,7 +36,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
     - (void)setItemName:(NSString *)  ItemName;
       {
-        _ItemName =  ItemName;
+        _itemName =  ItemName;
         [self valueChanged:ItemName forProperty:@"ItemName"];
       }
     @end
