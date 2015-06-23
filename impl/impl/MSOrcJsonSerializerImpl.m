@@ -73,19 +73,24 @@
         return;
     }
     
-    if([objToAnalyze isMemberOfClass:[ MSOrcParentReferencedList class]]){
-        MSOrcParentReferencedList *list = (MSOrcParentReferencedList*) objToAnalyze;
-        for(NSObject *subObject in list){
+    if ([objToAnalyze isMemberOfClass:[MSOrcParentReferencedArray class]]) {
+        
+        MSOrcParentReferencedArray *list = (MSOrcParentReferencedArray *)objToAnalyze;
+        
+        for (NSObject *subObject in [list array]) {
+            
+            [self referenceParents:subObject parent:theParent referencePropery:referencePropery];
+        }
+    }else if ([objToAnalyze isMemberOfClass:[ NSMutableArray class]]) {
+        
+        NSMutableArray *list = (NSMutableArray *) objToAnalyze;
+        
+        for (NSObject *subObject in list) {
+            
             [self referenceParents:subObject parent:theParent referencePropery:referencePropery];
         }
     }
-    if([objToAnalyze isMemberOfClass:[ NSMutableArray class]]){
-        NSMutableArray *list = (NSMutableArray*) objToAnalyze;
-        
-        for(NSObject *subObject in list){
-            [self referenceParents:subObject parent:theParent referencePropery:referencePropery];
-        }
-    }else if([objToAnalyze isKindOfClass:[MSOrcBaseEntity class]])
+    else if([objToAnalyze isKindOfClass:[MSOrcBaseEntity class]])
     {
         MSOrcBaseEntity *entity = (MSOrcBaseEntity*) objToAnalyze;
         
@@ -98,10 +103,11 @@
         for (Property* property in properties) {
             NSObject *value = [objToAnalyze valueForKey:property.getPrivateKey];
             
-            if ([value isKindOfClass:[NSMutableArray class]] && ![value isMemberOfClass:[ MSOrcParentReferencedList class]]){
-                MSOrcParentReferencedList *wrappedList = [[MSOrcParentReferencedList alloc] initWithOriginalEntity:(NSArray *)value andParent:entity andReferencePropery:property.Name];
+            if ([value isKindOfClass:[NSMutableArray class]] && ![value isMemberOfClass:[ MSOrcParentReferencedArray class]]){
+                MSOrcParentReferencedArray *wrappedList = [[MSOrcParentReferencedArray alloc] initWithOriginalEntity:(NSMutableArray *)value andParent:entity andReferencePropery:property.Name];
                 [entity setValue:wrappedList forKey:property.getPrivateKey];
-                [self referenceParents:wrappedList parent:wrappedList referencePropery:nil];
+                
+                [self referenceParents:wrappedList parent:wrappedList referencePropery:property.Name];
                 
             }
             else {
