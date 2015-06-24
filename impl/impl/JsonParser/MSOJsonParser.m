@@ -100,6 +100,10 @@
 
             [jsonResult appendFormat:@"\"%@\" : \"%@\",",key, object];
         }
+        else if([object isKindOfClass:NSClassFromString(@"MSOrcParentReferencedArray")]) {
+
+            [jsonResult appendFormat:@"\"%@\" : %@,",key, [self toJsonStringValue:[object array]]];
+        }
         else{
             [jsonResult appendFormat:@"\"%@\" : %@,", key, [self toJsonString:object]];
         }
@@ -111,12 +115,50 @@
     return jsonResult;
 }
 
+//TODO: Future Refactor
+- (NSString *)toJsonStringValue:(id)object{
+
+    self.jsonResult  = [NSMutableString string];
+    
+    if ([object isKindOfClass:[NSString class]]) {
+        //TODO: Future Refactor
+    }
+    else if ([object isKindOfClass:[NSArray class]]){
+        
+        if([object count] > 0){
+            
+            [self.jsonResult  appendString:@"["];
+             
+            for (NSObject* element in object) {
+                
+                [self.jsonResult appendString:@"{"];
+                self.jsonResult = [self getString:element];
+                
+                NSString *subString = [self.jsonResult substringWithRange:NSMakeRange(0, [self.jsonResult length] -1)];
+                __strong NSMutableString * result =  [[NSMutableString alloc] initWithString:subString];
+                
+                self.jsonResult = result;
+                
+                [self.jsonResult appendString:@"},"];
+            }
+            
+            NSString *subString = [self.jsonResult substringWithRange:NSMakeRange(0, [self.jsonResult length] -1)];
+            NSMutableString * result =  [[NSMutableString alloc] initWithString:subString];
+            self.jsonResult = result;
+            
+            [self.jsonResult appendString:@"]"];
+        }
+    }
+    
+    return self.jsonResult;
+}
+
 -(NSMutableString *)getString : (id)object{
     
     NSArray*properties = [self getPropertiesFor:[object class]];
     
     for (Property* property in properties) {
-        if([property isComplexType]){
+        if([property isComplexType] || [object isKindOfClass:[NSObject class]]){
             if([property isString] || [property isNumber]){
                 NSString * name = [self getMetadataKey:property.Name];
                 NSString * value = [object valueForKey:property.getPrivateKey];
@@ -155,11 +197,12 @@
                     }
                 }
             }
-            else if([property isCollection]){
+            else if([property isCollection] || [property isCustomArray]){
                 
-                NSArray * array = [object valueForKey:property.getPrivateKey];
+                NSArray * array = [property isCustomArray] ? [[object valueForKey:property.getPrivateKey] array]
+                                                           :[object valueForKey:property.getPrivateKey];
                 
-                if([array count]>0){
+                if([array count] > 0){
                     
                     [self.jsonResult appendFormat:@"\"%@\" : [", property.Name];
                     

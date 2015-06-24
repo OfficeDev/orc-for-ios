@@ -75,4 +75,8 @@
     return self.theArray;
 }
 
+- (NSUInteger)count{
+    return self.theArray.count;
+}
+
 @end

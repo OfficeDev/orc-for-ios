@@ -45,8 +45,9 @@
     [_$$$_$$$updatedValues setValue:value forKey:property];
     
     if (_$$$_$$$parent != nil) {
+        __strong id sSelf = self;
         NSString *referenceProperty = [_$$$_$$$parent.allKeys objectAtIndex:0];
-        [[_$$$_$$$parent objectForKey:referenceProperty] valueChanged:self forProperty:referenceProperty];
+        [[_$$$_$$$parent objectForKey:referenceProperty] valueChanged:sSelf forProperty:referenceProperty];
     }
 }
 

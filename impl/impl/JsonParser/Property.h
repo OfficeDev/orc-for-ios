@@ -25,5 +25,6 @@
 - (bool)isBoolean;
 - (bool)isEnum;
 - (bool)isStream;
+- (bool)isCustomArray;
 - (NSString *)getPrivateKey;
 @end

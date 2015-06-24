@@ -59,6 +59,10 @@
     [self.SubStringType hasPrefix:@"NSDictionary"];
 }
 
+-(bool)isCustomArray {
+    return [self.SubStringType hasPrefix:@"MSOrcParentReferencedArray"];
+}
+
 - (NSString *)getCollectionEntity{
     
     if ([self.SubStringType hasSuffix:@">"]) {
