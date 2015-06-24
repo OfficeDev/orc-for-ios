@@ -101,8 +101,7 @@
             [jsonResult appendFormat:@"\"%@\" : \"%@\",",key, object];
         }
         else{
-            [jsonResult appendString:[self toJsonString:object]];
-            [jsonResult appendString:@","];
+            [jsonResult appendFormat:@"\"%@\" : %@,", key, [self toJsonString:object]];
         }
     }
     
