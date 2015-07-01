@@ -51,6 +51,28 @@
     }
 }
 
+- (void)valueChangedForBool:(BOOL)value forProperty:(NSString *)property{
+    
+    [_$$$_$$$updatedValues setValue:[NSNumber numberWithBool:value] forKey:property];
+    
+    if (_$$$_$$$parent != nil) {
+        __strong id sSelf = self;
+        NSString *referenceProperty = [_$$$_$$$parent.allKeys objectAtIndex:0];
+        [[_$$$_$$$parent objectForKey:referenceProperty] valueChanged:sSelf forProperty:referenceProperty];
+    }
+}
+
+- (void)valueChangedForInt:(int)value forProperty:(NSString *)property{
+    
+    [_$$$_$$$updatedValues setValue:[NSNumber numberWithInt:value] forKey:property];
+    
+    if (_$$$_$$$parent != nil) {
+        __strong id sSelf = self;
+        NSString *referenceProperty = [_$$$_$$$parent.allKeys objectAtIndex:0];
+        [[_$$$_$$$parent objectForKey:referenceProperty] valueChanged:sSelf forProperty:referenceProperty];
+    }
+}
+
 - (NSMutableDictionary *)getUpdatedValues {
     
     return _$$$_$$$updatedValues;

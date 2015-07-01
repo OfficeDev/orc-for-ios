@@ -19,5 +19,7 @@
 - (void)setParent:(MSOrcBaseEntity *)parent forProperty:(NSString *)propertyName;
 - (void)valueChanged:(NSObject *)value forProperty:(NSString *)property;
 - (NSMutableDictionary *)getUpdatedValues;
-- (NSMutableDictionary *)getUpdatedValues;
+- (void)valueChangedForBool:(BOOL)value forProperty:(NSString *)property;
+- (void)valueChangedForInt:(int)value forProperty:(NSString *)property;
+
 @end
