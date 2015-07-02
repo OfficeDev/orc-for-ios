@@ -97,12 +97,16 @@
         
         if([object isKindOfClass:[NSNumber class]] || [object isKindOfClass:[NSString class]])
         {
-
+            
             [jsonResult appendFormat:@"\"%@\" : \"%@\",",key, object];
         }
         else if([object isKindOfClass:NSClassFromString(@"MSOrcParentReferencedArray")]) {
-
+            
             [jsonResult appendFormat:@"\"%@\" : %@,",key, [self toJsonStringValue:[object array]]];
+        }
+        else if([object isKindOfClass:[NSArray class]]) {
+            
+            [jsonResult appendFormat:@"\"%@\" : %@,",key, [self toJsonStringValue:object ]];
         }
         else{
             [jsonResult appendFormat:@"\"%@\" : %@,", key, [self toJsonString:object]];
@@ -117,7 +121,7 @@
 
 //TODO: Future Refactor
 - (NSString *)toJsonStringValue:(id)object{
-
+    
     self.jsonResult  = [NSMutableString string];
     
     if ([object isKindOfClass:[NSString class]]) {
@@ -128,7 +132,7 @@
         if([object count] > 0){
             
             [self.jsonResult  appendString:@"["];
-             
+            
             for (NSObject* element in object) {
                 
                 [self.jsonResult appendString:@"{"];
@@ -200,7 +204,7 @@
             else if([property isCollection] || [property isCustomArray]){
                 
                 NSArray * array = [property isCustomArray] ? [[object valueForKey:property.getPrivateKey] array]
-                                                           :[object valueForKey:property.getPrivateKey];
+                :[object valueForKey:property.getPrivateKey];
                 
                 if([array count] > 0){
                     
