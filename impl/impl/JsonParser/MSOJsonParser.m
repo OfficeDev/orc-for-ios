@@ -87,25 +87,98 @@
     return [self toJsonString:object];
 }
 
+-(NSString *)dictionaryToJsonString:(NSDictionary *)dictionary {
+    
+    NSMutableString *jsonResult = [NSMutableString stringWithString:@"{"];
+    
+    for (NSString *key in dictionary.allKeys) {
+        
+        id object = [dictionary objectForKey:key];
+        
+        if([object isKindOfClass:[NSNumber class]] || [object isKindOfClass:[NSString class]])
+        {
+            
+            [jsonResult appendFormat:@"\"%@\" : \"%@\",",key, object];
+        }
+        else if([object isKindOfClass:NSClassFromString(@"MSOrcParentReferencedArray")]) {
+            
+            [jsonResult appendFormat:@"\"%@\" : %@,",key, [self toJsonStringValue:[object array]]];
+        }
+        else if([object isKindOfClass:[NSArray class]]) {
+            
+            [jsonResult appendFormat:@"\"%@\" : %@,",key, [self toJsonStringValue:object ]];
+        }
+        else{
+            [jsonResult appendFormat:@"\"%@\" : %@,", key, [self toJsonString:object]];
+        }
+    }
+    
+    [jsonResult replaceCharactersInRange:NSMakeRange(jsonResult.length-1, 1) withString:@""];
+    [jsonResult appendString:@"}"];
+    
+    return jsonResult;
+}
+
+//TODO: Future Refactor
+- (NSString *)toJsonStringValue:(id)object{
+    
+    self.jsonResult  = [NSMutableString string];
+    
+    if ([object isKindOfClass:[NSString class]]) {
+        //TODO: Future Refactor
+    }
+    else if ([object isKindOfClass:[NSArray class]]){
+        
+        if([object count] > 0){
+            
+            [self.jsonResult  appendString:@"["];
+            
+            for (NSObject* element in object) {
+                
+                [self.jsonResult appendString:@"{"];
+                self.jsonResult = [self getString:element];
+                
+                NSString *subString = [self.jsonResult substringWithRange:NSMakeRange(0, [self.jsonResult length] -1)];
+                __strong NSMutableString * result =  [[NSMutableString alloc] initWithString:subString];
+                
+                self.jsonResult = result;
+                
+                [self.jsonResult appendString:@"},"];
+            }
+            
+            NSString *subString = [self.jsonResult substringWithRange:NSMakeRange(0, [self.jsonResult length] -1)];
+            NSMutableString * result =  [[NSMutableString alloc] initWithString:subString];
+            self.jsonResult = result;
+            
+            [self.jsonResult appendString:@"]"];
+        }
+    }
+    
+    return self.jsonResult;
+}
+
 -(NSMutableString *)getString : (id)object{
     
     NSArray*properties = [self getPropertiesFor:[object class]];
     
     for (Property* property in properties) {
-        if([property isComplexType]){
+        if([property isComplexType] || [object isKindOfClass:[NSObject class]]){
             if([property isString] || [property isNumber]){
                 NSString * name = [self getMetadataKey:property.Name];
-                NSString * value = [object valueForKey:property.Name];
+                NSString * value = [object valueForKey:property.getPrivateKey];
                 
                 BOOL isNil= [value isKindOfClass:NSNull.class];
                 
                 if(!isNil && value != nil){
-                    [self.jsonResult appendFormat:@"\"%@\" : \"%@\",", name, value];
+                    if([value containsString:@"\""]){
+                        value = [value stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
+                    }
+                    [self.jsonResult appendString:[NSString stringWithFormat:@"\"%@\" : \"%@\",", name, value]];
                 }
             }
             else if([property isDate]){
                 
-                NSDate* value = [object valueForKey:property.Name];
+                NSDate* value = [object valueForKey:property.getPrivateKey];
                 
                 if(![value isKindOfClass:NSNull.class] && value != nil){
                     
@@ -128,11 +201,12 @@
                     }
                 }
             }
-            else if([property isCollection]){
+            else if([property isCollection] || [property isCustomArray]){
                 
-                NSArray * array = [object valueForKey:property.Name];
+                NSArray * array = [property isCustomArray] ? [[object valueForKey:property.getPrivateKey] array]
+                :[object valueForKey:property.getPrivateKey];
                 
-                if([array count]>0){
+                if([array count] > 0){
                     
                     [self.jsonResult appendFormat:@"\"%@\" : [", property.Name];
                     
@@ -156,7 +230,7 @@
                 }
             }
             else if([property isNSData]){
-                NSData* value = [object valueForKey:property.Name];
+                NSData* value = [object valueForKey:property.getPrivateKey];
                 if(value != nil){
                     [self.jsonResult appendFormat:@"\"%@\" : \"%@\",", property.Name, [value base64EncodedStringWithOptions:0]];
                 }
@@ -165,7 +239,7 @@
                 
             }
             else{
-                id complexType = [object valueForKey:property.Name];
+                id complexType = [object valueForKey:property.getPrivateKey];
                 
                 if(complexType != nil && [self propertiesAreNotNull:complexType : NSClassFromString(property.SubStringType)]){
                     
@@ -186,7 +260,7 @@
                 NSString * result;
                 
                 if(property.isBoolean){
-                    NSInteger value = [[object valueForKey:property.Name] integerValue];
+                    NSInteger value = [[object valueForKey:property.getPrivateKey] integerValue];
                     
                     result = value ? @"true" : @"false";
                     if(result != nil){
@@ -194,13 +268,13 @@
                     }
                 }
                 else if(property.isEnum) {
-                    result = [object valueForKey:property.Name];
+                    result = [object valueForKey:property.getPrivateKey];
                     if(result != nil){
                         [self.jsonResult appendFormat:@"\"%@\" : \"%@\",", property.Name, result];
                     }
                 }
                 else {
-                    result = [object valueForKey:property.Name];
+                    result = [object valueForKey:property.getPrivateKey];
                     if(result != nil){
                         [self.jsonResult appendFormat:@"\"%@\" : %@,", property.Name, result];
                     }
@@ -291,7 +365,8 @@
             
             Property * property = [[Property alloc]initWith:properties[i]];
             
-            [result addObject:property];
+            if(property != nil)
+                [result addObject:property];
         }
         
         free(properties);
@@ -311,7 +386,7 @@
                 NSString* value = [data valueForKey:name];
                 
                 if(![value isKindOfClass:NSNull.class] && value != nil)
-                    [returnType setValue:value forKeyPath:name];
+                    [returnType setValue:value forKeyPath:property.getPrivateKey];
             }
             @catch (NSException *exception) {
                 NSLog(@"Warning: could not parse property '%@'", property.Name);
@@ -323,7 +398,7 @@
         }
         else if([property isNumber]){
             NSString* value = [data valueForKeyPath:property.Name];
-            [returnType setInteger:[value integerValue] forKey:property.Name];
+            [returnType setInteger:[value integerValue] forKey:property.getPrivateKey];
         }
         else if([property isDate]){
             
@@ -335,7 +410,7 @@
                     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssz"];
                     
                     NSDate *date = [dateFormatter dateFromString:value];
-                    [returnType setValue:date forKeyPath:property.Name];
+                    [returnType setValue:date forKeyPath:property.getPrivateKey];
                 }
                 @catch (NSException *exception) {
                     NSLog(@"Warning: could not parse property '%@'", property.Name);
@@ -352,7 +427,7 @@
                 
                 NSData *value = [[NSData alloc] initWithBase64EncodedString:content options:0];
                 
-                [returnType setValue:value forKeyPath:property.Name];
+                [returnType setValue:value forKeyPath:property.getPrivateKey];
             }
         }
         else if([property isStream]){
@@ -388,7 +463,7 @@
 #pragma clang diagnostic pop
         }
         else{
-            [returnType setValue:value forKeyPath:property.Name];
+            [returnType setValue:value forKeyPath:property.getPrivateKey];
         }
         
     }
@@ -434,7 +509,7 @@
         }
         
         if([returnData count] >0)
-            [returnType setValue:returnData forKeyPath:property.Name];
+            [returnType setValue:returnData forKeyPath:property.getPrivateKey];
         
         
     }
@@ -453,7 +528,7 @@
             if([self propertiesAreNotNull:entity :type]){
                 
                 [returnData addObject:entity];
-                [returnType setValue:returnData forKeyPath:property.Name];
+                [returnType setValue:returnData forKeyPath:property.getPrivateKey];
             }
         }
     }
@@ -470,7 +545,7 @@
     for (Property* property in properties) {
         
         NSString * name = [self getMetadataKey:property.Name];
-        NSString * value = [complexType valueForKey:property.Name];
+        NSString * value = [complexType valueForKey:property.getPrivateKey];
         
         BOOL isNil= [value isKindOfClass:NSNull.class];
         
@@ -490,7 +565,7 @@
         NSString* value = [data valueForKeyPath:property.Name];
         
         if(value != nil){
-            [returnType setValue:value forKeyPath:property.Name];
+            [returnType setValue:value forKeyPath:property.getPrivateKey];
         }
     }
     else{
@@ -506,7 +581,7 @@
                 [self setValueFor:property Data:newData Return:entity];
             }
             
-            [returnType setValue:entity forKeyPath:property.Name];
+            [returnType setValue:entity forKeyPath:property.getPrivateKey];
         }
     }
 }

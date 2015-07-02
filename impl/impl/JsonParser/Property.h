@@ -9,19 +9,22 @@
 #import <objc/runtime.h>
 
 @interface Property : NSObject
+
 @property NSString *Type;
 @property NSString *SubStringType;
 @property NSString *Name;
 
--(id)initWith : (objc_property_t)property;
--(bool)isString;
--(bool)isDate;
--(bool)isNSData;
--(bool)isCollection;
--(bool)isComplexType;
--(NSString*)getCollectionEntity;
--(bool)isNumber;
--(bool)isBoolean;
--(bool)isEnum;
--(bool)isStream;
+- (id)initWith : (objc_property_t)property;
+- (bool)isString;
+- (bool)isDate;
+- (bool)isNSData;
+- (bool)isCollection;
+- (bool)isComplexType;
+- (NSString*)getCollectionEntity;
+- (bool)isNumber;
+- (bool)isBoolean;
+- (bool)isEnum;
+- (bool)isStream;
+- (bool)isCustomArray;
+- (NSString *)getPrivateKey;
 @end

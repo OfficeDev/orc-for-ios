@@ -41,6 +41,8 @@
 		2661BCFC1B0E3BC900B7D8E9 /* api.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2661BCFB1B0E3BC900B7D8E9 /* api.framework */; };
 		2661BCFE1B0E3BF400B7D8E9 /* core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2661BCFD1B0E3BF400B7D8E9 /* core.framework */; };
 		5A3EC114DCAE3517454EB7B5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DCB9C08F043B0EFF1D4ACD6 /* libPods.a */; };
+		EC8ECE8E1B39E5C900C93919 /* MSOrcParentReferencedArray.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8ECE8C1B39E5C900C93919 /* MSOrcParentReferencedArray.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC8ECE8F1B39E5C900C93919 /* MSOrcParentReferencedArray.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8ECE8D1B39E5C900C93919 /* MSOrcParentReferencedArray.m */; };
 		ECDB43B31AFA5C45000B0781 /* impl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECDB43A71AFA5C45000B0781 /* impl.framework */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +92,8 @@
 		3DCB9C08F043B0EFF1D4ACD6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6D8E955022E9C85611DFA4E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E4B55BF3315F191BB3A02691 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		EC8ECE8C1B39E5C900C93919 /* MSOrcParentReferencedArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSOrcParentReferencedArray.h; path = impl/MSOrcParentReferencedArray.h; sourceTree = SOURCE_ROOT; };
+		EC8ECE8D1B39E5C900C93919 /* MSOrcParentReferencedArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSOrcParentReferencedArray.m; path = impl/MSOrcParentReferencedArray.m; sourceTree = SOURCE_ROOT; };
 		ECDB43A71AFA5C45000B0781 /* impl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = impl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECDB43AB1AFA5C45000B0781 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = impl/Info.plist; sourceTree = "<group>"; };
 		ECDB43B21AFA5C45000B0781 /* implTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = implTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -173,6 +177,8 @@
 		ECDB43A91AFA5C45000B0781 /* impl */ = {
 			isa = PBXGroup;
 			children = (
+				EC8ECE8C1B39E5C900C93919 /* MSOrcParentReferencedArray.h */,
+				EC8ECE8D1B39E5C900C93919 /* MSOrcParentReferencedArray.m */,
 				2661BCEC1B0E2B4C00B7D8E9 /* impl.h */,
 				2661BCAD1B0E2B2300B7D8E9 /* ADALDependencyResolver.h */,
 				2661BCAE1B0E2B2300B7D8E9 /* ADALDependencyResolver.m */,
@@ -251,6 +257,7 @@
 				2661BCD81B0E2B2300B7D8E9 /* MSOrcDefaultDependencyResolver.h in Headers */,
 				2661BCD01B0E2B2300B7D8E9 /* MSOJsonParser.h in Headers */,
 				2661BCDA1B0E2B2300B7D8E9 /* MSOrcHttpConnection.h in Headers */,
+				EC8ECE8E1B39E5C900C93919 /* MSOrcParentReferencedArray.h in Headers */,
 				2661BCE21B0E2B2300B7D8E9 /* MSOrcRequestImpl.h in Headers */,
 				2661BCD21B0E2B2300B7D8E9 /* Property.h in Headers */,
 			);
@@ -395,6 +402,7 @@
 				2661BCE51B0E2B2300B7D8E9 /* MSOrcResponseImpl.m in Sources */,
 				2661BCDB1B0E2B2300B7D8E9 /* MSOrcHttpConnection.m in Sources */,
 				2661BCD91B0E2B2300B7D8E9 /* MSOrcDefaultDependencyResolver.m in Sources */,
+				EC8ECE8F1B39E5C900C93919 /* MSOrcParentReferencedArray.m in Sources */,
 				2661BCE31B0E2B2300B7D8E9 /* MSOrcRequestImpl.m in Sources */,
 				2661BCCE1B0E2B2300B7D8E9 /* ADALDependencyResolver.m in Sources */,
 				2661BCE91B0E2B2300B7D8E9 /* NSString+NSStringExtensions.m in Sources */,
