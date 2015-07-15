@@ -15,7 +15,6 @@ root for authoritative license information.﻿
 
 
 #import <Foundation/Foundation.h>
-#import "MSSampleContainerProtocols.h"
 #import "MSSampleContainerEntity.h"
 
 /**

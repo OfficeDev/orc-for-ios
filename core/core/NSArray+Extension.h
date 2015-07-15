@@ -7,10 +7,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSArray (NSArrayExtension)
+@interface NSArray(NSArrayExtension)
 
 - (instancetype)initWithCollectionName:(NSString *)name;
-
-- (NSString *)getCollectionName;
 
 @end

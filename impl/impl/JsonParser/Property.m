@@ -6,7 +6,7 @@
  ******************************************************************************/
 
 #import "Property.h"
-
+#import "NSArray+Extension.h"
 @implementation Property
 
 -(id)initWith : (objc_property_t)property{
@@ -25,57 +25,56 @@
     return self;
 }
 
--(bool)isString{
+-(BOOL)isString{
     return [self.SubStringType isEqualToString:@"NSString"];
 }
 
--(bool)isNumber{
+-(BOOL)isNumber{
     return [self.SubStringType isEqualToString:@"NSInteger"];
 }
 
--(bool)isDate{
+-(BOOL)isDate{
     return [self.SubStringType isEqualToString:@"NSDate"];
 }
 
--(bool)isNSData{
+-(BOOL)isNSData{
     return [self.SubStringType isEqualToString:@"NSData"];
 }
 
--(bool)isBoolean{
+-(BOOL)isBoolean{
     return (strcmp([[self.Type substringWithRange:NSMakeRange(1, 1)] cStringUsingEncoding:NSASCIIStringEncoding], @encode(BOOL)) == 0);
 }
 
--(bool)isEnum{
+-(BOOL)isEnum{
     return [self.Type isEqualToString:@"Tq"] || [self.Type isEqualToString:@"Ti"];
 }
 
--(bool)isStream{
+- (BOOL)isStream{
     return [self.SubStringType isEqualToString:@"NSStream"];
 }
 
--(bool)isCollection{
+- (BOOL)isCollection{
     return [self.SubStringType hasPrefix:@"NSMutableArray"] ||
     [self.SubStringType hasPrefix:@"NSArray"] ||
     [self.SubStringType hasPrefix:@"NSDictionary"];
 }
 
--(bool)isCustomArray {
+- (BOOL)isCustomArray {
     return [self.SubStringType hasPrefix:@"MSOrcParentReferencedArray"];
 }
 
-- (NSString *)getCollectionEntity{
+- (NSString *)getCollectionEntity:(id)entity{
     
-    if ([self.SubStringType hasSuffix:@">"]) {
-        NSArray *attributes = [self.SubStringType componentsSeparatedByString:@"<"];
-        NSString* att = [attributes objectAtIndex:attributes.count -1];
-        return [att substringWithRange:NSMakeRange(0, [att length] -1)];
+    if ([self isCollection]) {
+        
+        return objc_getAssociatedObject(entity, NSSelectorFromString(@"typeName"));
     }
     else{
         return nil;
     }
 }
 
-- (bool)isComplexType{
+- (BOOL)isComplexType{
     return [self.Type hasPrefix:@"T@"];
 }
 

@@ -48,7 +48,6 @@
     @finally {
         
     }
-    
 }
 
 /*
@@ -294,7 +293,7 @@
     return self.jsonResult;
 }
 
--(id)parseWithData : (NSData*)data forType : (Class) type selector:(NSArray* )keys{
+- (id)parseWithData:(NSData*)data forType:(Class)type selector:(NSArray *)keys{
     
     @try {
         id parseResult;
@@ -311,7 +310,7 @@
                 jsonResult = [jsonArray valueForKey:key];
             }
             
-            parseResult = [self parseArrayData:jsonResult Type:type];
+            parseResult = [self parseArrayData:jsonResult type:type];
         }
         else{
             parseResult = [self parseObjectData:(NSDictionary*)jsonArray Type:type];
@@ -327,7 +326,6 @@
     @finally {
         
     }
-    
 }
 
 -(id)parseObjectData : (NSDictionary*) data Type:(Class)type{
@@ -341,7 +339,7 @@
     return returnType;
 }
 
--(NSMutableArray*)parseArrayData : (NSArray*) data Type : (Class)type{
+-(NSMutableArray*)parseArrayData:(NSArray *)data type:(Class)type{
     
     self.arrayToReturn = [NSMutableArray array];
     
@@ -352,8 +350,8 @@
     return self.arrayToReturn;
 }
 
--(NSMutableArray*)getPropertiesFor : (Class)type {
-    NSMutableArray* result = [NSMutableArray array];
+- (NSMutableArray *)getPropertiesFor : (Class)type {
+    NSMutableArray *result = [NSMutableArray array];
     
     Class class = type;
     
@@ -376,7 +374,7 @@
     return result;
 }
 
--(void)setValueFor : (Property*) property Data : (NSDictionary*) data Return : (id)returnType{
+- (void)setValueFor:(Property *) property Data : (NSDictionary*) data Return : (id)returnType{
     
     if ([property isComplexType]) {
         
@@ -474,18 +472,18 @@
     }
 }
 
--(void)setValueForCollection :(Property*)property : (NSDictionary*)data :(id)returnType{
+-(void)setValueForCollection :(Property *)property :(NSDictionary*)data :(id)returnType{
     id object = [data valueForKeyPath:property.Name];
     
     if([object isKindOfClass:NSNull.class] || object == nil) return;
     
     NSArray * newData = object;
     
-    Class type = NSClassFromString([property getCollectionEntity]);
+    id returnData = [returnType valueForKey:property.getPrivateKey];
+    Class type = NSClassFromString([property getCollectionEntity:returnData]);
     
     if(type == nil){
         
-        NSMutableArray* returnData = [NSMutableArray array];
         NSString* value;
         
         if([newData count] != 0 && [[newData objectAtIndex:0] isKindOfClass:NSDictionary.class]){
@@ -515,7 +513,7 @@
     }
     else{
         NSArray * array = [self getPropertiesFor:type];
-        NSMutableArray* returnData = [NSMutableArray array];
+       // NSMutableArray* returnData = [NSMutableArray array];
         
         for (NSDictionary* dicc in newData) {
             

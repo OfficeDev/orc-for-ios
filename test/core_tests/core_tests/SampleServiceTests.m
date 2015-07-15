@@ -49,10 +49,10 @@
     //getNavigationsGET.json
     self.running = true;
     
-    __block NSArray<MSSampleContainerAnotherEntity> *entities = nil;
+    __block NSArray *entities = nil;
     
     
-    [self.client.me.navigations readWithCallback:^(NSArray<MSSampleContainerAnotherEntity> *anotherEntitys, MSOrcError *error) {
+    [self.client.me.navigations readWithCallback:^(NSArray *anotherEntitys, MSOrcError *error) {
         
         entities =anotherEntitys;
         self.running = false;
@@ -128,9 +128,9 @@
     
     self.running = true;
     
-    __block NSArray<MSSampleContainerAnotherEntity> *entities = nil;
+    __block NSArray *entities = nil;
     
-    [[[self.client.me.navigations select:@"SomeProp, AnotherProp"] top:1] readWithCallback:^(NSArray<MSSampleContainerAnotherEntity> *anotherEntities, MSOrcError *error) {
+    [[[self.client.me.navigations select:@"SomeProp, AnotherProp"] top:1] readWithCallback:^(NSArray *anotherEntities, MSOrcError *error) {
         
         entities =anotherEntities;
         self.running = false;
@@ -149,9 +149,9 @@
     
     self.running = true;
     
-    __block NSArray<MSSampleContainerSampleEntity> *entities = nil;
+    __block NSArray *entities = nil;
     
-    [[[self.client.services expand:@"SomeProp"] filter:@"SomeProp eq 'SomeString'"] readWithCallback:^(NSArray<MSSampleContainerSampleEntity> *sampleEntitys, MSOrcError *error) {
+    [[[self.client.services expand:@"SomeProp"] filter:@"SomeProp eq 'SomeString'"] readWithCallback:^(NSArray *sampleEntitys, MSOrcError *error) {
         
         entities =sampleEntitys;
         self.running = false;
@@ -167,11 +167,11 @@
     
     self.running = true;
     
-    __block NSArray<MSSampleContainerSampleEntity> *entities = nil;
+    __block NSArray *entities = nil;
     
     [[[self.client.services addCustomHeaderWithName:@"Header1" value:@"Value1"]
                             addCustomHeaderWithName:@"Header2" value:@"Value2"]
-                                   readWithCallback:^(NSArray<MSSampleContainerSampleEntity> *sampleEntitys, MSOrcError *error) {
+                                   readWithCallback:^(NSArray *sampleEntitys, MSOrcError *error) {
         
         entities =sampleEntitys;
         self.running = false;
@@ -187,9 +187,9 @@
 - (void)testDefaultHeaders {
     
     self.running = true;
-    __block NSArray<MSSampleContainerSampleEntity> *entities = nil;
+    __block NSArray *entities = nil;
     
-    [[self.client.services top:99] readWithCallback:^(NSArray<MSSampleContainerSampleEntity> *sampleEntitys, MSOrcError *error) {
+    [[self.client.services top:99] readWithCallback:^(NSArray *sampleEntitys, MSOrcError *error) {
         
         entities =sampleEntitys;
         self.running = false;
@@ -222,11 +222,11 @@
     //addNavigationItemPOST.json
     self.running = true;
     __block MSSampleContainerAnotherEntity *entity = nil;
-    
+    __weak SampleServiceTests *weakS = self;
     [self.client.me.navigations add:[self getAnotherEntity] callback:^(MSSampleContainerAnotherEntity *anotherEntity, MSOrcError *e) {
         
         entity =anotherEntity;
-        self.running = false;
+        weakS.running = false;
     }];
     
     [self blockUntilFinish];
@@ -260,9 +260,9 @@
 -(void) testGetNavigationsWithParameters{
     //getNavigationsWithParameters.json
     self.running = true;
-    __block NSArray<MSSampleContainerAnotherEntity> *entities = nil;
+    __block NSArray *entities = nil;
     
-    [[self.client.me.navigations addCustomParametersWithName:@"StringParam" value:@"SomeValue"] readWithCallback:^(NSArray<MSSampleContainerAnotherEntity> *anotherEntitys, MSOrcError *error) {
+    [[self.client.me.navigations addCustomParametersWithName:@"StringParam" value:@"SomeValue"] readWithCallback:^(NSArray *anotherEntitys, MSOrcError *error) {
         
         entities =anotherEntitys;
         self.running = false;

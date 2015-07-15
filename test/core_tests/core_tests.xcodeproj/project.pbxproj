@@ -121,7 +121,6 @@
 		EC572D261A38D37F006A8DE8 /* MSSampleContainerAnotherEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSampleContainerAnotherEntity.m; sourceTree = "<group>"; };
 		EC572D271A38D37F006A8DE8 /* MSSampleContainerEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerEntity.h; sourceTree = "<group>"; };
 		EC572D281A38D37F006A8DE8 /* MSSampleContainerEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSampleContainerEntity.m; sourceTree = "<group>"; };
-		EC572D291A38D37F006A8DE8 /* MSSampleContainerProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerProtocols.h; sourceTree = "<group>"; };
 		EC572D2A1A38D37F006A8DE8 /* MSSampleContainerSampleComplexType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerSampleComplexType.h; sourceTree = "<group>"; };
 		EC572D2B1A38D37F006A8DE8 /* MSSampleContainerSampleComplexType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSampleContainerSampleComplexType.m; sourceTree = "<group>"; };
 		EC572D2C1A38D37F006A8DE8 /* MSSampleContainerSampleEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerSampleEntity.h; sourceTree = "<group>"; };
@@ -225,7 +224,6 @@
 				EC572D261A38D37F006A8DE8 /* MSSampleContainerAnotherEntity.m */,
 				EC572D271A38D37F006A8DE8 /* MSSampleContainerEntity.h */,
 				EC572D281A38D37F006A8DE8 /* MSSampleContainerEntity.m */,
-				EC572D291A38D37F006A8DE8 /* MSSampleContainerProtocols.h */,
 				EC572D2A1A38D37F006A8DE8 /* MSSampleContainerSampleComplexType.h */,
 				EC572D2B1A38D37F006A8DE8 /* MSSampleContainerSampleComplexType.m */,
 				EC572D2C1A38D37F006A8DE8 /* MSSampleContainerSampleEntity.h */,

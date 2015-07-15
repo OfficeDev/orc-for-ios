@@ -30,9 +30,9 @@ root for authoritative license information.﻿
 - (void)twoParamsActionsFirstIsEntityTypeRawWithAnEntity:(NSString *) anEntity booleanParams:(NSString *) booleanParams callback:(void(^)(NSString *returnValue, MSOrcError *error))callback;
 - (void)twoParamsActionsFirstIsComplexTypeWithComplexType:(MSSampleContainerSampleComplexType *)complexType booleanParams:(BOOL )booleanParams callback:(void (^)(int returnValue, MSOrcError *error))callback;
 - (void)twoParamsActionsFirstIsComplexTypeRawWithComplexType:(NSString *) complexType booleanParams:(NSString *) booleanParams callback:(void(^)(NSString *returnValue, MSOrcError *error))callback;
-- (void)twoParamsActionsFirstIsCollectionEntityTypeWithCollectionType:(NSArray<MSSampleContainerSampleEntity> *)collectionType booleanParams:(BOOL )booleanParams callback:(void (^)(int returnValue, MSOrcError *error))callback;
+- (void)twoParamsActionsFirstIsCollectionEntityTypeWithCollectionType:(NSArray *)collectionType booleanParams:(BOOL )booleanParams callback:(void (^)(int returnValue, MSOrcError *error))callback;
 - (void)twoParamsActionsFirstIsCollectionEntityTypeRawWithCollectionType:(NSString *) collectionType booleanParams:(NSString *) booleanParams callback:(void(^)(NSString *returnValue, MSOrcError *error))callback;
-- (void)twoParamsActionsFirstIsCollectionComplexTypeWithCollectionType:(NSArray<MSSampleContainerSampleComplexType> *)collectionType booleanParams:(BOOL )booleanParams callback:(void (^)(int returnValue, MSOrcError *error))callback;
+- (void)twoParamsActionsFirstIsCollectionComplexTypeWithCollectionType:(NSArray *)collectionType booleanParams:(BOOL )booleanParams callback:(void (^)(int returnValue, MSOrcError *error))callback;
 - (void)twoParamsActionsFirstIsCollectionComplexTypeRawWithCollectionType:(NSString *) collectionType booleanParams:(NSString *) booleanParams callback:(void(^)(NSString *returnValue, MSOrcError *error))callback;
 
 @end

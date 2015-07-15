@@ -19,7 +19,6 @@ root for authoritative license information.﻿
 @class MSSampleContainerItem;
 
 #import <Foundation/Foundation.h>
-#import "MSSampleContainerProtocols.h"
 #import "MSSampleContainerEntity.h"
 
 /**
@@ -30,8 +29,8 @@ root for authoritative license information.﻿
 @property (retain, nonatomic, readwrite, getter=displayName, setter=setDisplayName:) NSString *DisplayName;
 @property (retain, nonatomic, readwrite, getter=entityKey, setter=setEntityKey:) NSString *entityKey;
 @property (retain, nonatomic, readwrite, getter=nestedSampleEntity, setter=setNestedSampleEntity:) MSSampleContainerSampleEntity *nestedSampleEntity;
-@property (retain, nonatomic, readwrite, getter=navigations, setter=setNavigations:) NSMutableArray<MSSampleContainerAnotherEntity> *Navigations;
-@property (retain, nonatomic, readwrite, getter=items, setter=setItems:) NSMutableArray<MSSampleContainerItem> *Items;
-@property (retain, nonatomic, readwrite, getter=nestedSampleEntityCollection, setter=setNestedSampleEntityCollection:) NSMutableArray<MSSampleContainerSampleEntity> *nestedSampleEntityCollection;
+@property (retain, nonatomic, readwrite, getter=navigations, setter=setNavigations:) NSMutableArray *Navigations;
+@property (retain, nonatomic, readwrite, getter=items, setter=setItems:) NSMutableArray*Items;
+@property (retain, nonatomic, readwrite, getter=nestedSampleEntityCollection, setter=setNestedSampleEntityCollection:) NSMutableArray *nestedSampleEntityCollection;
 
 @end

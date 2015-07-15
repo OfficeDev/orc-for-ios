@@ -121,7 +121,7 @@ root for authoritative license information.﻿
     }];
 }
     				
-- (void)twoParamsActionsFirstIsCollectionEntityTypeWithCollectionType:(NSArray<MSSampleContainerSampleEntity> *)collectionType booleanParams:(BOOL )booleanParams callback:(void (^)(int returnValue, MSOrcError *error))callback {
+- (void)twoParamsActionsFirstIsCollectionEntityTypeWithCollectionType:(NSArray *)collectionType booleanParams:(BOOL )booleanParams callback:(void (^)(int returnValue, MSOrcError *error))callback {
 	
 	NSString *collectionTypeString = [self.resolver.jsonSerializer serialize:collectionType property:@"CollectionType"];
 	NSString *booleanParamsString = [self.resolver.jsonSerializer serialize:(booleanParams ? @"true" : @"false") property:@"BooleanParams"];
@@ -168,7 +168,7 @@ root for authoritative license information.﻿
     }];
 }
     				
-- (void)twoParamsActionsFirstIsCollectionComplexTypeWithCollectionType:(NSArray<MSSampleContainerSampleComplexType> *)collectionType booleanParams:(BOOL )booleanParams callback:(void (^)(int returnValue, MSOrcError *error))callback {
+- (void)twoParamsActionsFirstIsCollectionComplexTypeWithCollectionType:(NSArray *)collectionType booleanParams:(BOOL )booleanParams callback:(void (^)(int returnValue, MSOrcError *error))callback {
 	
 	NSString *collectionTypeString = [self.resolver.jsonSerializer serialize:collectionType property:@"CollectionType"];
 	NSString *booleanParamsString = [self.resolver.jsonSerializer serialize:(booleanParams ? @"true" : @"false") property:@"BooleanParams"];

@@ -4,30 +4,20 @@
  * Licensed under the Apache License, Version 2.0.
  * See License.txt in the project root for license information.
  ******************************************************************************/
-
+ 
 #import "NSArray+Extension.h"
-
-@interface NSArray()
-
-@property (copy, nonatomic, readwrite) NSString *collectionTypeName;
-
-@end
+#import <objc/runtime.h>
 
 @implementation NSArray(NSArrayExtension)
 
 - (instancetype)initWithCollectionName:(NSString *)name {
     
     if (self = [self init]) {
-        
-        self.collectionTypeName = name;
+        objc_setAssociatedObject(self, NSSelectorFromString(@"typeName"), name, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+
     }
     
     return self;
-}
-
-- (NSString *)getCollectionName {
-    
-    return self.collectionTypeName;
 }
 
 @end

@@ -15,16 +15,16 @@
 @property NSString *Name;
 
 - (id)initWith : (objc_property_t)property;
-- (bool)isString;
-- (bool)isDate;
-- (bool)isNSData;
-- (bool)isCollection;
-- (bool)isComplexType;
-- (NSString*)getCollectionEntity;
-- (bool)isNumber;
-- (bool)isBoolean;
-- (bool)isEnum;
-- (bool)isStream;
-- (bool)isCustomArray;
+- (BOOL)isString;
+- (BOOL)isDate;
+- (BOOL)isNSData;
+- (BOOL)isCollection;
+- (BOOL)isComplexType;
+- (NSString *)getCollectionEntity:(id)entity;
+- (BOOL)isNumber;
+- (BOOL)isBoolean;
+- (BOOL)isEnum;
+- (BOOL)isStream;
+- (BOOL)isCustomArray;
 - (NSString *)getPrivateKey;
 @end

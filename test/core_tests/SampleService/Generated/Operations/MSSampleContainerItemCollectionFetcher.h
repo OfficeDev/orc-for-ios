@@ -28,7 +28,7 @@ root for authoritative license information.﻿
 
 @optional
 
-- (void)readWithCallback:(void (^)(NSArray<MSSampleContainerItem> *items, MSOrcError *error))callback;
+- (void)readWithCallback:(void (^)(NSArray *sampleContainerItems, MSOrcError *error))callback;
 
 - (MSSampleContainerItemCollectionFetcher *)select:(NSString *)params;
 - (MSSampleContainerItemCollectionFetcher *)filter:(NSString *)params;
