@@ -42,7 +42,7 @@
 }
 
 -(bool)isBoolean{
-    return [self.Type isEqualToString:@"TB"];
+    return (strcmp([[self.Type substringWithRange:NSMakeRange(1, 1)] cStringUsingEncoding:NSASCIIStringEncoding], @encode(BOOL)) == 0);
 }
 
 -(bool)isEnum{
