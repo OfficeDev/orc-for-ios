@@ -10,10 +10,10 @@
 
 @implementation NSArray(NSArrayExtension)
 
-- (instancetype)initWithCollectionName:(NSString *)name {
+- (instancetype)initWithCollectionType:(NSString *)type {
     
     if (self = [self init]) {
-        objc_setAssociatedObject(self, NSSelectorFromString(@"typeName"), name, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        objc_setAssociatedObject(self, NSSelectorFromString(@"typeName"), type, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 
     }
     

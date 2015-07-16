@@ -9,6 +9,6 @@
 
 @interface NSArray(NSArrayExtension)
 
-- (instancetype)initWithCollectionName:(NSString *)name;
+- (instancetype)initWithCollectionType:(NSString *)type;
 
 @end

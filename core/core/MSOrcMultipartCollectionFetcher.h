@@ -10,9 +10,7 @@
 #import "MSOrcMediaEntityFetcher.h"
 #import "MSOrcMultiPartElement.h"
 
-@protocol MSOrcMultipartCollectionFetcher<MSOrcCollectionFetcher>
-
-@optional
+@interface MSOrcMultipartCollectionFetcher : MSOrcCollectionFetcher
 
 - (instancetype)initWithUrl:(NSString *)urlComponent
                      parent:(id<MSOrcExecutable>)parent
@@ -22,9 +20,5 @@
     withCallback:(void (^)(id<MSOrcResponse> response, MSOrcError *error))callback;
 
 - (MSOrcMediaEntityFetcher *)getById:(NSString *)Id;
-
-@end
-
-@interface MSOrcMultipartCollectionFetcher : MSOrcCollectionFetcher<MSOrcMultipartCollectionFetcher>
 
 @end

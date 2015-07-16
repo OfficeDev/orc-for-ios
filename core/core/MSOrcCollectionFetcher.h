@@ -10,15 +10,7 @@
 
 #define __message_msg(message)
 
-@protocol MSOrcCollectionFetcher<MSOrcExecutable>
-
-@optional
-- (id<MSOrcCollectionFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSOrcCollectionFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-
-@end
-
-@interface MSOrcCollectionFetcher : MSOrcExecutable<MSOrcCollectionFetcher>
+@interface MSOrcCollectionFetcher : MSOrcExecutable
 
 - (MSOrcCollectionFetcher *)select:(NSString *)params;
 - (MSOrcCollectionFetcher *)filter:(NSString *)params;
@@ -29,11 +21,10 @@
 - (MSOrcCollectionFetcher *)search:(NSString *)params;
 
 - (void)add:(id)entity callback:(void (^)(id entityAdded, MSOrcError *error))callback;
-
 - (MSOrcEntityFetcher *)getById:(NSString *)theId;
-
 - (void)count:(void (^)(NSInteger result, MSOrcError *error))callback; __message_msg("This method will override all the orc operators -> select, top, filter, orderby, skip, expand.");
-
 - (void)addRaw:(NSString *)payload callback:(void (^)(NSString *result, MSOrcError *error))callback;
-    
+- (MSOrcCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSOrcCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+
 @end

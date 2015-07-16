@@ -174,6 +174,18 @@
     }];
 }
 
+- (MSOrcCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value {
+    [super addCustomParametersWithName:name value:value];
+    
+    return self;
+}
+
+- (MSOrcCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value {
+    [super addCustomHeaderWithName:name value:value];
+    
+    return self;
+}
+
 - (MSOrcEntityFetcher *)getById:(NSString *)theId {
     
     _selectedId = theId;

@@ -16,19 +16,7 @@
 @optional
 
 @property (copy, nonatomic, readonly) id<MSOrcDependencyResolver> resolver;
-
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent asClass:(Class)entityClass;
-
 - (void)orcExecuteRequest:(id<MSOrcRequest>)request callback:(void (^)(id<MSOrcResponse> response, MSOrcError *error))callback;
-
-- (id<MSOrcExecutable>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSOrcExecutable>)addCustomParametersWithName:(NSString *)name value:(NSString *)value;
-
-@required
-
-@property (copy, nonatomic, readonly) NSString *urlComponent;
-@property (copy, nonatomic, readonly) id<MSOrcExecutable> parent;
-@property (copy, nonatomic, readonly) Class entityClass;
 
 @end
 
@@ -36,5 +24,13 @@
 
 @property (copy, nonatomic, readonly) NSMutableDictionary *customParameters;
 @property (copy, nonatomic, readonly) NSMutableDictionary *customHeaders;
+@property (copy, nonatomic, readonly) NSString *urlComponent;
+@property (copy, nonatomic, readonly) id<MSOrcExecutable> parent;
+@property (copy, nonatomic, readonly) Class entityClass;
+
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent asClass:(Class)entityClass;
+
+- (id<MSOrcExecutable>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (id<MSOrcExecutable>)addCustomParametersWithName:(NSString *)name value:(NSString *)value;
 
 @end
