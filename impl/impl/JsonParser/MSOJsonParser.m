@@ -161,7 +161,7 @@
     NSArray*properties = [self getPropertiesFor:[object class]];
     
     for (Property* property in properties) {
-        if([property isComplexType] || [object isKindOfClass:[NSObject class]]){
+        if(![property isEnum] && ([property isComplexType] || [object isKindOfClass:[NSObject class]])){
             if([property isString] || [property isNumber]){
                 NSString * name = [self getMetadataKey:property.Name];
                 NSString * value = [object valueForKey:property.getPrivateKey];
@@ -344,7 +344,8 @@
     self.arrayToReturn = [NSMutableArray array];
     
     for (NSDictionary *dictionary in data) {
-        [self.arrayToReturn addObject:[self parseObjectData:dictionary Type:type]];
+        if([dictionary count] > 0)
+            [self.arrayToReturn addObject:[self parseObjectData:dictionary Type:type]];
     }
     
     return self.arrayToReturn;
@@ -571,7 +572,7 @@
         
         NSDictionary *newData = [data valueForKeyPath:property.Name];
         
-        if (newData != nil) {
+        if (newData != nil && ![newData isKindOfClass:NSNull.class]) {
             
             NSArray * array = [self getPropertiesFor:type];
             

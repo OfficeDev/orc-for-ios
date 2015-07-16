@@ -14,11 +14,7 @@
 
 @implementation MSOrcBaseEntity
 
-//NSMutableDictionary *_updatedValues;
-
 @synthesize odataType = _odataType;
-
-//@synthesize updatedValues = _updatedValues;
 
 - (instancetype)init {
     
