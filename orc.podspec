@@ -1,6 +1,6 @@
   Pod::Spec.new do |s|
   s.name         = "orc"
-  s.version      = "0.10.2"
+  s.version      = "0.11.0"
   s.summary      = "Office REST Client for Office 365 APIs"
   s.description  = <<-DESC
 		   Client stack for Office 365 REST APIs and SDKs.
