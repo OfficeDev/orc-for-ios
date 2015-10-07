@@ -47,27 +47,25 @@
     }
 }
 
-- (void)valueChangedForBool:(BOOL)value forProperty:(NSString *)property{
-    
-    [_$$$_$$$updatedValues setValue:[NSNumber numberWithBool:value] forKey:property];
-    
-    if (_$$$_$$$parent != nil) {
-        __strong id sSelf = self;
-        NSString *referenceProperty = [_$$$_$$$parent.allKeys objectAtIndex:0];
-        [[_$$$_$$$parent objectForKey:referenceProperty] valueChanged:sSelf forProperty:referenceProperty];
-    }
+#define VALUE_CHANGED_FOR_TYPE(T,TN)                                                                            \
+- (void)valueChangedFor##TN:(T)value forProperty:(NSString *)property{                                          \
+                                                                                                                \
+    [_$$$_$$$updatedValues setValue:[NSNumber numberWith##TN:value] forKey:property];                           \
+                                                                                                                \
+    if (_$$$_$$$parent != nil) {                                                                                \
+        __strong id sSelf = self;                                                                               \
+        NSString *referenceProperty = [_$$$_$$$parent.allKeys objectAtIndex:0];                                 \
+        [[_$$$_$$$parent objectForKey:referenceProperty] valueChanged:sSelf forProperty:referenceProperty];     \
+    }                                                                                                           \
 }
 
-- (void)valueChangedForInt:(int)value forProperty:(NSString *)property{
-    
-    [_$$$_$$$updatedValues setValue:[NSNumber numberWithInt:value] forKey:property];
-    
-    if (_$$$_$$$parent != nil) {
-        __strong id sSelf = self;
-        NSString *referenceProperty = [_$$$_$$$parent.allKeys objectAtIndex:0];
-        [[_$$$_$$$parent objectForKey:referenceProperty] valueChanged:sSelf forProperty:referenceProperty];
-    }
-}
+VALUE_CHANGED_FOR_TYPE(bool,Bool)
+VALUE_CHANGED_FOR_TYPE(int,Int)
+VALUE_CHANGED_FOR_TYPE(double,Double)
+VALUE_CHANGED_FOR_TYPE(float,Float)
+
+#undef VALUE_CHANGED_FOR_TYPE
+
 
 - (NSMutableDictionary *)getUpdatedValues {
     

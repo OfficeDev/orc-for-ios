@@ -17,9 +17,17 @@
 @property (retain, nonatomic, readonly) NSMutableDictionary *$$$_$$$updatedValues;
 
 - (void)setParent:(MSOrcBaseEntity *)parent forProperty:(NSString *)propertyName;
-- (void)valueChanged:(NSObject *)value forProperty:(NSString *)property;
 - (NSMutableDictionary *)getUpdatedValues;
-- (void)valueChangedForBool:(BOOL)value forProperty:(NSString *)property;
-- (void)valueChangedForInt:(int)value forProperty:(NSString *)property;
+
+- (void)valueChanged:(NSObject *)value forProperty:(NSString *)property;
+
+#define VALUE_CHANGED_FOR_TYPE(T,TN) - (void)valueChangedFor##TN:(T)value forProperty:(NSString *)property;
+
+VALUE_CHANGED_FOR_TYPE(bool,Bool)
+VALUE_CHANGED_FOR_TYPE(int,Int)
+VALUE_CHANGED_FOR_TYPE(double,Double)
+VALUE_CHANGED_FOR_TYPE(float,Float)
+
+#undef VALUE_CHANGED_FOR_TYPE
 
 @end
