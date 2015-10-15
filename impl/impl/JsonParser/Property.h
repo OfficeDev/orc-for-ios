@@ -14,7 +14,8 @@
 @property NSString *SubStringType;
 @property NSString *Name;
 
-- (id)initWith : (objc_property_t)property;
+- (id)initWith: (objc_property_t)property;
+- (id)initWith: (objc_property_t)property nameOverride: (NSString *)nameOverride;
 - (BOOL)isString;
 - (BOOL)isDate;
 - (BOOL)isNSData;

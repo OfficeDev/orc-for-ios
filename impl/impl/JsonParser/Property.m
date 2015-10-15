@@ -10,12 +10,21 @@
 @implementation Property
 
 -(id)initWith : (objc_property_t)property{
-    
+    return [self initWith: property nameOverride: nil];
+}
+
+- (id)initWith: (objc_property_t)property nameOverride: (NSString *)nameOverride{
     NSString *typeString = [NSString stringWithCString:property_getAttributes(property) encoding:NSUTF8StringEncoding];
     NSArray *attributes = [typeString componentsSeparatedByString:@","];
     
     self.Type = [attributes objectAtIndex:0];
-    self.Name = [NSString  stringWithCString:property_getName(property) encoding:NSUTF8StringEncoding];
+    
+    if(nameOverride==nil){
+        self.Name = [NSString  stringWithCString:property_getName(property) encoding:NSUTF8StringEncoding];
+    }
+    else{
+        self.Name=nameOverride;
+    }
     
     if([self.Name containsString:@"$$$_$$$"]) return nil;
     

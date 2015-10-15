@@ -8,6 +8,14 @@
 #import "MSOJsonParser.h"
 #import "Property.h"
 #import <objc/runtime.h>
+#import "MSOrcBaseEntity.h"
+
+
+@protocol $$$_ProtocolForPropertiesNamesMappings
+
++ (NSDictionary *) $$$_$$$propertiesNamesMappings;
+
+@end
 
 @interface MSOJsonParser()
 
@@ -16,6 +24,9 @@
 @property (nonatomic, strong) NSDictionary *metadataValues;
 @property (nonatomic, strong) NSMutableArray *properties;
 @property (nonatomic, strong) NSMutableString *jsonResult;
+
+
+
 @end
 
 @implementation MSOJsonParser
@@ -33,6 +44,7 @@
         self.jsonResult = [self getString :object];
         
         NSString *subString = [self.jsonResult substringWithRange:NSMakeRange(0, [self.jsonResult length] -1)];
+        
         NSMutableString * result =  [[NSMutableString alloc] initWithString:subString];
         
         if([result length] == 0){return nil;}
@@ -99,6 +111,17 @@
             
             [jsonResult appendFormat:@"\"%@\" : \"%@\",",key, object];
         }
+        else if([object isKindOfClass:[NSDate class]])
+        {
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            // [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssz"];
+            
+            
+            NSString *date = [[[dateFormatter stringFromDate:object] substringToIndex:19] stringByAppendingString:@"Z"];
+            
+            [jsonResult appendFormat:@"\"%@\" : \"%@\",",key, date];
+        }
         else if([object isKindOfClass:NSClassFromString(@"MSOrcParentReferencedArray")]) {
             
             [jsonResult appendFormat:@"\"%@\" : %@,",key, [self toJsonStringValue:[object array]]];
@@ -158,7 +181,7 @@
 
 -(NSMutableString *)getString : (id)object{
     
-    NSArray*properties = [self getPropertiesFor:[object class]];
+    NSArray *properties = [self getPropertiesFor:[object class]];
     
     for (Property* property in properties) {
         if(![property isEnum] && ([property isComplexType] || [object isKindOfClass:[NSObject class]])){
@@ -293,21 +316,20 @@
     return self.jsonResult;
 }
 
-- (id)parseWithData:(NSData*)data forType:(Class)type selector:(NSArray *)keys{
+- (id)parseWithData:(NSData*)data forType:(Class)type selector:(NSArray *)keys  {
     
     @try {
         id parseResult;
         
-        
         self.properties = [self getPropertiesFor:type];
         
-        NSArray * jsonArray = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error:nil];
+        id jsonArray = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error:nil];
         
         if(keys != nil){
             NSArray *jsonResult;
             
             for (NSString* key in keys) {
-                jsonResult = [jsonArray valueForKey:key];
+                jsonResult = [jsonArray objectForKey:key];
             }
             
             parseResult = [self parseArrayData:jsonResult type:type];
@@ -351,6 +373,7 @@
     return self.arrayToReturn;
 }
 
+
 - (NSMutableArray *)getPropertiesFor : (Class)type {
     NSMutableArray *result = [NSMutableArray array];
     
@@ -362,7 +385,17 @@
         
         for (i = 0; i < count; i++) {
             
-            Property * property = [[Property alloc]initWith:properties[i]];
+            NSString *nameOverride = nil;
+            
+            if([type respondsToSelector:@selector($$$_$$$propertiesNamesMappings)]){
+                NSDictionary *dic = [type $$$_$$$propertiesNamesMappings];
+                if(dic!=nil){
+                    NSString *propName = [NSString  stringWithCString:property_getName(properties[i]) encoding:NSUTF8StringEncoding];
+                    nameOverride = dic[propName];
+                }
+            }
+            
+            Property * property = [[Property alloc]initWith:properties[i] nameOverride:nameOverride];
             
             if(property != nil)
                 [result addObject:property];
@@ -375,6 +408,24 @@
     return result;
 }
 
+/*- (void) setDataKey: (NSString *) key ToValue: (id) value InObject: (id) obj{
+    
+    Class type = [obj type];
+    
+    if([type respondsToSelector:@selector($$$_$$$propertiesNamesMappings)]){
+        NSDictionary *dic = [type $$$_$$$propertiesNamesMappings];
+        if(dic!=nil){
+                id reverseMaps=[dic allKeysForObject:key];
+                if([reverseMaps count]!=0)
+                {
+                    key=reverseMaps[0];
+                }
+        }
+    }
+
+    
+}*/
+
 - (void)setValueFor:(Property *) property Data : (NSDictionary*) data Return : (id)returnType{
     
     if ([property isComplexType]) {
@@ -382,9 +433,9 @@
         if([property isString]){
             NSString* name = [self getMetadataKey:property.Name];
             @try {
-                NSString* value = [data valueForKey:name];
+                NSString* value = [data objectForKey:name];
                 
-                if(![value isKindOfClass:NSNull.class] && value != nil)
+                if(value != nil && ![value isKindOfClass:NSNull.class])
                     [returnType setValue:value forKeyPath:property.getPrivateKey];
             }
             @catch (NSException *exception) {
@@ -433,7 +484,8 @@
             
         }
         else if([property isCollection]){
-            [self setValueForCollection:property :data :returnType];
+            //[self setValueForCollection:property :data :returnType];
+            [self setValueForPrimitiveType:property :data :returnType];
         }
         else{
             [self setValueForComplexType:property :data :returnType];
@@ -516,12 +568,12 @@
         NSArray * array = [self getPropertiesFor:type];
        // NSMutableArray* returnData = [NSMutableArray array];
         
-        for (NSDictionary* dicc in newData) {
+        for (id data in newData) {
             
             id entity = [[type alloc] init];
             for (Property* property in array) {
                 
-                [self setValueFor:property Data:dicc Return:entity];
+                [self setValueFor:property Data:data Return:entity];
             }
             
             if([self propertiesAreNotNull:entity :type]){

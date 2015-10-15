@@ -11,6 +11,8 @@
 
 @property (retain, nonatomic, readonly) NSString *odataType;
 
+
+
 /* $$$_$$$ char for not beeing serialized and prevent naming colision */
 
 @property (retain, nonatomic, readonly) NSDictionary *$$$_$$$parent;
