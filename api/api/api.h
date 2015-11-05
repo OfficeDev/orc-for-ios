@@ -16,9 +16,10 @@ FOUNDATION_EXPORT const unsigned char apiVersionString[];
 #import <api/MSOrcDependencyResolver.h>
 #import <api/MSOrcHttpTransport.h>
 #import <api/MSOrcHttpVerb.h>
-#import <api/MSOrcJsonSerializer.h>
 #import <api/MSOrcLogger.h>
 #import <api/MSOrcLogLevel.h>
 #import <api/MSOrcRequest.h>
 #import <api/MSOrcResponse.h>
 #import <api/MSOrcURL.h>
+#import <api/MSOrcSerializer.h>
+#import <api/MSOrcInteroperableWithDictionary.h>

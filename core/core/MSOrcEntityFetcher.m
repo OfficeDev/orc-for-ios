@@ -8,7 +8,7 @@
 #import "MSOrcEntityFetcher.h"
 #import "MSOrcBaseContainer.h"
 #import "MSOrcOperations.h"
-#import "api/MSOrcJsonSerializer.h"
+#import "MSOrcObjectizer.h"
 #import "api/MSOrcRequest.h"
 #import "api/MSOrcURL.h"
 
@@ -68,14 +68,13 @@
     
     NSDictionary *updatedValues = [entity getUpdatedValues];
 
-    NSString *payload = [self.resolver.jsonSerializer dictionaryToJsonString:updatedValues];
+    NSString *payload = [MSOrcObjectizer deobjectizeToString: updatedValues];
     
     return [self updateRaw:payload callback:^(NSString *response, MSOrcError *e) {
         
         if (e == nil) {
             
-            id entity = [self.resolver.jsonSerializer deserialize:[response dataUsingEncoding:NSUTF8StringEncoding]
-                                                          asClass:self.entityClass];
+            id entity = [MSOrcObjectizer objectizeFromString: response toType: self.entityClass];
             
             callback(entity, e);
         }
@@ -143,8 +142,7 @@
         
         if (e == nil) {
             
-            id entity = [self.resolver.jsonSerializer deserialize:[r dataUsingEncoding:NSUTF8StringEncoding]
-                                                          asClass:self.entityClass];
+            id entity = [MSOrcObjectizer objectizeFromString: r toType: self.entityClass];
             
             callback(entity, e);
         }

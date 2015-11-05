@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol MSOrcURL
+@protocol MSOrcURL <NSObject>
 
 @required
 

@@ -11,7 +11,7 @@
 @protocol MSOrcResponse;
 @class MSOrcError;
 
-@protocol MSOrcHttpTransport
+@protocol MSOrcHttpTransport <NSObject>
 
 - (id<MSOrcRequest>)createRequest;
 - (void)executeRequest:(id<MSOrcRequest>)request

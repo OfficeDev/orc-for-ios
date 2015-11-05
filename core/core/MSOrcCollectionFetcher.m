@@ -7,12 +7,10 @@
 
 #import "MSOrcCollectionFetcher.h"
 #import "MSOrcBaseContainer.h"
-
+#import "MSOrcObjectizer.h"
 #import "api/MSOrcRequest.h"
 #import "api/MSOrcResponse.h"
 #import "api/MSOrcURL.h"
-#import "api/MSOrcJsonSerializer.h"
-
 
 @interface MSOrcCollectionFetcher ()
 
@@ -124,9 +122,7 @@
     
     return [self readRawWithCallback:^(NSString *response, MSOrcError *e) {
         
-        id result =
-        [self.parent.resolver.jsonSerializer deserializeList:[response dataUsingEncoding:NSUTF8StringEncoding]
-                                                     asClass:self.entityClass];
+        id result = [MSOrcObjectizer objectizeFromString: response toType: self.entityClass];
         
         callback(result, e);
     }];
@@ -161,14 +157,13 @@
 
 - (void)add:(id)entity callback:(void (^)(id entityAdded, MSOrcError *error))callback {
     
-    NSString *payload = [self.parent.resolver.jsonSerializer serialize:entity];
+    NSString *payload = [MSOrcObjectizer deobjectizeToString: entity];
     
     __block MSOrcCollectionFetcher *_self = self;
     
     return [self addRaw:payload callback:^(NSString *r, MSOrcError *e) {
         
-        id result = [_self.resolver.jsonSerializer deserialize:[r dataUsingEncoding:NSUTF8StringEncoding]
-                                                       asClass:_self.entityClass];
+        id result = [MSOrcObjectizer objectizeFromString: r toType: _self.entityClass];
         
         callback(result, e);
     }];

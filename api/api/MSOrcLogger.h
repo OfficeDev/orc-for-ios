@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "MSOrcLogLevel.h"
 
-@protocol MSOrcLogger
+@protocol MSOrcLogger <NSObject>
 
 @required
 

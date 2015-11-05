@@ -28,6 +28,8 @@
 		2661BCF71B0E33FF00B7D8E9 /* MSOrcMultiPartElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BC911B0E2A9100B7D8E9 /* MSOrcMultiPartElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2661BCF81B0E33FF00B7D8E9 /* MSOrcOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BC931B0E2A9100B7D8E9 /* MSOrcOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2661BCF91B0E33FF00B7D8E9 /* MSOrcReadable.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BC951B0E2A9100B7D8E9 /* MSOrcReadable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		354C9C921BD9639000C84B48 /* MSOrcObjectizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 354C9C901BD9639000C84B48 /* MSOrcObjectizer.m */; };
+		354C9C931BD9639000C84B48 /* MSOrcObjectizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 354C9C911BD9639000C84B48 /* MSOrcObjectizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC1B5A581B30653C00BE0071 /* MSOrcBaseEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = EC1B5A561B30653C00BE0071 /* MSOrcBaseEntity.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC1B5A591B30653C00BE0071 /* MSOrcBaseEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1B5A571B30653C00BE0071 /* MSOrcBaseEntity.m */; };
 		ECBAFDCC1B56CAA100E87E68 /* NSArray+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBAFDCA1B56CAA100E87E68 /* NSArray+Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -69,6 +71,8 @@
 		2661BC931B0E2A9100B7D8E9 /* MSOrcOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcOperations.h; sourceTree = "<group>"; };
 		2661BC941B0E2A9100B7D8E9 /* MSOrcOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOrcOperations.m; sourceTree = "<group>"; };
 		2661BC951B0E2A9100B7D8E9 /* MSOrcReadable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcReadable.h; sourceTree = "<group>"; };
+		354C9C901BD9639000C84B48 /* MSOrcObjectizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOrcObjectizer.m; sourceTree = "<group>"; };
+		354C9C911BD9639000C84B48 /* MSOrcObjectizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcObjectizer.h; sourceTree = "<group>"; };
 		EC1B5A561B30653C00BE0071 /* MSOrcBaseEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcBaseEntity.h; sourceTree = "<group>"; };
 		EC1B5A571B30653C00BE0071 /* MSOrcBaseEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOrcBaseEntity.m; sourceTree = "<group>"; };
 		ECBAFDCA1B56CAA100E87E68 /* NSArray+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Extension.h"; sourceTree = "<group>"; };
@@ -120,6 +124,8 @@
 		ECDB431E1AFA4C4A000B0781 /* core */ = {
 			isa = PBXGroup;
 			children = (
+				354C9C901BD9639000C84B48 /* MSOrcObjectizer.m */,
+				354C9C911BD9639000C84B48 /* MSOrcObjectizer.h */,
 				ECBAFDCA1B56CAA100E87E68 /* NSArray+Extension.h */,
 				ECBAFDCB1B56CAA100E87E68 /* NSArray+Extension.m */,
 				EC1B5A561B30653C00BE0071 /* MSOrcBaseEntity.h */,
@@ -195,6 +201,7 @@
 				2661BCF81B0E33FF00B7D8E9 /* MSOrcOperations.h in Headers */,
 				EC1B5A581B30653C00BE0071 /* MSOrcBaseEntity.h in Headers */,
 				ECBAFDCC1B56CAA100E87E68 /* NSArray+Extension.h in Headers */,
+				354C9C931BD9639000C84B48 /* MSOrcObjectizer.h in Headers */,
 				2661BCF91B0E33FF00B7D8E9 /* MSOrcReadable.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,6 +310,7 @@
 				2661BCA01B0E2A9100B7D8E9 /* MSOrcError.m in Sources */,
 				ECBAFDCD1B56CAA100E87E68 /* NSArray+Extension.m in Sources */,
 				2661BCA61B0E2A9100B7D8E9 /* MSOrcMultipartCollectionFetcher.m in Sources */,
+				354C9C921BD9639000C84B48 /* MSOrcObjectizer.m in Sources */,
 				2661BCAA1B0E2A9100B7D8E9 /* MSOrcOperations.m in Sources */,
 				2661BCA21B0E2A9100B7D8E9 /* MSOrcExecutable.m in Sources */,
 				2661BCA81B0E2A9100B7D8E9 /* MSOrcMultiPartElement.m in Sources */,

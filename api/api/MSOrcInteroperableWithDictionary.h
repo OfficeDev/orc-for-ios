@@ -5,13 +5,23 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
+#ifndef MSORCINTEROPERABLEWITHDICTIOANRY
+#define MSORCINTEROPERABLEWITHDICTIOANRY
+
 #import <Foundation/Foundation.h>
 
-@interface MSOJsonParser : NSObject
+/**
+ * Implements
+ */
 
--(id)initWithMetadataValues : (NSDictionary*)values;
--(id)parseWithData : (NSData*)data forType : (Class) type selector:(NSArray* )keys;
--(NSString*)toJsonString : (id)object;
--(NSString*)toJsonString:(id)object Property:(NSString*)name;
--(NSString *)dictionaryToJsonString:(NSDictionary *)dictionary;
+@protocol MSOrcInteroperableWithDictionary <NSObject>
+
+@required
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic;
+- (NSDictionary *) toDictionary;
+
 @end
+
+
+#endif

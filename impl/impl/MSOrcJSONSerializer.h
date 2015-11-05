@@ -5,14 +5,17 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
+#ifndef MSORCJSONSERIALIZER_H
+#define MSORCJSONSERIALIZER_H
 
 #import <Foundation/Foundation.h>
-#import <core/MSOrcBaseEntity.h>
+#import <api/MSOrcSerializer.h>
 
-@interface MSOrcParentReferencedArray : MSOrcBaseEntity
+@interface MSOrcJSONSerializer : NSObject<MSOrcSerializer>
 
-- (NSMutableArray *)array;
-- (instancetype)initWithOriginalEntity:(NSMutableArray *)originalList
-                             andParent:(MSOrcBaseEntity *)parent
-                   andReferencePropery:(NSString *)referenceProperty;
++ (NSString *) serialize:(id)objectToSerialize;
++ (id) deserializeString: (NSString *) string;
+
 @end
+
+#endif

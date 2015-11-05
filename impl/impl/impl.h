@@ -18,11 +18,10 @@ FOUNDATION_EXPORT const unsigned char implVersionString[];
 #import <impl/MSOrcURLImpl.h>
 #import <impl/MSOrcBasicCredentials.h>
 #import <impl/MSOrcHttpConnection.h>
-#import <impl/MSOrcJsonSerializerImpl.h>
 #import <impl/MSOrcLoggerImpl.h>
 #import <impl/MSOrcRequestImpl.h>
 #import <impl/MSOrcResponseImpl.h>
 #import <impl/MSOrcOAuthCredentials.h>
 #import <impl/ADALDependencyResolver.h>
 #import <impl/LiveDependencyResolver.h>
-#import <impl/MSOrcParentReferencedArray.h>
+#import <impl/MSOrcJSONSerializer.h>

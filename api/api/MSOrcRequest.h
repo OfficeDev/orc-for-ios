@@ -10,7 +10,7 @@
 
 @protocol MSOrcURL;
 
-@protocol MSOrcRequest
+@protocol MSOrcRequest <NSObject>
 
 @required
 

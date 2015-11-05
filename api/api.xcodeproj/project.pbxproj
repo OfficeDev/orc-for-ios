@@ -14,12 +14,13 @@
 		2661BC771B0E2A2800B7D8E9 /* MSOrcDependencyResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BC6D1B0E2A2800B7D8E9 /* MSOrcDependencyResolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2661BC781B0E2A2800B7D8E9 /* MSOrcHttpTransport.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BC6E1B0E2A2800B7D8E9 /* MSOrcHttpTransport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2661BC791B0E2A2800B7D8E9 /* MSOrcHttpVerb.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BC6F1B0E2A2800B7D8E9 /* MSOrcHttpVerb.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2661BC7A1B0E2A2800B7D8E9 /* MSOrcJsonSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BC701B0E2A2800B7D8E9 /* MSOrcJsonSerializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2661BC7B1B0E2A2800B7D8E9 /* MSOrcLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BC711B0E2A2800B7D8E9 /* MSOrcLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2661BC7C1B0E2A2800B7D8E9 /* MSOrcLogLevel.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BC721B0E2A2800B7D8E9 /* MSOrcLogLevel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2661BC7D1B0E2A2800B7D8E9 /* MSOrcRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BC731B0E2A2800B7D8E9 /* MSOrcRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2661BC7E1B0E2A2800B7D8E9 /* MSOrcResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BC741B0E2A2800B7D8E9 /* MSOrcResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2661BC7F1B0E2A2800B7D8E9 /* MSOrcURL.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BC751B0E2A2800B7D8E9 /* MSOrcURL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		354C9C851BD9556F00C84B48 /* MSOrcSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 354C9C841BD9556F00C84B48 /* MSOrcSerializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		355C187E1BDAC51200A9B4D2 /* MSOrcInteroperableWithDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 355C187D1BDAC51200A9B4D2 /* MSOrcInteroperableWithDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,12 +44,13 @@
 		2661BC6D1B0E2A2800B7D8E9 /* MSOrcDependencyResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcDependencyResolver.h; sourceTree = "<group>"; };
 		2661BC6E1B0E2A2800B7D8E9 /* MSOrcHttpTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcHttpTransport.h; sourceTree = "<group>"; };
 		2661BC6F1B0E2A2800B7D8E9 /* MSOrcHttpVerb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcHttpVerb.h; sourceTree = "<group>"; };
-		2661BC701B0E2A2800B7D8E9 /* MSOrcJsonSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcJsonSerializer.h; sourceTree = "<group>"; };
 		2661BC711B0E2A2800B7D8E9 /* MSOrcLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcLogger.h; sourceTree = "<group>"; };
 		2661BC721B0E2A2800B7D8E9 /* MSOrcLogLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcLogLevel.h; sourceTree = "<group>"; };
 		2661BC731B0E2A2800B7D8E9 /* MSOrcRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcRequest.h; sourceTree = "<group>"; };
 		2661BC741B0E2A2800B7D8E9 /* MSOrcResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcResponse.h; sourceTree = "<group>"; };
 		2661BC751B0E2A2800B7D8E9 /* MSOrcURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcURL.h; sourceTree = "<group>"; };
+		354C9C841BD9556F00C84B48 /* MSOrcSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcSerializer.h; sourceTree = "<group>"; };
+		355C187D1BDAC51200A9B4D2 /* MSOrcInteroperableWithDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOrcInteroperableWithDictionary.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,11 +93,12 @@
 		2661BC3D1B0E295000B7D8E9 /* api */ = {
 			isa = PBXGroup;
 			children = (
+				355C187D1BDAC51200A9B4D2 /* MSOrcInteroperableWithDictionary.h */,
 				2661BC6C1B0E2A2800B7D8E9 /* MSOrcCredentials.h */,
+				354C9C841BD9556F00C84B48 /* MSOrcSerializer.h */,
 				2661BC6D1B0E2A2800B7D8E9 /* MSOrcDependencyResolver.h */,
 				2661BC6E1B0E2A2800B7D8E9 /* MSOrcHttpTransport.h */,
 				2661BC6F1B0E2A2800B7D8E9 /* MSOrcHttpVerb.h */,
-				2661BC701B0E2A2800B7D8E9 /* MSOrcJsonSerializer.h */,
 				2661BC711B0E2A2800B7D8E9 /* MSOrcLogger.h */,
 				2661BC721B0E2A2800B7D8E9 /* MSOrcLogLevel.h */,
 				2661BC731B0E2A2800B7D8E9 /* MSOrcRequest.h */,
@@ -145,9 +148,10 @@
 				2661BC761B0E2A2800B7D8E9 /* MSOrcCredentials.h in Headers */,
 				2661BC7C1B0E2A2800B7D8E9 /* MSOrcLogLevel.h in Headers */,
 				2661BC7E1B0E2A2800B7D8E9 /* MSOrcResponse.h in Headers */,
+				355C187E1BDAC51200A9B4D2 /* MSOrcInteroperableWithDictionary.h in Headers */,
 				2661BC7D1B0E2A2800B7D8E9 /* MSOrcRequest.h in Headers */,
-				2661BC7A1B0E2A2800B7D8E9 /* MSOrcJsonSerializer.h in Headers */,
 				2661BC7F1B0E2A2800B7D8E9 /* MSOrcURL.h in Headers */,
+				354C9C851BD9556F00C84B48 /* MSOrcSerializer.h in Headers */,
 				2661BC791B0E2A2800B7D8E9 /* MSOrcHttpVerb.h in Headers */,
 				2661BC781B0E2A2800B7D8E9 /* MSOrcHttpTransport.h in Headers */,
 			);

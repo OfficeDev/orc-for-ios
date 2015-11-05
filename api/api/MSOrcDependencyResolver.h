@@ -13,14 +13,13 @@
 @protocol MSOrcCredentials;
 @protocol MSOrcRequest;
 
-@protocol MSOrcDependencyResolver
+@protocol MSOrcDependencyResolver <NSObject>
 
 @required
 
 @property (strong, atomic, readwrite) id<MSOrcCredentials> credentials;
 @property (strong, nonatomic, readonly) id<MSOrcHttpTransport> httpTransport;
 @property (strong, nonatomic, readonly) id<MSOrcLogger> logger;
-@property (strong, nonatomic, readonly) id<MSOrcJsonSerializer> jsonSerializer;
 
 - (id<MSOrcRequest>)createOrcRequest;
 - (NSString *)getPlatformUserAgent:(NSString *)productName;

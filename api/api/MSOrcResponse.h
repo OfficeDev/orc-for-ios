@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol MSOrcResponse
+@protocol MSOrcResponse <NSObject>
 
 @required
 

@@ -11,7 +11,6 @@ Copyright (c) Microsoft Open Technologies, Inc. All Rights Reserved.
 Licensed under the Apache License 2.0; see LICENSE in the source repository
 root for authoritative license information.﻿
 ******************************************************************************/
-#import "NSArray+Extension.h"
 
 #import "MSSampleContainerSampleComplexType.h"
 #import "MSSampleContainerEntity.h"

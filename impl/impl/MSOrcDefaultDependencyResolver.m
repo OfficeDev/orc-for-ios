@@ -7,7 +7,6 @@
 
 #import "MSOrcDefaultDependencyResolver.h"
 #import "MSOrcHttpConnection.h"
-#import "MSOrcJsonSerializerImpl.h"
 #import "MSOrcRequestImpl.h"
 #import "MSOrcLoggerImpl.h"
 
@@ -20,7 +19,6 @@
 
 @synthesize httpTransport = _httpTransport;
 @synthesize logger = _logger;
-@synthesize jsonSerializer = _jsonSerializer;
 @synthesize credentials = _credentials;
 
 - (id<MSOrcHttpTransport>)httpTransport {
@@ -42,15 +40,6 @@
     return _logger;
 }
 
-- (id<MSOrcJsonSerializer>)jsonSerializer {
-    
-    if (!_jsonSerializer) {
-        
-        _jsonSerializer = [[MSOrcJsonSerializerImpl alloc] init];
-    }
-    
-    return _jsonSerializer;
-}
 
 - (id<MSOrcRequest>)createOrcRequest {
     

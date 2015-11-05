@@ -7,14 +7,15 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol MSOrcJsonSerializer
+/**
+ * A serializer to convert between a  NSArray/NSDictionary and a string representation
+ */
+
+@protocol MSOrcSerializer <NSObject>
 
 @required
 
-- (NSString *)serialize:(id)objectToSerialize;
-- (id)deserialize:(NSData *)serializedObject asClass:(Class)theClass;
-- (id)deserializeList:(NSData *)serializedList asClass:(Class)theClass;
-- (NSString *)serialize:(id)objectToSerialize property:(NSString *)name;
-- (NSString *)dictionaryToJsonString:(NSDictionary *)dictionary;
++ (NSString *) serialize:(id)objectToSerialize;
++ (id) deserializeString: (NSString *) string;
 
 @end

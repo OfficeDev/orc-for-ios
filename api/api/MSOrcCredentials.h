@@ -9,7 +9,7 @@
 
 @protocol MSOrcRequest;
 
-@protocol MSOrcCredentials
+@protocol MSOrcCredentials <NSObject>
 
 @required
 

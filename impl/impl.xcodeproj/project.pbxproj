@@ -9,10 +9,6 @@
 /* Begin PBXBuildFile section */
 		2661BCCD1B0E2B2300B7D8E9 /* ADALDependencyResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BCAD1B0E2B2300B7D8E9 /* ADALDependencyResolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2661BCCE1B0E2B2300B7D8E9 /* ADALDependencyResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 2661BCAE1B0E2B2300B7D8E9 /* ADALDependencyResolver.m */; };
-		2661BCD01B0E2B2300B7D8E9 /* MSOJsonParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BCB11B0E2B2300B7D8E9 /* MSOJsonParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2661BCD11B0E2B2300B7D8E9 /* MSOJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2661BCB21B0E2B2300B7D8E9 /* MSOJsonParser.m */; };
-		2661BCD21B0E2B2300B7D8E9 /* Property.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BCB31B0E2B2300B7D8E9 /* Property.h */; };
-		2661BCD31B0E2B2300B7D8E9 /* Property.m in Sources */ = {isa = PBXBuildFile; fileRef = 2661BCB41B0E2B2300B7D8E9 /* Property.m */; };
 		2661BCD41B0E2B2300B7D8E9 /* LiveDependencyResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BCB51B0E2B2300B7D8E9 /* LiveDependencyResolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2661BCD51B0E2B2300B7D8E9 /* LiveDependencyResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 2661BCB61B0E2B2300B7D8E9 /* LiveDependencyResolver.m */; };
 		2661BCD61B0E2B2300B7D8E9 /* MSOrcBasicCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BCB71B0E2B2300B7D8E9 /* MSOrcBasicCredentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -21,8 +17,6 @@
 		2661BCD91B0E2B2300B7D8E9 /* MSOrcDefaultDependencyResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 2661BCBA1B0E2B2300B7D8E9 /* MSOrcDefaultDependencyResolver.m */; };
 		2661BCDA1B0E2B2300B7D8E9 /* MSOrcHttpConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BCBB1B0E2B2300B7D8E9 /* MSOrcHttpConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2661BCDB1B0E2B2300B7D8E9 /* MSOrcHttpConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2661BCBC1B0E2B2300B7D8E9 /* MSOrcHttpConnection.m */; };
-		2661BCDC1B0E2B2300B7D8E9 /* MSOrcJsonSerializerImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BCBD1B0E2B2300B7D8E9 /* MSOrcJsonSerializerImpl.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2661BCDD1B0E2B2300B7D8E9 /* MSOrcJsonSerializerImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2661BCBE1B0E2B2300B7D8E9 /* MSOrcJsonSerializerImpl.m */; };
 		2661BCDE1B0E2B2300B7D8E9 /* MSOrcLoggerImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BCBF1B0E2B2300B7D8E9 /* MSOrcLoggerImpl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2661BCDF1B0E2B2300B7D8E9 /* MSOrcLoggerImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2661BCC01B0E2B2300B7D8E9 /* MSOrcLoggerImpl.m */; };
 		2661BCE01B0E2B2300B7D8E9 /* MSOrcOAuthCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BCC11B0E2B2300B7D8E9 /* MSOrcOAuthCredentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -38,11 +32,11 @@
 		2661BCEB1B0E2B2300B7D8E9 /* template_adal_settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2661BCCC1B0E2B2300B7D8E9 /* template_adal_settings.plist */; };
 		2661BCED1B0E2B4C00B7D8E9 /* impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 2661BCEC1B0E2B4C00B7D8E9 /* impl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2661BCFA1B0E399A00B7D8E9 /* implTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDB43B91AFA5C45000B0781 /* implTests.m */; };
-		2661BCFC1B0E3BC900B7D8E9 /* api.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2661BCFB1B0E3BC900B7D8E9 /* api.framework */; };
-		2661BCFE1B0E3BF400B7D8E9 /* core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2661BCFD1B0E3BF400B7D8E9 /* core.framework */; };
+		354C9C8D1BD95EA100C84B48 /* api.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 354C9C8C1BD95EA100C84B48 /* api.framework */; };
+		354C9C8F1BD95EA500C84B48 /* core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 354C9C8E1BD95EA500C84B48 /* core.framework */; };
+		354C9C971BDA882F00C84B48 /* MSOrcJSONSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 354C9C961BDA858400C84B48 /* MSOrcJSONSerializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		354C9C991BDA89B900C84B48 /* MSOrcJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 354C9C981BDA89B900C84B48 /* MSOrcJSONSerializer.m */; };
 		5A3EC114DCAE3517454EB7B5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DCB9C08F043B0EFF1D4ACD6 /* libPods.a */; };
-		EC8ECE8E1B39E5C900C93919 /* MSOrcParentReferencedArray.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8ECE8C1B39E5C900C93919 /* MSOrcParentReferencedArray.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC8ECE8F1B39E5C900C93919 /* MSOrcParentReferencedArray.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8ECE8D1B39E5C900C93919 /* MSOrcParentReferencedArray.m */; };
 		ECDB43B31AFA5C45000B0781 /* impl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECDB43A71AFA5C45000B0781 /* impl.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,10 +53,6 @@
 /* Begin PBXFileReference section */
 		2661BCAD1B0E2B2300B7D8E9 /* ADALDependencyResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADALDependencyResolver.h; path = impl/ADALDependencyResolver.h; sourceTree = SOURCE_ROOT; };
 		2661BCAE1B0E2B2300B7D8E9 /* ADALDependencyResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ADALDependencyResolver.m; path = impl/ADALDependencyResolver.m; sourceTree = SOURCE_ROOT; };
-		2661BCB11B0E2B2300B7D8E9 /* MSOJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOJsonParser.h; sourceTree = "<group>"; };
-		2661BCB21B0E2B2300B7D8E9 /* MSOJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOJsonParser.m; sourceTree = "<group>"; };
-		2661BCB31B0E2B2300B7D8E9 /* Property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Property.h; sourceTree = "<group>"; };
-		2661BCB41B0E2B2300B7D8E9 /* Property.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Property.m; sourceTree = "<group>"; };
 		2661BCB51B0E2B2300B7D8E9 /* LiveDependencyResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LiveDependencyResolver.h; path = impl/LiveDependencyResolver.h; sourceTree = SOURCE_ROOT; };
 		2661BCB61B0E2B2300B7D8E9 /* LiveDependencyResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LiveDependencyResolver.m; path = impl/LiveDependencyResolver.m; sourceTree = SOURCE_ROOT; };
 		2661BCB71B0E2B2300B7D8E9 /* MSOrcBasicCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSOrcBasicCredentials.h; path = impl/MSOrcBasicCredentials.h; sourceTree = SOURCE_ROOT; };
@@ -71,8 +61,6 @@
 		2661BCBA1B0E2B2300B7D8E9 /* MSOrcDefaultDependencyResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSOrcDefaultDependencyResolver.m; path = impl/MSOrcDefaultDependencyResolver.m; sourceTree = SOURCE_ROOT; };
 		2661BCBB1B0E2B2300B7D8E9 /* MSOrcHttpConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSOrcHttpConnection.h; path = impl/MSOrcHttpConnection.h; sourceTree = SOURCE_ROOT; };
 		2661BCBC1B0E2B2300B7D8E9 /* MSOrcHttpConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSOrcHttpConnection.m; path = impl/MSOrcHttpConnection.m; sourceTree = SOURCE_ROOT; };
-		2661BCBD1B0E2B2300B7D8E9 /* MSOrcJsonSerializerImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSOrcJsonSerializerImpl.h; path = impl/MSOrcJsonSerializerImpl.h; sourceTree = SOURCE_ROOT; };
-		2661BCBE1B0E2B2300B7D8E9 /* MSOrcJsonSerializerImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSOrcJsonSerializerImpl.m; path = impl/MSOrcJsonSerializerImpl.m; sourceTree = SOURCE_ROOT; };
 		2661BCBF1B0E2B2300B7D8E9 /* MSOrcLoggerImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSOrcLoggerImpl.h; path = impl/MSOrcLoggerImpl.h; sourceTree = SOURCE_ROOT; };
 		2661BCC01B0E2B2300B7D8E9 /* MSOrcLoggerImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSOrcLoggerImpl.m; path = impl/MSOrcLoggerImpl.m; sourceTree = SOURCE_ROOT; };
 		2661BCC11B0E2B2300B7D8E9 /* MSOrcOAuthCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSOrcOAuthCredentials.h; path = impl/MSOrcOAuthCredentials.h; sourceTree = SOURCE_ROOT; };
@@ -89,11 +77,13 @@
 		2661BCEC1B0E2B4C00B7D8E9 /* impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = impl.h; path = impl/impl.h; sourceTree = SOURCE_ROOT; };
 		2661BCFB1B0E3BC900B7D8E9 /* api.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = api.framework; path = "../api/build/Debug-iphoneos/api.framework"; sourceTree = "<group>"; };
 		2661BCFD1B0E3BF400B7D8E9 /* core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = core.framework; path = "../core/build/Debug-iphoneos/core.framework"; sourceTree = "<group>"; };
+		354C9C8C1BD95EA100C84B48 /* api.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = api.framework; path = "../api/build/Debug-iphoneos/api.framework"; sourceTree = "<group>"; };
+		354C9C8E1BD95EA500C84B48 /* core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = core.framework; path = "../core/build/Debug-iphoneos/core.framework"; sourceTree = "<group>"; };
+		354C9C961BDA858400C84B48 /* MSOrcJSONSerializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MSOrcJSONSerializer.h; path = impl/MSOrcJSONSerializer.h; sourceTree = SOURCE_ROOT; };
+		354C9C981BDA89B900C84B48 /* MSOrcJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSOrcJSONSerializer.m; path = impl/MSOrcJSONSerializer.m; sourceTree = SOURCE_ROOT; };
 		3DCB9C08F043B0EFF1D4ACD6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6D8E955022E9C85611DFA4E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E4B55BF3315F191BB3A02691 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		EC8ECE8C1B39E5C900C93919 /* MSOrcParentReferencedArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSOrcParentReferencedArray.h; path = impl/MSOrcParentReferencedArray.h; sourceTree = SOURCE_ROOT; };
-		EC8ECE8D1B39E5C900C93919 /* MSOrcParentReferencedArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSOrcParentReferencedArray.m; path = impl/MSOrcParentReferencedArray.m; sourceTree = SOURCE_ROOT; };
 		ECDB43A71AFA5C45000B0781 /* impl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = impl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECDB43AB1AFA5C45000B0781 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = impl/Info.plist; sourceTree = "<group>"; };
 		ECDB43B21AFA5C45000B0781 /* implTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = implTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,8 +96,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2661BCFE1B0E3BF400B7D8E9 /* core.framework in Frameworks */,
-				2661BCFC1B0E3BC900B7D8E9 /* api.framework in Frameworks */,
+				354C9C8F1BD95EA500C84B48 /* core.framework in Frameworks */,
+				354C9C8D1BD95EA100C84B48 /* api.framework in Frameworks */,
 				5A3EC114DCAE3517454EB7B5 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,21 +122,11 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		2661BCB01B0E2B2300B7D8E9 /* JsonParser */ = {
-			isa = PBXGroup;
-			children = (
-				2661BCB11B0E2B2300B7D8E9 /* MSOJsonParser.h */,
-				2661BCB21B0E2B2300B7D8E9 /* MSOJsonParser.m */,
-				2661BCB31B0E2B2300B7D8E9 /* Property.h */,
-				2661BCB41B0E2B2300B7D8E9 /* Property.m */,
-			);
-			name = JsonParser;
-			path = impl/JsonParser;
-			sourceTree = SOURCE_ROOT;
-		};
 		D5D9B1669DA90926664BE706 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				354C9C8E1BD95EA500C84B48 /* core.framework */,
+				354C9C8C1BD95EA100C84B48 /* api.framework */,
 				2661BCFD1B0E3BF400B7D8E9 /* core.framework */,
 				2661BCFB1B0E3BC900B7D8E9 /* api.framework */,
 				3DCB9C08F043B0EFF1D4ACD6 /* libPods.a */,
@@ -177,12 +157,9 @@
 		ECDB43A91AFA5C45000B0781 /* impl */ = {
 			isa = PBXGroup;
 			children = (
-				EC8ECE8C1B39E5C900C93919 /* MSOrcParentReferencedArray.h */,
-				EC8ECE8D1B39E5C900C93919 /* MSOrcParentReferencedArray.m */,
 				2661BCEC1B0E2B4C00B7D8E9 /* impl.h */,
 				2661BCAD1B0E2B2300B7D8E9 /* ADALDependencyResolver.h */,
 				2661BCAE1B0E2B2300B7D8E9 /* ADALDependencyResolver.m */,
-				2661BCB01B0E2B2300B7D8E9 /* JsonParser */,
 				2661BCB51B0E2B2300B7D8E9 /* LiveDependencyResolver.h */,
 				2661BCB61B0E2B2300B7D8E9 /* LiveDependencyResolver.m */,
 				2661BCB71B0E2B2300B7D8E9 /* MSOrcBasicCredentials.h */,
@@ -191,8 +168,6 @@
 				2661BCBA1B0E2B2300B7D8E9 /* MSOrcDefaultDependencyResolver.m */,
 				2661BCBB1B0E2B2300B7D8E9 /* MSOrcHttpConnection.h */,
 				2661BCBC1B0E2B2300B7D8E9 /* MSOrcHttpConnection.m */,
-				2661BCBD1B0E2B2300B7D8E9 /* MSOrcJsonSerializerImpl.h */,
-				2661BCBE1B0E2B2300B7D8E9 /* MSOrcJsonSerializerImpl.m */,
 				2661BCBF1B0E2B2300B7D8E9 /* MSOrcLoggerImpl.h */,
 				2661BCC01B0E2B2300B7D8E9 /* MSOrcLoggerImpl.m */,
 				2661BCC11B0E2B2300B7D8E9 /* MSOrcOAuthCredentials.h */,
@@ -207,6 +182,8 @@
 				2661BCCA1B0E2B2300B7D8E9 /* NSString+NSStringExtensions.m */,
 				2661BCCC1B0E2B2300B7D8E9 /* template_adal_settings.plist */,
 				ECDB43AA1AFA5C45000B0781 /* Supporting Files */,
+				354C9C961BDA858400C84B48 /* MSOrcJSONSerializer.h */,
+				354C9C981BDA89B900C84B48 /* MSOrcJSONSerializer.m */,
 			);
 			name = impl;
 			path = orc_engine_impl;
@@ -248,18 +225,15 @@
 				2661BCE81B0E2B2300B7D8E9 /* NSString+NSStringExtensions.h in Headers */,
 				2661BCE61B0E2B2300B7D8E9 /* MSOrcURLImpl.h in Headers */,
 				2661BCE41B0E2B2300B7D8E9 /* MSOrcResponseImpl.h in Headers */,
-				2661BCDC1B0E2B2300B7D8E9 /* MSOrcJsonSerializerImpl.h in Headers */,
 				2661BCD61B0E2B2300B7D8E9 /* MSOrcBasicCredentials.h in Headers */,
 				2661BCDE1B0E2B2300B7D8E9 /* MSOrcLoggerImpl.h in Headers */,
 				2661BCCD1B0E2B2300B7D8E9 /* ADALDependencyResolver.h in Headers */,
 				2661BCE01B0E2B2300B7D8E9 /* MSOrcOAuthCredentials.h in Headers */,
 				2661BCD41B0E2B2300B7D8E9 /* LiveDependencyResolver.h in Headers */,
 				2661BCD81B0E2B2300B7D8E9 /* MSOrcDefaultDependencyResolver.h in Headers */,
-				2661BCD01B0E2B2300B7D8E9 /* MSOJsonParser.h in Headers */,
 				2661BCDA1B0E2B2300B7D8E9 /* MSOrcHttpConnection.h in Headers */,
-				EC8ECE8E1B39E5C900C93919 /* MSOrcParentReferencedArray.h in Headers */,
+				354C9C971BDA882F00C84B48 /* MSOrcJSONSerializer.h in Headers */,
 				2661BCE21B0E2B2300B7D8E9 /* MSOrcRequestImpl.h in Headers */,
-				2661BCD21B0E2B2300B7D8E9 /* Property.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,17 +372,14 @@
 				2661BCE71B0E2B2300B7D8E9 /* MSOrcURLImpl.m in Sources */,
 				2661BCD51B0E2B2300B7D8E9 /* LiveDependencyResolver.m in Sources */,
 				2661BCDF1B0E2B2300B7D8E9 /* MSOrcLoggerImpl.m in Sources */,
-				2661BCD11B0E2B2300B7D8E9 /* MSOJsonParser.m in Sources */,
 				2661BCE51B0E2B2300B7D8E9 /* MSOrcResponseImpl.m in Sources */,
 				2661BCDB1B0E2B2300B7D8E9 /* MSOrcHttpConnection.m in Sources */,
 				2661BCD91B0E2B2300B7D8E9 /* MSOrcDefaultDependencyResolver.m in Sources */,
-				EC8ECE8F1B39E5C900C93919 /* MSOrcParentReferencedArray.m in Sources */,
 				2661BCE31B0E2B2300B7D8E9 /* MSOrcRequestImpl.m in Sources */,
 				2661BCCE1B0E2B2300B7D8E9 /* ADALDependencyResolver.m in Sources */,
+				354C9C991BDA89B900C84B48 /* MSOrcJSONSerializer.m in Sources */,
 				2661BCE91B0E2B2300B7D8E9 /* NSString+NSStringExtensions.m in Sources */,
 				2661BCD71B0E2B2300B7D8E9 /* MSOrcBasicCredentials.m in Sources */,
-				2661BCDD1B0E2B2300B7D8E9 /* MSOrcJsonSerializerImpl.m in Sources */,
-				2661BCD31B0E2B2300B7D8E9 /* Property.m in Sources */,
 				2661BCE11B0E2B2300B7D8E9 /* MSOrcOAuthCredentials.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -532,6 +503,8 @@
 					"$(inherited)",
 					"/Users/joshgav/office/orc-for-ios/api/build/Debug-iphoneos",
 					"/Users/joshgav/office/orc-for-ios/core/build/Debug-iphoneos",
+					"/Users/miguelangelperezmartinez/Documents/Work/orc-for-ios/api/build/Debug-iphoneos",
+					"/Users/miguelangelperezmartinez/Documents/Work/orc-for-ios/core/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/impl/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -555,6 +528,8 @@
 					"$(inherited)",
 					"/Users/joshgav/office/orc-for-ios/api/build/Debug-iphoneos",
 					"/Users/joshgav/office/orc-for-ios/core/build/Debug-iphoneos",
+					"/Users/miguelangelperezmartinez/Documents/Work/orc-for-ios/api/build/Debug-iphoneos",
+					"/Users/miguelangelperezmartinez/Documents/Work/orc-for-ios/core/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/impl/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
