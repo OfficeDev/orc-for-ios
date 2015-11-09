@@ -2,7 +2,7 @@
 #import <XCTest/XCTest.h>
 
 #import <impl/impl.h>
-#import "sample_service.h"
+#import "MSSampleService.h"
 
 @interface SampleServiceTests : XCTestCase
 
