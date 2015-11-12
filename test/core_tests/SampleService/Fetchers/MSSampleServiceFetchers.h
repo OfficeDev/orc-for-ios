@@ -13,6 +13,7 @@ root for authoritative license information.﻿
 ******************************************************************************/
 
 
+
 #ifndef MSSAMPLESERVICEFETCHERS_H
 #define MSSAMPLESERVICEFETCHERS_H
 #import "MSSampleServiceEntityCollectionFetcher.h"

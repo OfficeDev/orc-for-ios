@@ -122,7 +122,14 @@
     
     return [self readRawWithCallback:^(NSString *response, MSOrcError *e) {
         
-        id result = [MSOrcObjectizer objectizeFromString: response toType: self.entityClass];
+        id unserialized = [[MSOrcObjectizer getCurrentSerializer] deserializeString: response];
+        
+        NSMutableArray *result =[[NSMutableArray alloc] init];
+        
+        for(id obj in unserialized[@"value"])
+        {
+            [result addObject: [MSOrcObjectizer objectize:obj toType: self.entityClass]];
+        }
         
         callback(result, e);
     }];

@@ -16,7 +16,8 @@ root for authoritative license information.﻿
 #ifndef MSSAMPLESERVICECLIENT_H
 #define MSSAMPLESERVICECLIENT_H
 
-#import <orc.h>
+#import "core/MSOrcBaseContainer.h"
+#import "api/api.h"
 #import "MSSampleServiceModels.h"
 
 @class MSSampleServiceSampleEntityCollectionFetcher;

@@ -10,8 +10,8 @@
 #ifndef MSSAMPLESERVICE_H
 #define MSSAMPLESERVICE_H
 
-#import <MSSampleServiceFetchers.h>
-#import <MSSampleServiceModels.h>
+#import "MSSampleServiceFetchers.h"
+#import "MSSampleServiceModels.h"
 
 #endif
     

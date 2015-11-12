@@ -7,6 +7,7 @@
 
 #import "MSOrcExecutable.h"
 #import "core/MSOrcBaseEntity.h"
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 @class MSOrcOperations;
 
@@ -14,7 +15,7 @@
 
 @required
 
-- (void)update:(MSOrcBaseEntity *)entity callback:(void (^)(id updatedEntity, MSOrcError *error))callback;
+- (void)update:(MSOrcBaseEntity <MSOrcInteroperableWithDictionary> *)entity callback:(void (^)(id updatedEntity, MSOrcError *error))callback;
 
 - (void)deleteWithCallback:(void (^)(int statusCode, MSOrcError *error))callback;
 

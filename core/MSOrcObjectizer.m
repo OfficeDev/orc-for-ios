@@ -7,7 +7,6 @@
 
 
 #import <MSOrcObjectizer.h>
-#import "api/MSOrcSerializer.h"
 #import "impl/MSOrcJSONSerializer.h"
 #import <objc/runtime.h>
 
@@ -52,7 +51,48 @@ static Class<MSOrcSerializer> currentSerializer = nil;
 }
 
 + (NSString *) deobjectizeToString: (id) obj {
+    
     return [[self getCurrentSerializer] serialize:[self deobjectize: obj]];
+}
+
++ (NSString *) stringFromBool: (bool) value {
+    return value?@"\"true\"":@"\"false\"";
+}
+
++ (bool) boolFromString: (NSString *) value {
+    return [value isEqualToString:@"true"];
+}
+
++ (NSString *) stringFromInt: (int) value {
+    return [NSString stringWithFormat:@"%d",value];
+}
+
++ (int) intFromString: (NSString *) value {
+    return [value intValue];
+}
+
++ (NSString *) stringFromDouble: (double) value {
+    return [NSString stringWithFormat:@"%f",value];
+}
+
++ (double) doubleFromString: (NSString *) value {
+    return [value doubleValue];
+}
+
++ (NSString *) stringFromFloat: (float) value {
+    return [NSString stringWithFormat:@"%f",(double)value];
+}
+
++ (float) floatFromString: (NSString *) value {
+    return [value floatValue];
+}
+
++ (NSString *) stringFromLongLong: (long long) value {
+    return [NSString stringWithFormat:@"%lld",value];
+}
+
++ (long long) longLongFromString: (NSString *) value {
+    return [value longLongValue];
 }
 
 + (NSString *) stringFromDate: (NSDate *) date {

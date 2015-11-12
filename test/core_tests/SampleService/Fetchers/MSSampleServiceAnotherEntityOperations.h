@@ -17,8 +17,9 @@ root for authoritative license information.﻿
 #define MSSAMPLESERVICEANOTHERENTITYOPERATIONS_H
 				  		
 
-#import <orc.h>
+
 #import "MSSampleServiceModels.h"
+#import "api/api.h"
 #import "MSSampleServiceEntityOperations.h"
 
 

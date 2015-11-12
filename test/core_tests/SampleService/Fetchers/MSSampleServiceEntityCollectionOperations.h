@@ -16,9 +16,11 @@ root for authoritative license information.﻿
 #ifndef MSSAMPLESERVICEENTITYCOLLECTIONOPERATIONS_H
 #define MSSAMPLESERVICEENTITYCOLLECTIONOPERATIONS_H
 
-#import <orc.h>
+
 #import "MSSampleServiceModels.h"
-#import "MSOrcOperations.h"
+#import "api/api.h"
+#import "core/MSOrcOperations.h"
+
 
 /** MSSampleServiceEntityCollectionOperations
  *

@@ -20,7 +20,7 @@ root for authoritative license information.﻿
 #import "core/MSOrcObjectizer.h"
 
 #import "MSSampleServiceEntity.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSSampleServiceItem
  *

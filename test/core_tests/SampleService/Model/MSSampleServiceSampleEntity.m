@@ -90,22 +90,109 @@ root for authoritative license information.﻿
             }
         }
         
+		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_displayName copy], @"DisplayName",
-		 [_entityKey copy], @"entityKey",
-		 [_nestedSampleEntity toDictionary], @"nestedSampleEntity",
-		 nil/*NSStream*/, @"Content",
-		 [[NSMutableArray alloc] init], @"Navigations",
-		 [[NSMutableArray alloc] init], @"Items",
-		 [[NSMutableArray alloc] init], @"nestedSampleEntityCollection",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.displayName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"DisplayName"];}
+	{id curVal = [self.entityKey copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"entityKey"];}
+	{id curVal = [self.nestedSampleEntity toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"nestedSampleEntity"];}
+	{id curVal = nil/*NSStream*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Content"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Navigations"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Items"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"nestedSampleEntityCollection"];}
+	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
+    [dic setValue: @"#Microsoft.SampleService.SampleEntity" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.displayName;
+    if([self.updatedValues containsObject:@"DisplayName"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"DisplayName"];
+    }
+    }
+	{id curVal = self.entityKey;
+    if([self.updatedValues containsObject:@"entityKey"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"entityKey"];
+    }
+    }
+	{id curVal = self.nestedSampleEntity;
+    if([self.updatedValues containsObject:@"nestedSampleEntity"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"nestedSampleEntity"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"nestedSampleEntity"];
+            }
+        
+            }}
+	{id curVal = self.content;
+    if([self.updatedValues containsObject:@"Content"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:nil/*NSStream*/ forKey: @"Content"];
+    }
+    }
+	{id curVal = self.navigations;
+    if([self.updatedValues containsObject:@"Navigations"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Navigations"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.items;
+    if([self.updatedValues containsObject:@"Items"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Items"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.nestedSampleEntityCollection;
+    if([self.updatedValues containsObject:@"nestedSampleEntityCollection"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"nestedSampleEntityCollection"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"Id"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+    }
+    }
+    return dic;
 }
 
 

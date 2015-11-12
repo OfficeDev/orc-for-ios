@@ -14,23 +14,21 @@
 
 @implementation MSOrcBaseEntity
 
+@synthesize updatedValues = _updatedValues;
 
 - (instancetype)init {
     
     if (self = [super init]) {
         
-        _$$$_$$$updatedValues = [[NSMutableSet alloc] init];
+        _updatedValues = [[NSMutableSet alloc] init];
     }
     
     return self;
 }
 
 - (void) valueChangedFor: (NSString *) property{
-
+    [self.updatedValues addObject:property];
 }
 
-- (NSMutableDictionary *)getUpdatedValues {
-    return nil;
-}
 
 @end

@@ -20,6 +20,8 @@
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic;
 - (NSDictionary *) toDictionary;
+- (NSDictionary *) toUpdatedValuesDictionary;
+
 
 @end
 

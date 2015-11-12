@@ -10,11 +10,7 @@
 @interface MSOrcBaseEntity : NSObject 
 
 @property (retain, nonatomic) NSString *odataType;
-
-/* $$$_$$$ char for not beeing serialized and prevent naming colision */
-@property (retain, nonatomic, readonly) NSMutableSet *$$$_$$$updatedValues;
-
-- (NSMutableDictionary *)getUpdatedValues;
+@property (retain, nonatomic) NSMutableSet *updatedValues;
 
 - (void)valueChangedFor: (NSString *) property;
 

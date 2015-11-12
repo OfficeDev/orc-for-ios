@@ -26,14 +26,14 @@ root for authoritative license information.﻿
 - (void)twoParamsActionsFirstIsEntityTypeWithAnEntity:(MSSampleServiceSampleEntity *)anEntity booleanParams:(bool)booleanParams callback:(void (^)(int, MSOrcError*))callback {
 
 
-      NSString *anEntityString = [MSOrcObjectizer deobjectizeToString: anEntity ];
+      NSString *anEntityString = [MSOrcObjectizer deobjectizeToString:anEntity];
 
-  NSString *booleanParamsString = [MSOrcObjectizer deobjectizeToString: @(booleanParams) ];
+  NSString *booleanParamsString = [MSOrcObjectizer stringFromBool:booleanParams];
 
     return [self twoParamsActionsFirstIsEntityTypeRawWithAnEntity:anEntityString booleanParams:booleanParamsString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
+            int result = (int)[MSOrcObjectizer intFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -49,14 +49,13 @@ root for authoritative license information.﻿
         
     id<MSOrcRequest> request = [super.resolver createOrcRequest];
     
-    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  anEntity, @"AnEntity", booleanParams?@"true":@"false", @"BooleanParams", nil ] , nil];
+    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  anEntity, @"AnEntity", booleanParams, @"BooleanParams", nil ] , nil];
     NSData* payload = [[MSOrcBaseContainer generatePayloadWithParameters:parameters dependencyResolver:self.resolver] dataUsingEncoding:NSUTF8StringEncoding];
     [request setContent:payload];
     
     [request setVerb:HTTP_VERB_POST];
-	     
-	[request.url appendPathComponent:@"TwoParamsActionsFirstIsEntityType"];
-        	
+	 	[request.url appendPathComponent:@"Microsoft.SampleService.TwoParamsActionsFirstIsEntityType"];
+     	
     return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
         
 		if (e == nil) {
@@ -73,14 +72,14 @@ root for authoritative license information.﻿
 - (void)twoParamsActionsFirstIsComplexTypeWithComplexType:(MSSampleServiceSampleComplexType *)complexType booleanParams:(bool)booleanParams callback:(void (^)(int, MSOrcError*))callback {
 
 
-      NSString *complexTypeString = [MSOrcObjectizer deobjectizeToString: complexType ];
+      NSString *complexTypeString = [MSOrcObjectizer deobjectizeToString:complexType];
 
-  NSString *booleanParamsString = [MSOrcObjectizer deobjectizeToString: @(booleanParams) ];
+  NSString *booleanParamsString = [MSOrcObjectizer stringFromBool:booleanParams];
 
     return [self twoParamsActionsFirstIsComplexTypeRawWithComplexType:complexTypeString booleanParams:booleanParamsString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
+            int result = (int)[MSOrcObjectizer intFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -96,14 +95,13 @@ root for authoritative license information.﻿
         
     id<MSOrcRequest> request = [super.resolver createOrcRequest];
     
-    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  complexType, @"ComplexType", booleanParams?@"true":@"false", @"BooleanParams", nil ] , nil];
+    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  complexType, @"ComplexType", booleanParams, @"BooleanParams", nil ] , nil];
     NSData* payload = [[MSOrcBaseContainer generatePayloadWithParameters:parameters dependencyResolver:self.resolver] dataUsingEncoding:NSUTF8StringEncoding];
     [request setContent:payload];
     
     [request setVerb:HTTP_VERB_POST];
-	     
-	[request.url appendPathComponent:@"TwoParamsActionsFirstIsComplexType"];
-        	
+	 	[request.url appendPathComponent:@"Microsoft.SampleService.TwoParamsActionsFirstIsComplexType"];
+     	
     return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
         
 		if (e == nil) {
@@ -120,14 +118,14 @@ root for authoritative license information.﻿
 - (void)twoParamsActionsFirstIsCollectionEntityTypeWithCollectionType:(MSSampleServiceSampleEntity *)collectionType booleanParams:(bool)booleanParams callback:(void (^)(int, MSOrcError*))callback {
 
 
-      NSString *collectionTypeString = [MSOrcObjectizer deobjectizeToString: collectionType ];
+      NSString *collectionTypeString = [MSOrcObjectizer deobjectizeToString:collectionType];
 
-  NSString *booleanParamsString = [MSOrcObjectizer deobjectizeToString: @(booleanParams) ];
+  NSString *booleanParamsString = [MSOrcObjectizer stringFromBool:booleanParams];
 
     return [self twoParamsActionsFirstIsCollectionEntityTypeRawWithCollectionType:collectionTypeString booleanParams:booleanParamsString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
+            int result = (int)[MSOrcObjectizer intFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -143,14 +141,13 @@ root for authoritative license information.﻿
         
     id<MSOrcRequest> request = [super.resolver createOrcRequest];
     
-    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  collectionType, @"CollectionType", booleanParams?@"true":@"false", @"BooleanParams", nil ] , nil];
+    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  collectionType, @"CollectionType", booleanParams, @"BooleanParams", nil ] , nil];
     NSData* payload = [[MSOrcBaseContainer generatePayloadWithParameters:parameters dependencyResolver:self.resolver] dataUsingEncoding:NSUTF8StringEncoding];
     [request setContent:payload];
     
     [request setVerb:HTTP_VERB_POST];
-	     
-	[request.url appendPathComponent:@"TwoParamsActionsFirstIsCollectionEntityType"];
-        	
+	 	[request.url appendPathComponent:@"Microsoft.SampleService.TwoParamsActionsFirstIsCollectionEntityType"];
+     	
     return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
         
 		if (e == nil) {
@@ -167,14 +164,14 @@ root for authoritative license information.﻿
 - (void)twoParamsActionsFirstIsCollectionComplexTypeWithCollectionType:(MSSampleServiceSampleComplexType *)collectionType booleanParams:(bool)booleanParams callback:(void (^)(int, MSOrcError*))callback {
 
 
-      NSString *collectionTypeString = [MSOrcObjectizer deobjectizeToString: collectionType ];
+      NSString *collectionTypeString = [MSOrcObjectizer deobjectizeToString:collectionType];
 
-  NSString *booleanParamsString = [MSOrcObjectizer deobjectizeToString: @(booleanParams) ];
+  NSString *booleanParamsString = [MSOrcObjectizer stringFromBool:booleanParams];
 
     return [self twoParamsActionsFirstIsCollectionComplexTypeRawWithCollectionType:collectionTypeString booleanParams:booleanParamsString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
+            int result = (int)[MSOrcObjectizer intFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -190,14 +187,13 @@ root for authoritative license information.﻿
         
     id<MSOrcRequest> request = [super.resolver createOrcRequest];
     
-    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  collectionType, @"CollectionType", booleanParams?@"true":@"false", @"BooleanParams", nil ] , nil];
+    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  collectionType, @"CollectionType", booleanParams, @"BooleanParams", nil ] , nil];
     NSData* payload = [[MSOrcBaseContainer generatePayloadWithParameters:parameters dependencyResolver:self.resolver] dataUsingEncoding:NSUTF8StringEncoding];
     [request setContent:payload];
     
     [request setVerb:HTTP_VERB_POST];
-	     
-	[request.url appendPathComponent:@"TwoParamsActionsFirstIsCollectionComplexType"];
-        	
+	 	[request.url appendPathComponent:@"Microsoft.SampleService.TwoParamsActionsFirstIsCollectionComplexType"];
+     	
     return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
         
 		if (e == nil) {

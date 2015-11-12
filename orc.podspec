@@ -19,11 +19,12 @@ Pod::Spec.new do |s|
     s.source       = { :git => "https://github.com/MSOpenTech/orc-for-ios.git" ,
                      :tag => "v#{s.version}"}
     s.exclude_files = "**/Build/**/*"
-    s.source_files = "api/api/*.{h,m}","core/core/*.{h,m}","impl/impl/*.{h,m}"
+    s.source_files = "api/*.{h,m}","core/*.{h,m}","impl/*.{h,m}"
 
-    s.preserve_paths = "api/api/*.h","core/core/*.h","impl/impl/*.h"
+
+    s.header_mappings_dir = '.'
+
 
     s.dependency 'ADALiOS', '=1.2.4'
     s.dependency 'LiveSDK', '=5.6.1'
-
 end

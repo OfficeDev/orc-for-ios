@@ -64,9 +64,9 @@
     }];
 }
 
-- (void)update:(MSOrcBaseEntity *)entity callback:(void (^)(id updatedEntity, MSOrcError *error))callback {
+- (void)update:(MSOrcBaseEntity <MSOrcInteroperableWithDictionary> *)entity callback:(void (^)(id updatedEntity, MSOrcError *error))callback {
     
-    NSDictionary *updatedValues = [entity getUpdatedValues];
+    NSDictionary *updatedValues = [entity toUpdatedValuesDictionary];
 
     NSString *payload = [MSOrcObjectizer deobjectizeToString: updatedValues];
     

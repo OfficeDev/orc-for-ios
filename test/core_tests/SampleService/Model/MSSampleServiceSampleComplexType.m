@@ -58,16 +58,40 @@ root for authoritative license information.﻿
 		_name = [dic objectForKey: @"Name"] != nil ? [[dic objectForKey: @"Name"] copy] : _name;
 		_anotherProperty = [dic objectForKey: @"AnotherProperty"] != nil ? [[dic objectForKey: @"AnotherProperty"] copy] : _anotherProperty;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_name copy], @"Name",
-		 [_anotherProperty copy], @"AnotherProperty",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.name copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Name"];}
+	{id curVal = [self.anotherProperty copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"AnotherProperty"];}
+    [dic setValue: @"#Microsoft.SampleService.SampleComplexType" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.name;
+    if([self.updatedValues containsObject:@"Name"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Name"];
+    }
+    }
+	{id curVal = self.anotherProperty;
+    if([self.updatedValues containsObject:@"AnotherProperty"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"AnotherProperty"];
+    }
+    }
+    return dic;
 }
 
 

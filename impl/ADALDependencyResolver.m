@@ -5,7 +5,7 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import <api/api.h>
+#import "api.h"
 #import "ADALDependencyResolver.h"
 #import "ADAuthenticationResult.h"
 #import "ADAuthenticationContext.h"

@@ -16,7 +16,7 @@ root for authoritative license information.﻿
 #ifndef MSSAMPLESERVICEMODELS_H
 #define MSSAMPLESERVICEMODELS_H
 
-#import "NSArray+Extension.h"
+#import "core/NSArray+Extension.h"
 
 #import "MSSampleServiceSampleComplexType.h"
 #import "MSSampleServiceEntity.h"

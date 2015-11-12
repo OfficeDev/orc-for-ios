@@ -4,20 +4,236 @@
    <FileRef
       location = "group:Podfile">
    </FileRef>
+   <Group
+      location = "group:core"
+      name = "core">
+      <FileRef
+         location = "group:core.h">
+      </FileRef>
+      <FileRef
+         location = "group:Info.plist">
+      </FileRef>
+      <FileRef
+         location = "group:MSOCalendarSerializer.h">
+      </FileRef>
+      <FileRef
+         location = "group:MSOCalendarSerializer.m">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcBaseContainer.h">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcBaseContainer.m">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcBaseEntity.h">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcBaseEntity.m">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcCollectionFetcher.h">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcCollectionFetcher.m">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcEntityFetcher.h">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcEntityFetcher.m">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcError.h">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcError.m">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcExecutable.h">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcExecutable.m">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcMediaEntityFetcher.h">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcMediaEntityFetcher.m">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcMultipartCollectionFetcher.h">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcMultipartCollectionFetcher.m">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcMultiPartElement.h">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcMultiPartElement.m">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcObjectizer.h">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcObjectizer.m">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcOperations.h">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcOperations.m">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcReadable.h">
+      </FileRef>
+      <FileRef
+         location = "group:NSArray+Extension.h">
+      </FileRef>
+      <FileRef
+         location = "group:NSArray+Extension.m">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcChangesTrackingArray.m">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcChangesTrackingArray.h">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:impl"
+      name = "impl">
+      <FileRef
+         location = "group:ADALDependencyResolver.h">
+      </FileRef>
+      <FileRef
+         location = "group:ADALDependencyResolver.m">
+      </FileRef>
+      <FileRef
+         location = "group:impl.h">
+      </FileRef>
+      <FileRef
+         location = "group:Info.plist">
+      </FileRef>
+      <FileRef
+         location = "group:LiveDependencyResolver.h">
+      </FileRef>
+      <FileRef
+         location = "group:LiveDependencyResolver.m">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcBasicCredentials.h">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcBasicCredentials.m">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcDefaultDependencyResolver.h">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcDefaultDependencyResolver.m">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcHttpConnection.h">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcHttpConnection.m">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcJSONSerializer.h">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcJSONSerializer.m">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcLoggerImpl.h">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcLoggerImpl.m">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcOAuthCredentials.h">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcOAuthCredentials.m">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcRequestImpl.h">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcRequestImpl.m">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcResponseImpl.h">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcResponseImpl.m">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcURLImpl.h">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcURLImpl.m">
+      </FileRef>
+      <FileRef
+         location = "group:NSString+NSStringExtensions.h">
+      </FileRef>
+      <FileRef
+         location = "group:NSString+NSStringExtensions.m">
+      </FileRef>
+      <FileRef
+         location = "group:template_adal_settings.plist">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:api"
+      name = "api">
+      <FileRef
+         location = "group:api.h">
+      </FileRef>
+      <FileRef
+         location = "group:Info.plist">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcCredentials.h">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcDependencyResolver.h">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcHttpTransport.h">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcHttpVerb.h">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcInteroperableWithDictionary.h">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcLogger.h">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcLogLevel.h">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcRequest.h">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcResponse.h">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcSerializer.h">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcURL.h">
+      </FileRef>
+   </Group>
    <FileRef
       location = "group:orc.podspec">
    </FileRef>
    <FileRef
       location = "group:orc.h">
-   </FileRef>
-   <FileRef
-      location = "group:impl/impl.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:core/core.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:api/api.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

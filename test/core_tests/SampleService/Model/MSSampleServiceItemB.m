@@ -57,16 +57,50 @@ root for authoritative license information.﻿
     if((self = [self init])) {
     
 		_propertyB = [dic objectForKey: @"PropertyB"] != nil ? [[dic objectForKey: @"PropertyB"] copy] : _propertyB;
+		self.itemName = [dic objectForKey: @"ItemName"] != nil ? [[dic objectForKey: @"ItemName"] copy] : self.itemName;
+		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_propertyB copy], @"PropertyB",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.propertyB copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"PropertyB"];}
+	{id curVal = [self.itemName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"ItemName"];}
+	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
+    [dic setValue: @"#Microsoft.SampleService.ItemB" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.propertyB;
+    if([self.updatedValues containsObject:@"PropertyB"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"PropertyB"];
+    }
+    }
+	{id curVal = self.itemName;
+    if([self.updatedValues containsObject:@"ItemName"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"ItemName"];
+    }
+    }
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"Id"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+    }
+    }
+    return dic;
 }
 
 

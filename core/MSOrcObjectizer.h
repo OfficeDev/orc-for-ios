@@ -10,7 +10,8 @@
 #define MSORCOBJECTIZER_H
 
 #import <Foundation/Foundation.h>
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "api/MSOrcInteroperableWithDictionary.h"
+#import "api/MSOrcSerializer.h"
 
 /**
  * Converts an MSOrc object or collection of MSOrc objects to/from a dictionary/array representation.
@@ -19,14 +20,28 @@
 
 @interface MSOrcObjectizer : NSObject
 
++ (Class<MSOrcSerializer>) getCurrentSerializer;
+
 + (id<MSOrcInteroperableWithDictionary>) objectize:(id)dictionaryOrArray toType: (Class) type;
 + (id<MSOrcInteroperableWithDictionary>) objectizeFromString: (NSString *) string toType: (Class) type;
 
 + (id) deobjectize: (id) obj;
 + (NSString *) deobjectizeToString: (id) obj;
 
-+ (NSString *) stringFromDate: (NSDate *) date;
-+ (NSDate *) dateFromString: (NSString *) string;
++ (NSString *) stringFromBool: (bool) value;
++ (bool) boolFromString: (NSString *) value;
+
++ (NSString *) stringFromInt: (int) value;
++ (int) intFromString: (NSString *) value;
+
++ (NSString *) stringFromDouble: (double) value;
++ (double) doubleFromString: (NSString *) value;
+
++ (NSString *) stringFromFloat: (float) value;
++ (float) floatFromString: (NSString *) value;
+
++ (NSString *) stringFromLongLong: (long long) date;
++ (long long) longLongFromString: (NSString *) string;
 
 + (NSString *) stringFromData: (NSData *) data;
 + (NSData *) dataFromString: (NSString *) string;
