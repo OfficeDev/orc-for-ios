@@ -9,25 +9,11 @@
 
 @interface MSOrcChangesTrackingArray : NSMutableArray
 
-@property(readonly) NSUInteger count;
 
-- (ObjectType)objectAtIndex:(NSUInteger)index;
-
-- (void)addObject:(ObjectType)anObject;
-
-- (void)insertObject:(ObjectType)anObject atIndex:(NSUInteger)index;
-
-- (void)replaceObjectAtIndex:(NSUInteger)index withObject:(ObjectType)anObject;
-
-- (void)removeObjectAtIndex:(NSUInteger)index;
-
-- (void)removeLastObject;
+- (instancetype) init;
 
 - (void)resetChangedFlag;
 
-@private
-
-bool changed;
-
+- (bool)hasChanged;
 
 @end

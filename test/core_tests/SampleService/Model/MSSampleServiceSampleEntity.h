@@ -17,7 +17,7 @@ root for authoritative license information.﻿
 #define MSSAMPLESERVICESAMPLEENTITY_H
 
 #import <Foundation/Foundation.h>
-#import "core/MSOrcObjectizer.h"
+#import "core/MSOrcChangesTrackingArray.h"
 
 @class MSSampleServiceAnotherEntity;
 @class MSSampleServiceItem;
@@ -52,17 +52,17 @@ root for authoritative license information.﻿
 /** Property navigations
  *
  */
-@property (nonatomic,  copy, setter=setNavigations:, getter=navigations) NSMutableArray * navigations;
+@property (nonatomic,  copy, setter=setNavigations:, getter=navigations) MSOrcChangesTrackingArray * navigations;
 
 /** Property items
  *
  */
-@property (nonatomic,  copy, setter=setItems:, getter=items) NSMutableArray * items;
+@property (nonatomic,  copy, setter=setItems:, getter=items) MSOrcChangesTrackingArray * items;
 
 /** Property nestedSampleEntityCollection
  *
  */
-@property (nonatomic,  copy, setter=setNestedSampleEntityCollection:, getter=nestedSampleEntityCollection) NSMutableArray * nestedSampleEntityCollection;
+@property (nonatomic,  copy, setter=setNestedSampleEntityCollection:, getter=nestedSampleEntityCollection) MSOrcChangesTrackingArray * nestedSampleEntityCollection;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

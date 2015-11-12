@@ -45,10 +45,6 @@ root for authoritative license information.﻿
 
 		_odataType = @"#Microsoft.SampleService.SampleEntity";
         
-        
-		_navigations = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_items = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_nestedSampleEntityCollection = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
     }
 
 	return self;
@@ -65,29 +61,35 @@ root for authoritative license information.﻿
 		_content = [dic objectForKey: @"Content"] != nil ? nil/*NSStream*/ : _content;
 
         if([dic objectForKey: @"Navigations"] != [NSNull null]){
-            _navigations = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Navigations"] count]];
+            _navigations = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"Navigations"]) {
                 [_navigations addObject:[[MSSampleServiceAnotherEntity alloc] initWithDictionary: object]];
             }
+            
+            [_navigations resetChangedFlag];
         }
         
 
         if([dic objectForKey: @"Items"] != [NSNull null]){
-            _items = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Items"] count]];
+            _items = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"Items"]) {
                 [_items addObject:[[MSSampleServiceItem alloc] initWithDictionary: object]];
             }
+            
+            [_items resetChangedFlag];
         }
         
 
         if([dic objectForKey: @"nestedSampleEntityCollection"] != [NSNull null]){
-            _nestedSampleEntityCollection = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"nestedSampleEntityCollection"] count]];
+            _nestedSampleEntityCollection = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"nestedSampleEntityCollection"]) {
                 [_nestedSampleEntityCollection addObject:[[MSSampleServiceSampleEntity alloc] initWithDictionary: object]];
             }
+            
+            [_nestedSampleEntityCollection resetChangedFlag];
         }
         
 		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
@@ -102,14 +104,35 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.displayName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"DisplayName"];}
-	{id curVal = [self.entityKey copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"entityKey"];}
-	{id curVal = [self.nestedSampleEntity toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"nestedSampleEntity"];}
-	{id curVal = nil/*NSStream*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Content"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Navigations"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Items"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"nestedSampleEntityCollection"];}
-	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
+	{id curVal = [self.displayName copy];if (curVal!=nil) [dic setValue: curVal forKey: @"DisplayName"];}
+	{id curVal = [self.entityKey copy];if (curVal!=nil) [dic setValue: curVal forKey: @"entityKey"];}
+	{id curVal = [self.nestedSampleEntity toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"nestedSampleEntity"];}
+	{id curVal = nil/*NSStream*/;if (curVal!=nil) [dic setValue: curVal forKey: @"Content"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.navigations) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"Navigations"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.items) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"Items"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.nestedSampleEntityCollection) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"nestedSampleEntityCollection"];}
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
     [dic setValue: @"#Microsoft.SampleService.SampleEntity" forKey: @"@odata.type"];
 
     return dic;
@@ -122,20 +145,20 @@ root for authoritative license information.﻿
 	{id curVal = self.displayName;
     if([self.updatedValues containsObject:@"DisplayName"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"DisplayName"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"DisplayName"];
+            }
     }
 	{id curVal = self.entityKey;
     if([self.updatedValues containsObject:@"entityKey"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"entityKey"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"entityKey"];
+            }
     }
 	{id curVal = self.nestedSampleEntity;
     if([self.updatedValues containsObject:@"nestedSampleEntity"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"nestedSampleEntity"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"nestedSampleEntity"];
+            }
         else
     {
                 
@@ -150,47 +173,92 @@ root for authoritative license information.﻿
 	{id curVal = self.content;
     if([self.updatedValues containsObject:@"Content"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:nil/*NSStream*/ forKey: @"Content"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:nil/*NSStream*/ forKey: @"Content"];
+            }
     }
 	{id curVal = self.navigations;
     if([self.updatedValues containsObject:@"Navigations"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Navigations"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"Navigations"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.navigations) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"Navigations"];
+        }
         
             }}
 	{id curVal = self.items;
     if([self.updatedValues containsObject:@"Items"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Items"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"Items"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.items) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"Items"];
+        }
         
             }}
 	{id curVal = self.nestedSampleEntityCollection;
     if([self.updatedValues containsObject:@"nestedSampleEntityCollection"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"nestedSampleEntityCollection"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"nestedSampleEntityCollection"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.nestedSampleEntityCollection) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"nestedSampleEntityCollection"];
+        }
         
             }}
 	{id curVal = self._id;
     if([self.updatedValues containsObject:@"Id"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+            }
     }
     return dic;
 }
@@ -231,7 +299,7 @@ root for authoritative license information.﻿
 /** Setter implementation for property navigations
  *
  */
-- (void) setNavigations: (NSMutableArray *) value {
+- (void) setNavigations: (MSOrcChangesTrackingArray *) value {
     _navigations = value;
     [self valueChangedFor:@"Navigations"];
 }
@@ -239,7 +307,7 @@ root for authoritative license information.﻿
 /** Setter implementation for property items
  *
  */
-- (void) setItems: (NSMutableArray *) value {
+- (void) setItems: (MSOrcChangesTrackingArray *) value {
     _items = value;
     [self valueChangedFor:@"Items"];
 }
@@ -247,7 +315,7 @@ root for authoritative license information.﻿
 /** Setter implementation for property nestedSampleEntityCollection
  *
  */
-- (void) setNestedSampleEntityCollection: (NSMutableArray *) value {
+- (void) setNestedSampleEntityCollection: (MSOrcChangesTrackingArray *) value {
     _nestedSampleEntityCollection = value;
     [self valueChangedFor:@"nestedSampleEntityCollection"];
 }

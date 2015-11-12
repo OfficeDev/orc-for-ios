@@ -17,7 +17,7 @@ root for authoritative license information.﻿
 #define MSSAMPLESERVICEITEM_H
 
 #import <Foundation/Foundation.h>
-#import "core/MSOrcObjectizer.h"
+#import "core/MSOrcChangesTrackingArray.h"
 
 #import "MSSampleServiceEntity.h"
 #import "api/MSOrcInteroperableWithDictionary.h"

@@ -27,3 +27,4 @@ FOUNDATION_EXPORT const unsigned char coreVersionString[];
 #import <core/MSOrcBaseEntity.h>
 #import <core/NSArray+Extension.h>
 #import <core/MSOrcObjectizer.h>
+#import <core/MSOrcChangesTrackingArray.h>

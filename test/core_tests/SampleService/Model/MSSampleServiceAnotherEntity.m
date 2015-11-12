@@ -45,7 +45,6 @@ root for authoritative license information.﻿
 
 		_odataType = @"#Microsoft.SampleService.AnotherEntity";
         
-        
     }
 
 	return self;
@@ -69,8 +68,8 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.someString copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"SomeString"];}
-	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
+	{id curVal = [self.someString copy];if (curVal!=nil) [dic setValue: curVal forKey: @"SomeString"];}
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
     [dic setValue: @"#Microsoft.SampleService.AnotherEntity" forKey: @"@odata.type"];
 
     return dic;
@@ -83,14 +82,14 @@ root for authoritative license information.﻿
 	{id curVal = self.someString;
     if([self.updatedValues containsObject:@"SomeString"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"SomeString"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"SomeString"];
+            }
     }
 	{id curVal = self._id;
     if([self.updatedValues containsObject:@"Id"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+            }
     }
     return dic;
 }
