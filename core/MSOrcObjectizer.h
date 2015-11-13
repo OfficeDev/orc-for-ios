@@ -43,6 +43,9 @@
 + (NSString *) stringFromLongLong: (long long) date;
 + (long long) longLongFromString: (NSString *) string;
 
++ (NSString *) stringFromDate: (NSDate *) date;
++ (NSDate *) dateFromString: (NSString *) string;
+
 + (NSString *) stringFromData: (NSData *) data;
 + (NSData *) dataFromString: (NSString *) string;
 
