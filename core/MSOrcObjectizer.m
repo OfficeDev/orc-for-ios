@@ -105,6 +105,8 @@ static Class<MSOrcSerializer> currentSerializer = nil;
 }
 
 + (NSDate *) dateFromString: (NSString *) string {
+    if(!string || [string isKindOfClass:[NSNull class]]) return nil;
+    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssz"];
     
@@ -116,6 +118,8 @@ static Class<MSOrcSerializer> currentSerializer = nil;
 }
 
 + (NSData *) dataFromString: (NSString *) string {
+    if(!string || [string isKindOfClass:[NSNull class]]) return nil;
+    
     return [[NSData alloc] initWithBase64EncodedString:string options:0];
 }
 
