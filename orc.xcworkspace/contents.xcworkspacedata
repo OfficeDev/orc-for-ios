@@ -8,6 +8,12 @@
       location = "group:core"
       name = "core">
       <FileRef
+         location = "group:MSOrcStreamFetcher.h">
+      </FileRef>
+      <FileRef
+         location = "group:MSOrcStreamFetcher.m">
+      </FileRef>
+      <FileRef
          location = "group:core.h">
       </FileRef>
       <FileRef

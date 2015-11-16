@@ -12,10 +12,10 @@
 + (NSDate *)deserialize:(NSString *)value {
 
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss"];
 
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssz"];
-
-    return [dateFormatter dateFromString:value];
+    return [dateFormatter dateFromString:[value substringToIndex:19]];
 }
 
 + (NSString *)serialize:(NSDate *)date {
