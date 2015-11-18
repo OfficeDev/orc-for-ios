@@ -2,11 +2,11 @@
 #import <XCTest/XCTest.h>
 
 #import <impl/impl.h>
-#import "sample_service.h"
+#import "MSSampleService.h"
 
 @interface SampleServiceTests : XCTestCase
 
-@property MSSampleContainerClient *client;
+@property MSSampleServiceClient *client;
 @property bool running;
 
 @end
@@ -21,7 +21,7 @@
     
     [credentials setToken:@"fakeToken"];
     
-    self.client = [[MSSampleContainerClient alloc] initWithUrl:@"http://localhost:8080/" dependencyResolver:resolver];
+    self.client = [[MSSampleServiceClient alloc] initWithUrl:@"http://localhost:8080/" dependencyResolver:resolver];
 }
 
 - (void)tearDown {
@@ -33,7 +33,7 @@
     self.running = true;
     
     __block int result = 0;
-    
+     
     [self.client.me.operations twoParamsActionsFirstIsEntityTypeWithAnEntity:[self getSampleEntity] booleanParams:false callback:^(int returnValue, MSOrcError *error) {
         
         result = error == nil ? 1 :0;
@@ -51,7 +51,6 @@
     
     __block NSArray *entities = nil;
     
-    
     [self.client.me.navigations readWithCallback:^(NSArray *anotherEntitys, MSOrcError *error) {
         
         entities =anotherEntitys;
@@ -68,9 +67,9 @@
     
     self.running = true;
     
-    __block MSSampleContainerAnotherEntity *entity = nil;
+    __block MSSampleServiceAnotherEntity *entity = nil;
     
-    [[self.client.me.navigations getById:@"SomeId"] readWithCallback:^(MSSampleContainerAnotherEntity *anotherEntity, MSOrcError *error) {
+    [[self.client.me.navigations getById:@"SomeId"] readWithCallback:^(MSSampleServiceAnotherEntity *anotherEntity, MSOrcError *error) {
         
         entity =anotherEntity;
         self.running = false;
@@ -79,7 +78,7 @@
     [self blockUntilFinish];
     
     XCTAssertNotNil(entity);
-    XCTAssertTrue([entity.SomeString isEqualToString:[self getAnotherEntity].SomeString]);
+    XCTAssertTrue([entity.someString isEqualToString:[self getAnotherEntity].someString]);
 }
 
 - (void)testGetNavigationItemWithSelect {
@@ -87,9 +86,9 @@
     
     self.running = true;
     
-    __block MSSampleContainerAnotherEntity *entity = nil;
+    __block MSSampleServiceAnotherEntity *entity = nil;
     
-    [[[self.client.me.navigations getById:@"SomeId"] select:@"SomeProp, AnotherProp"] readWithCallback:^(MSSampleContainerAnotherEntity *anotherEntity, MSOrcError *error) {
+    [[[self.client.me.navigations getById:@"SomeId"] select:@"SomeProp, AnotherProp"] readWithCallback:^(MSSampleServiceAnotherEntity *anotherEntity, MSOrcError *error) {
         
         entity =anotherEntity;
         self.running = false;
@@ -98,7 +97,7 @@
     [self blockUntilFinish];
     
     XCTAssertNotNil(entity);
-    XCTAssertTrue([entity.SomeString isEqualToString:[self getAnotherEntity].SomeString]);
+    XCTAssertTrue([entity.someString isEqualToString:[self getAnotherEntity].someString]);
 }
 
 //TODO: Enable when Raw is available after select
@@ -221,9 +220,9 @@
 -(void) testAddNavigationItem{
     //addNavigationItemPOST.json
     self.running = true;
-    __block MSSampleContainerAnotherEntity *entity = nil;
+    __block MSSampleServiceAnotherEntity *entity = nil;
     __weak SampleServiceTests *weakS = self;
-    [self.client.me.navigations add:[self getAnotherEntity] callback:^(MSSampleContainerAnotherEntity *anotherEntity, MSOrcError *e) {
+    [self.client.me.navigations add:[self getAnotherEntity] callback:^(MSSampleServiceAnotherEntity *anotherEntity, MSOrcError *e) {
         
         entity =anotherEntity;
         weakS.running = false;
@@ -232,18 +231,18 @@
     [self blockUntilFinish];
     
     XCTAssertNotNil(entity);
-    XCTAssertTrue([entity.SomeString isEqualToString:[self getAnotherEntity].SomeString]);
+    XCTAssertTrue([entity.someString isEqualToString:[self getAnotherEntity].someString]);
     
 }
 
 -(void) testUpdateNavigationItem{
     //updateNavigationItemPOST.json
     self.running = true;
-    __block MSSampleContainerAnotherEntity *entity = nil;
-    MSSampleContainerAnotherEntity *entityToUpdate = [self getAnotherEntity];
+    __block MSSampleServiceAnotherEntity *entity = nil;
+    MSSampleServiceAnotherEntity *entityToUpdate = [self getAnotherEntity];
     entityToUpdate.SomeString = @"Some Updated String";
     
-    [[[_client.me.navigations getById:entityToUpdate.Id]
+    [[[_client.me.navigations getById:entityToUpdate._id]
       addCustomHeaderWithName:@"IsPatch" value:@"yes"]
                        update:entityToUpdate callback:^(id updatedEntity, MSOrcError *error) {
         
@@ -254,7 +253,7 @@
     [self blockUntilFinish];
     
     XCTAssertNotNil(entity);
-    XCTAssertTrue([entity.SomeString isEqualToString:entityToUpdate.SomeString]);
+    XCTAssertTrue([entity.someString isEqualToString:entityToUpdate.someString]);
 }
 
 -(void) testGetNavigationsWithParameters{
@@ -280,15 +279,15 @@
     //updateSampleEntityPATCH.json
     
     self.running = true;
-    __block MSSampleContainerSampleEntity *sampleEntity = nil;
-    __block MSSampleContainerSampleEntity *updatedSampleEntity = nil;
+    __block MSSampleServiceSampleEntity *sampleEntity = nil;
+    __block MSSampleServiceSampleEntity *updatedSampleEntity = nil;
     
-    [[self.client.me addCustomHeaderWithName:@"WithNested" value:@"no"] readWithCallback:^(MSSampleContainerSampleEntity *entity, MSOrcError *error) {
+    [[self.client.me addCustomHeaderWithName:@"WithNested" value:@"no"] readWithCallback:^(MSSampleServiceSampleEntity *entity, MSOrcError *error) {
         sampleEntity = entity;
         //sampleEntity.Id = @"TestId";
         [sampleEntity setNestedSampleEntity:[self getSampleEntity]];
         
-        [[self.client.me addCustomHeaderWithName:@"UpdateNested" value:@"no" ] update:sampleEntity callback:^(MSSampleContainerSampleEntity *updated, MSOrcError *error) {
+        [[self.client.me addCustomHeaderWithName:@"UpdateNested" value:@"no" ] update:sampleEntity callback:^(MSSampleServiceSampleEntity *updated, MSOrcError *error) {
             updatedSampleEntity = updated;
             self.running = false;
         }];
@@ -306,14 +305,14 @@
     //updateSampleEntityNestedPropertyChangedPATCH.json
     
     self.running = true;
-    __block MSSampleContainerSampleEntity *sampleEntity = nil;
-    __block MSSampleContainerSampleEntity *updatedSampleEntity = nil;
+    __block MSSampleServiceSampleEntity *sampleEntity = nil;
+    __block MSSampleServiceSampleEntity *updatedSampleEntity = nil;
     
-    [[self.client.me addCustomHeaderWithName:@"WithNested" value:@"yes"] readWithCallback:^(MSSampleContainerSampleEntity *entity, MSOrcError *error) {
+    [[self.client.me addCustomHeaderWithName:@"WithNested" value:@"yes"] readWithCallback:^(MSSampleServiceSampleEntity *entity, MSOrcError *error) {
         sampleEntity = entity;
         entity.nestedSampleEntity.DisplayName = @"New Name";
         
-        [[self.client.me addCustomHeaderWithName:@"UpdateNested" value:@"yes" ] update:entity callback:^(MSSampleContainerSampleEntity *updated, MSOrcError *error) {
+        [[self.client.me addCustomHeaderWithName:@"UpdateNested" value:@"yes" ] update:entity callback:^(MSSampleServiceSampleEntity *updated, MSOrcError *error) {
             updatedSampleEntity = updated;
             self.running = false;
         }];
@@ -331,14 +330,14 @@
     //updateSampleEntityListPropertyChangedPATCH.json
     
     self.running = true;
-    __block MSSampleContainerSampleEntity *sampleEntity = nil;
-    __block MSSampleContainerSampleEntity *updatedSampleEntity = nil;
+    __block MSSampleServiceSampleEntity *sampleEntity = nil;
+    __block MSSampleServiceSampleEntity *updatedSampleEntity = nil;
     
-    [[self.client.me addCustomHeaderWithName:@"WithNavigations" value:@"yes"] readWithCallback:^(MSSampleContainerSampleEntity *entity, MSOrcError *error) {
+    [[self.client.me addCustomHeaderWithName:@"WithNavigations" value:@"yes"] readWithCallback:^(MSSampleServiceSampleEntity *entity, MSOrcError *error) {
         sampleEntity = entity;
         [[entity.navigations objectAtIndex:0] setSomeString: @"Some New String"];
         
-        [[self.client.me addCustomHeaderWithName:@"UpdateNavigations" value:@"yes" ] update:entity callback:^(MSSampleContainerSampleEntity *updated, MSOrcError *error) {
+        [[self.client.me addCustomHeaderWithName:@"UpdateNavigations" value:@"yes" ] update:entity callback:^(MSSampleServiceSampleEntity *updated, MSOrcError *error) {
             updatedSampleEntity = updated;
             self.running = false;
         }];
@@ -357,14 +356,14 @@
     //updateSampleEntityListWith3ElementsPropertyChangedPATCH.json
     
     self.running = true;
-    __block MSSampleContainerSampleEntity *sampleEntity = nil;
-    __block MSSampleContainerSampleEntity *updatedSampleEntity = nil;
+    __block MSSampleServiceSampleEntity *sampleEntity = nil;
+    __block MSSampleServiceSampleEntity *updatedSampleEntity = nil;
     
-    [[self.client.me addCustomHeaderWithName:@"With3Navigations" value:@"yes"] readWithCallback:^(MSSampleContainerSampleEntity *entity, MSOrcError *error) {
+    [[self.client.me addCustomHeaderWithName:@"With3Navigations" value:@"yes"] readWithCallback:^(MSSampleServiceSampleEntity *entity, MSOrcError *error) {
         sampleEntity = entity;
         [[entity.navigations objectAtIndex:0] setSomeString: @"Some New String"];
         
-        [[self.client.me addCustomHeaderWithName:@"WithNavigations3" value:@"yes" ] update:entity callback:^(MSSampleContainerSampleEntity *updated, MSOrcError *error) {
+        [[self.client.me addCustomHeaderWithName:@"WithNavigations3" value:@"yes" ] update:entity callback:^(MSSampleServiceSampleEntity *updated, MSOrcError *error) {
             updatedSampleEntity = updated;
             self.running = false;
         }];
@@ -397,18 +396,18 @@
     while (self.running){}
 }
 
--(MSSampleContainerSampleEntity*)getSampleEntity{
-    MSSampleContainerSampleEntity *sampleEntity = [[MSSampleContainerSampleEntity alloc] init];
-    sampleEntity.DisplayName = @"Some Display Name";
+-(MSSampleServiceSampleEntity*)getSampleEntity{
+    MSSampleServiceSampleEntity *sampleEntity = [[MSSampleServiceSampleEntity alloc] init];
+    sampleEntity.displayName = @"Some Display Name";
     sampleEntity.entityKey = @"Some Entity Key";
-    sampleEntity.Id = @"5C338D75-CB90-4785-8667-CED25B3695BF";
+    sampleEntity._id = @"5C338D75-CB90-4785-8667-CED25B3695BF";
     return sampleEntity;
 }
 
--(MSSampleContainerAnotherEntity*) getAnotherEntity{
-    MSSampleContainerAnotherEntity *anotherEntity = [[MSSampleContainerAnotherEntity alloc]init];
-    anotherEntity.Id = @"3281EC0B-1AEB-49A4-A345-E64D732DA6D3";
-    anotherEntity.SomeString=@"Some String";
+-(MSSampleServiceAnotherEntity*) getAnotherEntity{
+    MSSampleServiceAnotherEntity *anotherEntity = [[MSSampleServiceAnotherEntity alloc]init];
+    anotherEntity._id = @"3281EC0B-1AEB-49A4-A345-E64D732DA6D3";
+    anotherEntity.someString=@"Some String";
     return anotherEntity;
 }
 
