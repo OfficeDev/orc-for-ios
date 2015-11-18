@@ -7,20 +7,11 @@ ORC provides a constrained REST client engine for use with client proxies genera
 
 To use ORC with a generated library, add the following line to your Podfile:
 ```ruby
-pod 'orc', '=0.10.0'
-```
-
-To import the entire library, use `#include <orc/orc.h>`.
-To import only specific headers, use one of the following:
-
-```obj-c
-#include <orc/api/_header-name_.h>
-#include <orc/core/_header-name_.h>
-#include <orc/impl/_header-name_.h>
+pod 'orc'
 ```
 
 ## Contributing
-You will need to sign a [Contributor License Agreement](https://cla.msopentech.com/) before submitting your pull request. To complete the Contributor License AgreemenÂt (CLA), you will need to submit a request via the form and then electronically sign the Contributor License Agreement when you receive the email containing the link to the document. This needs to only be done once for any Microsoft Open Technologies OSS project.
+You will need to sign a [Contributor License Agreement](https://cla.microsoft.com/) before submitting your pull request. To complete the Contributor License Agreement (CLA), you will need to submit a request via the form and then electronically sign the Contributor License Agreement when you receive the email containing the link to the document.
 
 ## License
-Copyright (c) Microsoft Open Technologies, Inc. All rights reserved. Licensed under the [MIT License](/LICENSE).
+Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the [Apache 2 License](/LICENSE).
