@@ -44,7 +44,7 @@
         
         if (e == nil) {
             
-            callback([r stream ],e);
+            callback([[NSInputStream alloc] initWithData:r.data],e);
         }
         else{
             
@@ -96,5 +96,7 @@
         }
     }];
 }
+
+
 
 @end

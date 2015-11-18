@@ -54,10 +54,10 @@ NSString *OPT_STREAM_DOWNLOAD = @"MUST_STREAM_DOWNLOAD_CONTENT";
     NSString* isStreamedUpload   = [[[request options] valueForKey:OPT_STREAM_UPLOAD] objectAtIndex:0];
     NSString* isStreamedDownload = [[[request options] valueForKey:OPT_STREAM_DOWNLOAD] objectAtIndex:0];
     
-    if ([isStreamedUpload isEqualToString:@"true"]) {
+    if (![isStreamedUpload isKindOfClass:[NSNull class]] && [isStreamedUpload isEqualToString:@"true"]) {
         
         return [[self executeWithDelegate:callback] resume];
-    } else if ([isStreamedDownload isEqualToString:@"true"]) {
+    } else if (![isStreamedDownload isKindOfClass:[NSNull class]] && [isStreamedDownload isEqualToString:@"true"]) {
         
         return [[self downloadStream:callback] resume];
     }
@@ -82,16 +82,13 @@ NSString *OPT_STREAM_DOWNLOAD = @"MUST_STREAM_DOWNLOAD_CONTENT";
 
 - (NSURLSessionTask *)downloadStream:(void (^)(id<MSOrcResponse> response, MSOrcError *error))callback {
     
-    NSURLSessionConfiguration *conf = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:conf
-                                                          delegate:self
-                                                     delegateQueue:[NSOperationQueue currentQueue]];
+    NSURLSession *session = [NSURLSession sharedSession];
     
-    NSURLSessionDownloadTask *task = [session downloadTaskWithRequest:self.mutableRequest
-                                                    completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
-                                                        
-                                                        [self handleResponseData:self.mutableMutalbeData response:response error:error callback:callback];
-                                                    }];
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:self.mutableRequest
+                                            completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                
+                                                [self handleResponseData:data response:response error:error callback:callback];
+                                            }];
     
     return task;
 }
@@ -162,6 +159,30 @@ NSString *OPT_STREAM_DOWNLOAD = @"MUST_STREAM_DOWNLOAD_CONTENT";
                   withLevel:LOG_LEVEL_INFO];
     [self.logger logMessage:[NSString stringWithFormat:@"URL : %@", self.mutableRequest.URL.absoluteString]
                   withLevel:LOG_LEVEL_INFO];
+}
+
+- (void)handleResponseDataWithStream:(NSInputStream *)stream response:(NSURLResponse *)response error:(NSError *)error
+                  callback:(void (^)(id<MSOrcResponse> response, MSOrcError *error))callback {
+    
+    long statusCode = [(NSHTTPURLResponse *)response statusCode];
+    
+    if (statusCode < 200 || statusCode > 299) {
+        
+        if (error == nil) {
+            
+            error = [[NSError alloc] initWithDomain:@"Error in the Request"
+                                               code:statusCode userInfo:nil];
+        }
+        
+        MSOrcResponseImpl *res = [[MSOrcResponseImpl alloc] initWithStream:stream response:response];
+        
+        callback(res, [[MSOrcError alloc] initWithResponse:res andError:error]);
+    }
+    else{
+        
+        MSOrcResponseImpl *responseImpl = [[MSOrcResponseImpl alloc] initWithStream:stream response:response];
+        callback(responseImpl, nil);
+    }
 }
 
 - (void)handleResponseData:(NSData *)data response:(NSURLResponse *)response error:(NSError *)error

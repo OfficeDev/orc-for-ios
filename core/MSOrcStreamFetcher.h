@@ -5,12 +5,12 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import "core/MSOrcExecutable.h"
+#import "core/MSOrcEntityFetcher.h"
 
 #define OPT_STREAM_DOWNLOAD @"MUST_STREAM_DOWNLOAD_CONTENT"
 #define OPT_STREAM_UPLOAD @"MUST_STREAM_UPLOAD_CONTENT"
 
-@interface MSOrcStreamFetcher : MSOrcExecutable
+@interface MSOrcStreamFetcher : MSOrcEntityFetcher
 
 - (id)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcReadable>)parent;
 
